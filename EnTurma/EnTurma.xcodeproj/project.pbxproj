@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */; };
 		A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3141B28B6C000716E54 /* AppDelegate.swift */; };
 		A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3161B28B6C000716E54 /* ViewController.swift */; };
 		A48DF31A1B28B6C000716E54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48DF3181B28B6C000716E54 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.debug.xcconfig"; sourceTree = "<group>"; };
 		A48DF30F1B28B6C000716E54 /* EnTurma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnTurma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF3131B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF3141B28B6C000716E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		A48DF3241B28B6C000716E54 /* EnTurmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnTurmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF3291B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnTurmaTests.swift; sourceTree = "<group>"; };
+		AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EnTurma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96F864EEAB8DD512314B3A05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */,
+				EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A48DF3061B28B6C000716E54 = {
 			isa = PBXGroup;
 			children = (
 				A48DF3111B28B6C000716E54 /* EnTurma */,
 				A48DF3271B28B6C000716E54 /* EnTurmaTests */,
 				A48DF3101B28B6C000716E54 /* Products */,
+				96F864EEAB8DD512314B3A05 /* Pods */,
+				C221EE7BFD8DD9EBCB916E1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +128,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A48DF32E1B28B6C000716E54 /* Build configuration list for PBXNativeTarget "EnTurma" */;
 			buildPhases = (
+				B0D1DD713B4E85C3727744F4 /* Check Pods Manifest.lock */,
 				A48DF30B1B28B6C000716E54 /* Sources */,
 				A48DF30C1B28B6C000716E54 /* Frameworks */,
 				A48DF30D1B28B6C000716E54 /* Resources */,
+				3F057B192D3B66109D46FEBE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +232,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F057B192D3B66109D46FEBE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0D1DD713B4E85C3727744F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A48DF30B1B28B6C000716E54 /* Sources */ = {
@@ -338,6 +397,7 @@
 		};
 		A48DF32F1B28B6C000716E54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EnTurma/Info.plist;
@@ -348,6 +408,7 @@
 		};
 		A48DF3301B28B6C000716E54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EnTurma/Info.plist;
@@ -409,6 +470,7 @@
 				A48DF3301B28B6C000716E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A48DF3311B28B6C000716E54 /* Build configuration list for PBXNativeTarget "EnTurmaTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +479,7 @@
 				A48DF3331B28B6C000716E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
