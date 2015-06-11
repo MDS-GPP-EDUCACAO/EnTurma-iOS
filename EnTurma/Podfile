@@ -3,9 +3,8 @@
 
 target 'EnTurma' do
 
-pod 'BEMSimpleLineGraph'
-pod 'GraphKit'
 pod "AFNetworking", "~> 2.0"
+
 
 end
 

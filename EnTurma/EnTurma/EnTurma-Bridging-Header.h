@@ -10,6 +10,5 @@
 #define _BridgingHeader_h
 
 #import "AFNetworking.h"
-#import "GraphKit.h"
 
 #endif

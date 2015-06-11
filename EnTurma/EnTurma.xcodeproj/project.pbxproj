@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */; };
+		A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; };
+		A42AECED1B29CBAC00B8E578 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A42AECF51B29D97F00B8E578 /* SingleLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42AECF41B29D97F00B8E578 /* SingleLineChartView.swift */; };
 		A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3141B28B6C000716E54 /* AppDelegate.swift */; };
 		A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3161B28B6C000716E54 /* ViewController.swift */; };
 		A48DF31A1B28B6C000716E54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48DF3181B28B6C000716E54 /* Main.storyboard */; };
@@ -17,6 +20,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A42AECEA1B29CB6200B8E578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
+		A42AECEE1B29CBAC00B8E578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
 		A48DF3251B28B6C000716E54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A48DF3071B28B6C000716E54 /* Project object */;
@@ -26,9 +43,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A42AECF01B29CBAD00B8E578 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A42AECED1B29CBAC00B8E578 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.debug.xcconfig"; sourceTree = "<group>"; };
 		A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EnTurma-Bridging-Header.h"; sourceTree = "<group>"; };
+		A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = EnTurma/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		A42AECF41B29D97F00B8E578 /* SingleLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLineChartView.swift; sourceTree = "<group>"; };
 		A48DF30F1B28B6C000716E54 /* EnTurma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnTurma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF3131B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF3141B28B6C000716E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */,
+				A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +105,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A42AECE71B29CB6200B8E578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A42AECEB1B29CB6200B8E578 /* Charts.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A48DF3061B28B6C000716E54 = {
 			isa = PBXGroup;
 			children = (
+				A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */,
 				A48DF3111B28B6C000716E54 /* EnTurma */,
 				A48DF3271B28B6C000716E54 /* EnTurmaTests */,
 				A48DF3101B28B6C000716E54 /* Products */,
@@ -94,6 +137,7 @@
 		A48DF3111B28B6C000716E54 /* EnTurma */ = {
 			isa = PBXGroup;
 			children = (
+				A42AECF41B29D97F00B8E578 /* SingleLineChartView.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
@@ -150,10 +194,12 @@
 				A48DF30C1B28B6C000716E54 /* Frameworks */,
 				A48DF30D1B28B6C000716E54 /* Resources */,
 				3F057B192D3B66109D46FEBE /* Copy Pods Resources */,
+				A42AECF01B29CBAD00B8E578 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A42AECEF1B29CBAC00B8E578 /* PBXTargetDependency */,
 			);
 			name = EnTurma;
 			productName = EnTurma;
@@ -207,6 +253,12 @@
 			mainGroup = A48DF3061B28B6C000716E54;
 			productRefGroup = A48DF3101B28B6C000716E54 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A42AECE71B29CB6200B8E578 /* Products */;
+					ProjectRef = A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A48DF30E1B28B6C000716E54 /* EnTurma */,
@@ -214,6 +266,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A42AECEB1B29CB6200B8E578 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = A42AECEA1B29CB6200B8E578 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A48DF30D1B28B6C000716E54 /* Resources */ = {
@@ -273,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42AECF51B29D97F00B8E578 /* SingleLineChartView.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 			);
@@ -289,6 +352,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A42AECEF1B29CBAC00B8E578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = A42AECEE1B29CBAC00B8E578 /* PBXContainerItemProxy */;
+		};
 		A48DF3261B28B6C000716E54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A48DF30E1B28B6C000716E54 /* EnTurma */;
