@@ -1,6 +1,6 @@
 //
 //  SingleLineChartView.swift
-//  
+//
 //
 //  Created by Thiago-Bernardes on 6/11/15.
 //
@@ -10,25 +10,37 @@ import UIKit
 import Charts
 
 class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
-
-    init(frame: CGRect, xValues: NSArray, yValues: NSArray) {
-
+    
+    var valueLabel1: UILabel!
+    var valueLabel2: UILabel!
+    var yValues1: NSArray!
+    var yValues2: NSArray!
+    var graphTitle: String!
+    
+    init(frame: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String) {
         super.init(frame: frame)
- 
+        
+        graphTitle = graphTitleString
         setupGraph()
         
+        yValues1 = yValues
         setSingleLineChartData(xValues, yValues: yValues)
+        
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
         
     }
     
-    init(frame: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray) {
+    init(frame: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String) {
         
         super.init(frame: frame)
         
+        graphTitle = graphTitleString
         setupGraph()
         
+        yValues1 = y1Values
+        yValues2 = y2Values
         setTwoLinesChartData(xValues, y1Values: y1Values, y2Values: y2Values)
+        
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
         
     }
@@ -49,7 +61,9 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         xAxis.enabled = true
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
-        xAxis.labelFont = UIFont(name: "HelveticaNeue", size: 8)!
+        xAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        xAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
+        xAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         xAxis.labelWidth = 2
         xAxis.drawGridLinesEnabled = false
         
@@ -57,10 +71,47 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         leftAxis.startAtZeroEnabled = true
         leftAxis.drawGridLinesEnabled = true
         leftAxis.drawLimitLinesBehindDataEnabled = true
+        leftAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        leftAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
+        leftAxis.axisLineColor = UIColor(white: 0, alpha: 0)
+        
+        
         
         rightAxis.enabled = false
-        legend.enabled = true
         legend.position = ChartLegend.ChartLegendPosition.BelowChartCenter
+        legend.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        legend.textColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
+        legend.form = ChartLegend.ChartLegendForm.Line
+        
+        
+        let descriptionButtonFrame = CGRectMake(0, 0 , bounds.width, 25)
+        let descriptionButton = UIButton(frame: descriptionButtonFrame)
+        descriptionButton.titleLabel!.textAlignment = .Center
+        descriptionButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Medium", size: 25)!
+        descriptionButton.setTitle(graphTitle, forState: .Normal)
+        descriptionButton.setTitleColor(
+            UIColor(
+            red: 128/255,
+            green: 128/255,
+            blue: 128/255,
+            alpha: 1)
+,
+            forState: .Normal)
+        descriptionButton.setImage(UIImage(named: "infoButton"), forState: .Normal)
+        descriptionButton.addTarget(self, action: "showGraphDescription:", forControlEvents: .TouchUpInside)
+        addSubview(descriptionButton);
+
+        
+        
+    }
+    
+    func showGraphDescription(sender: UIButton!){
+        
+
+        let descriptionTextView = UITextView(frame: window!.frame)
+        descriptionTextView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        descriptionTextView.text = "Esse grafico bom"
+        superview?.addSubview(descriptionTextView)
         
     }
     
@@ -73,17 +124,26 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         dataSet1.cubicIntensity = 0.2
         dataSet1.drawCirclesEnabled = true
         dataSet1.drawCircleHoleEnabled = false
-        dataSet1.lineWidth = 4.0
-        dataSet1.circleRadius = 6.0
-        dataSet1.highlightColor = (UIColor.blueColor())
+        dataSet1.circleColors = [UIColor.blueColor()]
+        dataSet1.lineWidth = 3.0
+        dataSet1.circleRadius = 5.0
+        dataSet1.highlightColor = UIColor.blueColor()
         dataSet1.setColor(UIColor.blueColor())
         dataSet1.fillColor = UIColor.blueColor()
-        dataSet1.fillAlpha = 0.5
+        dataSet1.fillAlpha = 0.2
         dataSet1.drawFilledEnabled = true
+        dataSet1.drawValuesEnabled = false
+        
         
         var chartData = LineChartData(xVals: xValues as? [NSObject], dataSet: dataSet1)
+        legend.enabled = true
         
-        
+        let labelFrame1 = CGRectMake(0, frame.height - 5 , frame.width, 15)
+        valueLabel1 = UILabel(frame: labelFrame1)
+        valueLabel1.textAlignment = .Center
+        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        valueLabel1.text = ""
+        addSubview(valueLabel1);
         
         data = chartData
         
@@ -127,12 +187,29 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         dataSet2.drawValuesEnabled = false
         
         var chartData = LineChartData(xVals: xValues as? [NSObject], dataSets: [dataSet1, dataSet2])
-       
+        
+        
+        
+        let labelFrame1 = CGRectMake(center.x - 45, frame.height - 5 , frame.width/2, 15)
+        valueLabel1 = UILabel(frame: labelFrame1)
+        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        
+        valueLabel1.text = ""
+        
+        let labelFrame2 = CGRectMake(center.x + 30, frame.height - 5 , frame.width/2, 15)
+        valueLabel2 = UILabel(frame: labelFrame2)
+        valueLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        valueLabel2.text = ""
+        
+        addSubview(valueLabel1);
+        addSubview(valueLabel2);
+        
+        legend.enabled = true
         
         data = chartData
         
     }
-
+    
     
     func convertDataToChartData(data: NSArray) -> NSArray{
         
@@ -150,16 +227,54 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        
+        UIView.animateWithDuration(1.0, animations: {
+            
+            if((self.valueLabel1) != nil){
+                self.valueLabel1.alpha = 0
+                
+            }
+            if((self.valueLabel2) != nil){
+                self.valueLabel2.alpha = 0
+                
+            }
+            
+        });
+        
+        
+        UIView.animateWithDuration(1.0, animations: {
+            
+            if((self.valueLabel1) != nil){
+                var valueLabel1Text = String.localizedStringWithFormat("%.1f %%", self.yValues1.objectAtIndex(entry.xIndex) as! Double )
+                
+                self.valueLabel1.text = valueLabel1Text
+                self.valueLabel1.alpha = 1
+                
+                
+            }
+            
+            if((self.valueLabel2) != nil){
+                
+                var valueLabel2Text = String.localizedStringWithFormat("%.1f %%", self.yValues2.objectAtIndex(entry.xIndex) as! Double )
+                self.valueLabel2.text = valueLabel2Text
+                self.valueLabel2.alpha = 1
+                
+            }
+            
+            
+        });
+        
+        
         NSLog(" chart value selected")
     }
     
     func chartValueNothingSelected(chartView: ChartViewBase) {
         NSLog("Nothing selected")
     }
-
-
+    
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
