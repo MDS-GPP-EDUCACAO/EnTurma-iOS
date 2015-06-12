@@ -16,11 +16,14 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     var yValues1: NSArray!
     var yValues2: NSArray!
     var graphTitle: String!
+    var graphDescriptionString: String!
+
     
-    init(frame: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String) {
+    init(frame: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String) {
         super.init(frame: frame)
         
         graphTitle = graphTitleString
+        graphDescriptionString = graphTextDescription
         setupGraph()
         
         yValues1 = yValues
@@ -30,11 +33,13 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
     }
     
-    init(frame: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String) {
+    init(frame: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String) {
         
         super.init(frame: frame)
         
         graphTitle = graphTitleString
+        graphDescriptionString = graphTextDescription
+
         setupGraph()
         
         yValues1 = y1Values
@@ -107,14 +112,25 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     
     func showGraphDescription(sender: UIButton!){
         
+        var textContainer = NSTextContainer(size: CGSize(width: window!.frame.width, height: window!.frame.height))
 
-        let descriptionTextView = UITextView(frame: window!.frame)
-        descriptionTextView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        descriptionTextView.text = "Esse grafico bom"
-        superview?.addSubview(descriptionTextView)
+        var descriptionView = GraphDescriptionView(frame: window!.frame, descriptionText: graphDescriptionString)
+    
+        UIView.transitionWithView(superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            // remove the front object...
+            
+            // ... and add the other object
+            superview?.addSubview(descriptionView)
+
+            
+            }, completion: { finished in
+                // any code entered here will be applied
+                // .once the animation has completed
+        })
         
     }
     
+       
     func setSingleLineChartData(xValues: NSArray, yValues: NSArray){
         
         var chartDataSet = convertDataToChartData(yValues)

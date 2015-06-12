@@ -22,8 +22,12 @@ class ViewController: UIViewController {
         
         var yData1 = NSArray(objects: 10,20,10,50,30,100)
         var yData2 = NSArray(objects: 25,67,2,78,12,24)
-
-        var newChart = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, y1Values: yData1,y2Values: yData2, graphTitleString: "  Evasão")
+        
+        var graphDescriptoin = " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb)."
+        
+        var graphTitle = "  Evasão"
+        
+        var newChart = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, y1Values: yData1,y2Values: yData2, graphTitleString: graphTitle,graphTextDescription: graphDescriptoin)
 
         
       //  newChart = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, yValues: yDatas)
