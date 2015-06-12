@@ -28,9 +28,9 @@ class GraphDescriptionView: UITextView {
     
     func commomInit(){
         
-        backgroundColor = UIColor(white: 1, alpha: 0.9)
+        backgroundColor = UIColor(white: 1, alpha: 0)
         
-        backgroundColor = UIColor(white: 1, alpha: 0.9)
+        backgroundColor = UIColor(white: 1, alpha: 0)
         text = graphDescription
         addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.New, context: nil)
         font =  UIFont(name: "HelveticaNeue-Light", size: 18)!
@@ -56,13 +56,14 @@ class GraphDescriptionView: UITextView {
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         removeObserver(self, forKeyPath: "contentSize")
-        
-        UIView.transitionWithView(superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        nextResponder()?.touchesBegan(touches, withEvent: event)
+        UIView.transitionWithView(superview!.superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             // remove the front object...
             
             // ... and add the other object
-            self.removeFromSuperview()
-            
+            self.superview?.removeFromSuperview()
+
+           // self.removeFromSuperview()
             
             }, completion: { finished in
                 // any code entered here will be applied
@@ -74,18 +75,5 @@ class GraphDescriptionView: UITextView {
     }
     
 
-   
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

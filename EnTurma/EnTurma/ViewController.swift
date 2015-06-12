@@ -31,6 +31,7 @@ class ViewController: UIViewController {
 
         
       //  newChart = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, yValues: yDatas)
+        
         view.addSubview(newChart)
         
         newChart.animate(yAxisDuration: 2.0)

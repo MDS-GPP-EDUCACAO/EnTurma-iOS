@@ -115,13 +115,19 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         var textContainer = NSTextContainer(size: CGSize(width: window!.frame.width, height: window!.frame.height))
 
         var descriptionView = GraphDescriptionView(frame: window!.frame, descriptionText: graphDescriptionString)
+        
+        var visualEffect = UIBlurEffect(style:.Light)
+        var visualEffectView = UIVisualEffectView(effect: visualEffect)
+        visualEffectView.frame = window!.frame
+        
+        
     
         UIView.transitionWithView(superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             // remove the front object...
             
             // ... and add the other object
-            superview?.addSubview(descriptionView)
-
+            self.superview?.addSubview(visualEffectView)
+            visualEffectView.addSubview(descriptionView)
             
             }, completion: { finished in
                 // any code entered here will be applied
