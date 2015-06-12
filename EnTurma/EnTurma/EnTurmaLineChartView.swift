@@ -122,11 +122,11 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         
     
-        UIView.transitionWithView(superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        UIView.transitionWithView(window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             // remove the front object...
             
             // ... and add the other object
-            self.superview?.addSubview(visualEffectView)
+            self.window?.addSubview(visualEffectView)
             visualEffectView.addSubview(descriptionView)
             
             }, completion: { finished in

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */; };
+		48F879DBCB06FEEF51728380 /* Pods_EnTurma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1922897D145E3737BFA6ADD5 /* Pods_EnTurma.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; };
 		A42AECED1B29CBAC00B8E578 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */; };
@@ -18,6 +18,7 @@
 		A48DF31F1B28B6C000716E54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31D1B28B6C000716E54 /* LaunchScreen.xib */; };
 		A48DF32B1B28B6C000716E54 /* EnTurmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */; };
 		A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
+		A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1922897D145E3737BFA6ADD5 /* Pods_EnTurma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnTurma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.debug.xcconfig"; sourceTree = "<group>"; };
 		A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EnTurma-Bridging-Header.h"; sourceTree = "<group>"; };
 		A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = EnTurma/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		A48DF3291B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnTurmaTests.swift; sourceTree = "<group>"; };
 		A4C579B81B2A605600569634 /* GraphDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDescriptionView.swift; sourceTree = "<group>"; };
-		AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EnTurma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Pods/PageMenu/Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F54D3E52F5CCF461BDD0711 /* libPods-EnTurma.a in Frameworks */,
 				A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */,
+				48F879DBCB06FEEF51728380 /* Pods_EnTurma.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +103,7 @@
 		96F864EEAB8DD512314B3A05 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */,
 				7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */,
 				EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */,
 			);
@@ -180,7 +183,7 @@
 		C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */,
+				1922897D145E3737BFA6ADD5 /* Pods_EnTurma.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				A48DF30D1B28B6C000716E54 /* Resources */,
 				3F057B192D3B66109D46FEBE /* Copy Pods Resources */,
 				A42AECF01B29CBAD00B8E578 /* Embed Frameworks */,
+				DB78AD76CE22F0D5085D0B73 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +335,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DB78AD76CE22F0D5085D0B73 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -340,6 +359,7 @@
 			files = (
 				A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */,
 				A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */,
+				A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 			);
@@ -477,7 +497,6 @@
 				INFOPLIST_FILE = EnTurma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "EnTurma/EnTurma-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -489,7 +508,7 @@
 				INFOPLIST_FILE = EnTurma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "EnTurma/EnTurma-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

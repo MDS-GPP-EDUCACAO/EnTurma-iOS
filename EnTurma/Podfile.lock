@@ -20,11 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - PageMenu (1.2.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - PageMenu
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  PageMenu: 290f46c000d4bbb301a48cdb541f32e23b66a503
 
 COCOAPODS: 0.37.2

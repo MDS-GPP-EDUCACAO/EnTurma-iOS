@@ -2,9 +2,9 @@
 # platform :ios, '6.0'
 
 target 'EnTurma' do
-
+use_frameworks!
 pod "AFNetworking", "~> 2.0"
-
+pod "PageMenu"
 
 end
 

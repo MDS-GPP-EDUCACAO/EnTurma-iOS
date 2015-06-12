@@ -57,7 +57,7 @@ class GraphDescriptionView: UITextView {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         removeObserver(self, forKeyPath: "contentSize")
         nextResponder()?.touchesBegan(touches, withEvent: event)
-        UIView.transitionWithView(superview!.superview!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        UIView.transitionWithView(window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             // remove the front object...
             
             // ... and add the other object
