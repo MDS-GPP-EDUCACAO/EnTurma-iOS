@@ -14,6 +14,7 @@
 		A48DF31C1B28B6C000716E54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31B1B28B6C000716E54 /* Images.xcassets */; };
 		A48DF31F1B28B6C000716E54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31D1B28B6C000716E54 /* LaunchScreen.xib */; };
 		A48DF32B1B28B6C000716E54 /* EnTurmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */; };
+		C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		A48DF3291B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnTurmaTests.swift; sourceTree = "<group>"; };
 		AB52D794D9F49AFE6FAACB44 /* libPods-EnTurma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EnTurma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTFullManager.swift; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		A48DF3111B28B6C000716E54 /* EnTurma */ = {
 			isa = PBXGroup;
 			children = (
+				C022E6D31B2A81E9009B0E3A /* RESTFull */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
@@ -128,6 +131,14 @@
 				A48DF3291B28B6C000716E54 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C022E6D31B2A81E9009B0E3A /* RESTFull */ = {
+			isa = PBXGroup;
+			children = (
+				C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */,
+			);
+			name = RESTFull;
 			sourceTree = "<group>";
 		};
 		C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
@@ -273,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 			);
