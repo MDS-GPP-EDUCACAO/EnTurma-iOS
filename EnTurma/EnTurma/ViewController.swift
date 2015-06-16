@@ -22,19 +22,14 @@ class ViewController: UIViewController, ChartViewDelegate {
         var yData2 = NSArray(objects: 25,67,2,78,12,24)
         var graphDescriptoin = " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb)."
         var graphTitle = "  Evasão"
-        var newChart = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, y1Values: yData1,y2Values: yData2, graphTitleString: graphTitle,graphTextDescription: graphDescriptoin)
+        var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: xData, y1Values: yData1,y2Values: yData2, graphTitleString: graphTitle,graphTextDescription: graphDescriptoin)
 
         newChart.animate(yAxisDuration: 2.0)
         
         var graphTitle2 = "  Ditorção"
-        var newChart2 = EnTurmaLineChartView.init(frame: chartViewFrame,xValues: xData, yValues: yData1, graphTitleString: graphTitle2,graphTextDescription: graphDescriptoin)
+        var newChart2 = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: xData, yValues: yData1, graphTitleString: graphTitle2,graphTextDescription: graphDescriptoin)
 
         newChart2.animate(yAxisDuration: 2.0)
-        
-        
-        
-        
-        
         
         var controllerArray : [UIViewController] = []
         // Create variables for all view controllers you want to put in the
@@ -53,56 +48,13 @@ class ViewController: UIViewController, ChartViewDelegate {
         controllerArray.append(controller2)
 
         
-        var barChart = BarChartView(frame: chartViewFrame)
-        barChart.delegate = self
-        barChart.descriptionText = "";
-        barChart.noDataTextDescription = "Sem dados"
-        barChart.pinchZoomEnabled = false
-        barChart.drawBarShadowEnabled = false
-        barChart.drawGridBackgroundEnabled = false
-        
-
-        var legend = barChart.legend;
-        legend.position = ChartLegend.ChartLegendPosition.RightOfChartInside;
-        legend.font = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
-        
-        var xAxis = barChart.xAxis;
-        xAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
-        
-        var leftAxis = barChart.leftAxis;
-        leftAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
-        leftAxis.valueFormatter = NSNumberFormatter()
-        leftAxis.valueFormatter!.maximumFractionDigits = 1;
-        leftAxis.drawGridLinesEnabled = false;
-        leftAxis.spaceTop = 0.25;
-        
-        barChart.rightAxis.enabled = false;
-        barChart.valueFormatter = NSNumberFormatter()
-        barChart.valueFormatter.maximumFractionDigits = 1;
-        
-
-        
         var xLabels = NSArray(objects:  "2°ano","4°ano")
         var yValues1 = NSArray(objects: 10,20)
         var yValues2 = NSArray(objects: 67,2)
         
-        var convertedYVals1 = convertDataToChartData(yValues1)
-        var convertedYVals2 = convertDataToChartData(yValues2)
+        var barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: xLabels, y1Values: yValues1, y2Values: yValues2, graphTitleString: "Ideb", graphTextDescription: "Ideb é um grafico bom")
         
-        let dataSet1 = BarChartDataSet(yVals: convertedYVals1 as? [BarChartDataEntry], label: "Turma1")
-        dataSet1.setColor(UIColor.blueColor())
         
-        let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
-        dataSet2.setColor(UIColor.redColor())
-        
-        var dataSets = NSArray(objects: dataSet1,dataSet2)
-        
-        var barChartData = BarChartData(xVals: xLabels as? [NSObject], dataSets: dataSets as? [BarChartDataSet])
-        
-        barChartData.groupSpace = 0.5
-        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
-        
-        barChart.data = barChartData
         
         var controller3 = UIViewController()
         controller3.title = " Bar Chart"
@@ -141,23 +93,6 @@ class ViewController: UIViewController, ChartViewDelegate {
 
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    
-    func convertDataToChartData(data: NSArray) -> NSArray{
-        
-        var chartDataSet = NSMutableArray()
-        
-        for index in 0...data.count-1{
-            
-            var value = data.objectAtIndex(index) as! Double
-            var chartDataEntry = BarChartDataEntry(value: value, xIndex: index)
-            chartDataSet.addObject(chartDataEntry)
-        }
-        
-        return chartDataSet
-        
-    }
-    
 
     
     override func didReceiveMemoryWarning() {

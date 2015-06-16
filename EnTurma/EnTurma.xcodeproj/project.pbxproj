@@ -17,6 +17,7 @@
 		A48DF31C1B28B6C000716E54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31B1B28B6C000716E54 /* Images.xcassets */; };
 		A48DF31F1B28B6C000716E54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31D1B28B6C000716E54 /* LaunchScreen.xib */; };
 		A48DF32B1B28B6C000716E54 /* EnTurmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */; };
+		A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */; };
 		A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
 		A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		A48DF3241B28B6C000716E54 /* EnTurmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnTurmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF3291B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF32A1B28B6C000716E54 /* EnTurmaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnTurmaTests.swift; sourceTree = "<group>"; };
+		A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnTurmaBarChartView.swift; sourceTree = "<group>"; };
 		A4C579B81B2A605600569634 /* GraphDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDescriptionView.swift; sourceTree = "<group>"; };
 		A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Pods/PageMenu/Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */,
+				A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */,
 				A4C579B81B2A605600569634 /* GraphDescriptionView.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
@@ -359,6 +362,7 @@
 			files = (
 				A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */,
 				A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */,
+				A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */,
 				A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,

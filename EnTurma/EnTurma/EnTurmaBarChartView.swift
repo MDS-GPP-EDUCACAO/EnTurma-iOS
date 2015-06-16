@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
+class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
     
     var valueLabel1: UILabel!
     var valueLabel2: UILabel!
@@ -19,35 +19,36 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     var graphDescriptionString: String!
 
     
-    init(singleLineGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String) {
-        super.init(frame: singleLineGraphframe)
+    init(singleBarGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String) {
+        super.init(frame: singleBarGraphframe)
         
         graphTitle = graphTitleString
         graphDescriptionString = graphTextDescription
         setupGraph()
         
         yValues1 = yValues
-        setSingleLineChartData(xValues, yValues: yValues)
+        setSingleBarChartData(xValues, yValues: yValues)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
         
     }
     
     
-    init(doubleLineGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String) {
+    init(doubleBarGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String) {
         
-        super.init(frame: doubleLineGraphframe)
-        
+        super.init(frame: doubleBarGraphframe)
+
         graphTitle = graphTitleString
         graphDescriptionString = graphTextDescription
-
+        
         setupGraph()
         
         yValues1 = y1Values
         yValues2 = y2Values
-        setTwoLinesChartData(xValues, y1Values: y1Values, y2Values: y2Values)
+        setTwoBarsChartData(xValues, y1Values: yValues1, y2Values: yValues2)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
+        
         
     }
     
@@ -90,8 +91,10 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         legend.position = ChartLegend.ChartLegendPosition.BelowChartCenter
         legend.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
         legend.textColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
-        legend.form = ChartLegend.ChartLegendForm.Line
+        legend.form = ChartLegend.ChartLegendForm.Square
         
+        valueFormatter = NSNumberFormatter()
+        valueFormatter.maximumFractionDigits = 1;
         
         let descriptionButtonFrame = CGRectMake(0, 0 , bounds.width, 25)
         let descriptionButton = UIButton(frame: descriptionButtonFrame)
@@ -141,98 +144,43 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     }
     
        
-    func setSingleLineChartData(xValues: NSArray, yValues: NSArray){
+    func setSingleBarChartData(xValues: NSArray, yValues: NSArray){
         
-        var chartDataSet = convertDataToChartData(yValues)
+        var convertedYVals1 = convertDataToChartData(yValues)
         
-        let dataSet1 = LineChartDataSet(yVals: chartDataSet as? [ChartDataEntry], label: "Índice em porcentagem")
-        dataSet1.drawCubicEnabled = true
-        dataSet1.cubicIntensity = 0.2
-        dataSet1.drawCirclesEnabled = true
-        dataSet1.drawCircleHoleEnabled = false
-        dataSet1.circleColors = [UIColor.blueColor()]
-        dataSet1.lineWidth = 3.0
-        dataSet1.circleRadius = 5.0
-        dataSet1.highlightColor = UIColor.blueColor()
+        let dataSet1 = BarChartDataSet(yVals: convertedYVals1 as? [BarChartDataEntry], label: "Turma1")
+        
         dataSet1.setColor(UIColor.blueColor())
-        dataSet1.fillColor = UIColor.blueColor()
-        dataSet1.fillAlpha = 0.2
-        dataSet1.drawFilledEnabled = true
-        dataSet1.drawValuesEnabled = false
         
+        var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSet: dataSet1 as BarChartDataSet)
         
-        var chartData = LineChartData(xVals: xValues as? [NSObject], dataSet: dataSet1)
-        legend.enabled = true
+        barChartData.groupSpace = 0.5
+        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
         
-        let labelFrame1 = CGRectMake(0, frame.height - 5 , frame.width, 15)
-        valueLabel1 = UILabel(frame: labelFrame1)
-        valueLabel1.textAlignment = .Center
-        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
-        valueLabel1.text = ""
-        addSubview(valueLabel1);
-        
-        data = chartData
-        
+        data = barChartData
     }
     
-    func setTwoLinesChartData(xValues: NSArray, y1Values: NSArray, y2Values: NSArray){
+    func setTwoBarsChartData(xValues: NSArray, y1Values: NSArray, y2Values: NSArray){
         
-        var chartDataSet1 = convertDataToChartData(y1Values)
+        var convertedYVals1 = convertDataToChartData(yValues1)
+        var convertedYVals2 = convertDataToChartData(yValues2)
         
-        var chartDataSet2 = convertDataToChartData(y2Values)
         
-        let dataSet1 = LineChartDataSet(yVals: chartDataSet1 as? [ChartDataEntry], label: "Turma 1")
-        let dataSet2 = LineChartDataSet(yVals: chartDataSet2 as? [ChartDataEntry], label: "Turma 2")
-        
-        dataSet1.drawCubicEnabled = true
-        dataSet1.cubicIntensity = 0.2
-        dataSet1.drawCirclesEnabled = true
-        dataSet1.drawCircleHoleEnabled = false
-        dataSet1.circleColors = [UIColor.blueColor()]
-        dataSet1.lineWidth = 3.0
-        dataSet1.circleRadius = 5.0
-        dataSet1.highlightColor = UIColor.blueColor()
+        let dataSet1 = BarChartDataSet(yVals: convertedYVals1 as? [BarChartDataEntry], label: "Turma1")
         dataSet1.setColor(UIColor.blueColor())
-        dataSet1.fillColor = UIColor.blueColor()
-        dataSet1.fillAlpha = 0.2
-        dataSet1.drawFilledEnabled = true
-        dataSet1.drawValuesEnabled = false
         
-        dataSet2.drawCubicEnabled = true
-        dataSet2.cubicIntensity = 0.2
-        dataSet2.drawCirclesEnabled = true
-        dataSet2.circleColors = [UIColor.redColor()]
-        dataSet2.drawCircleHoleEnabled = false
-        dataSet2.lineWidth = 3.0
-        dataSet2.circleRadius = 5.0
-        dataSet2.highlightColor = UIColor.redColor()
+        let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
         dataSet2.setColor(UIColor.redColor())
-        dataSet2.fillColor = UIColor.redColor()
-        dataSet2.fillAlpha = 0.2
-        dataSet2.drawFilledEnabled = true
-        dataSet2.drawValuesEnabled = false
         
-        var chartData = LineChartData(xVals: xValues as? [NSObject], dataSets: [dataSet1, dataSet2])
+        var dataSets = NSArray(objects: dataSet1,dataSet2)
         
+        var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSets: dataSets as? [BarChartDataSet])
         
+        barChartData.groupSpace = 0.5
+        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
         
-        let labelFrame1 = CGRectMake(center.x - 45, frame.height - 5 , frame.width/2, 15)
-        valueLabel1 = UILabel(frame: labelFrame1)
-        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
-        
-        valueLabel1.text = ""
-        
-        let labelFrame2 = CGRectMake(center.x + 30, frame.height - 5 , frame.width/2, 15)
-        valueLabel2 = UILabel(frame: labelFrame2)
-        valueLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
-        valueLabel2.text = ""
-        
-        addSubview(valueLabel1);
-        addSubview(valueLabel2);
-        
-        legend.enabled = true
-        
-        data = chartData
+        data = barChartData
+
         
     }
     
@@ -244,7 +192,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         for index in 0...data.count-1{
             
             var value = data.objectAtIndex(index) as! Double
-            var chartDataEntry = ChartDataEntry(value: value, xIndex: index)
+            var chartDataEntry = BarChartDataEntry(value: value, xIndex: index)
             chartDataSet.addObject(chartDataEntry)
         }
         
