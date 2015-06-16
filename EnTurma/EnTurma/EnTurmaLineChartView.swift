@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
+internal class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     
     var valueLabel1: UILabel!
     var valueLabel2: UILabel!
@@ -49,6 +49,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
         
     }
+    
     
     func setupGraph(){
         delegate = self

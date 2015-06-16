@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ChartViewDelegate {
     
     var pageMenu: CAPSPageMenu?
     
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         
         
         
+        
         var controllerArray : [UIViewController] = []
         // Create variables for all view controllers you want to put in the
         // page menu, initialize them, and add each to the controller array.
@@ -51,6 +52,62 @@ class ViewController: UIViewController {
         controller2.view.addSubview(newChart2)
         controllerArray.append(controller2)
 
+        
+        var barChart = BarChartView(frame: chartViewFrame)
+        barChart.delegate = self
+        barChart.descriptionText = "";
+        barChart.noDataTextDescription = "Sem dados"
+        barChart.pinchZoomEnabled = false
+        barChart.drawBarShadowEnabled = false
+        barChart.drawGridBackgroundEnabled = false
+        
+
+        var legend = barChart.legend;
+        legend.position = ChartLegend.ChartLegendPosition.RightOfChartInside;
+        legend.font = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
+        
+        var xAxis = barChart.xAxis;
+        xAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
+        
+        var leftAxis = barChart.leftAxis;
+        leftAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 11.0)!
+        leftAxis.valueFormatter = NSNumberFormatter()
+        leftAxis.valueFormatter!.maximumFractionDigits = 1;
+        leftAxis.drawGridLinesEnabled = false;
+        leftAxis.spaceTop = 0.25;
+        
+        barChart.rightAxis.enabled = false;
+        barChart.valueFormatter = NSNumberFormatter()
+        barChart.valueFormatter.maximumFractionDigits = 1;
+        
+
+        
+        var xLabels = NSArray(objects:  "2°ano","4°ano")
+        var yValues1 = NSArray(objects: 10,20)
+        var yValues2 = NSArray(objects: 67,2)
+        
+        var convertedYVals1 = convertDataToChartData(yValues1)
+        var convertedYVals2 = convertDataToChartData(yValues2)
+        
+        let dataSet1 = BarChartDataSet(yVals: convertedYVals1 as? [BarChartDataEntry], label: "Turma1")
+        dataSet1.setColor(UIColor.blueColor())
+        
+        let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
+        dataSet2.setColor(UIColor.redColor())
+        
+        var dataSets = NSArray(objects: dataSet1,dataSet2)
+        
+        var barChartData = BarChartData(xVals: xLabels as? [NSObject], dataSets: dataSets as? [BarChartDataSet])
+        
+        barChartData.groupSpace = 0.5
+        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
+        
+        barChart.data = barChartData
+        
+        var controller3 = UIViewController()
+        controller3.title = " Bar Chart"
+        controller3.view.addSubview(barChart)
+        controllerArray.append(controller3)
         
         // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
         // Example:
@@ -86,6 +143,22 @@ class ViewController: UIViewController {
     }
 
     
+    func convertDataToChartData(data: NSArray) -> NSArray{
+        
+        var chartDataSet = NSMutableArray()
+        
+        for index in 0...data.count-1{
+            
+            var value = data.objectAtIndex(index) as! Double
+            var chartDataEntry = BarChartDataEntry(value: value, xIndex: index)
+            chartDataSet.addObject(chartDataEntry)
+        }
+        
+        return chartDataSet
+        
+    }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
