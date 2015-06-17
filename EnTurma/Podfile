@@ -2,10 +2,10 @@
 # platform :ios, '6.0'
 
 target 'EnTurma' do
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
-pod "AFNetworking", "~> 2.0"
 pod "PageMenu"
-
+pod "Alamofire", '~> 1.2'
 end
 
 target 'EnTurmaTests' do

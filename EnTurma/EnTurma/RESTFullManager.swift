@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import Alamofire
 
 class RESTFullManager {
-    private var URL_BASE = "http://192.168.0.14:3000/"
-    private var operationManager : AFHTTPRequestOperationManager
+    private var URL_BASE = "http://www.projetoenturma.com.br/"
     private var params : NSDictionary
     
     init(params : NSDictionary){
-        self.operationManager = AFHTTPRequestOperationManager()
         self.params = params
     }
     
@@ -29,30 +28,23 @@ class RESTFullManager {
         return urlParams
     }
     
-    func requestReport(success : (AFHTTPRequestOperation!, AnyObject!)-> Void, failure: (AFHTTPRequestOperation!, NSError!)-> Void) -> Void{
+    func requestReport(success : (jsonObject : NSDictionary)-> Void, failure: ()-> Void) -> Void{
         var urlRequest = self.URL_BASE + "report/request_report.json" + self.encodeParamsToURLResquest()
         self.genericRequest(urlRequest, success: success, failure: failure)
     }
     
-    func requestCompare(success : (AFHTTPRequestOperation!, AnyObject!)-> Void, failure: (AFHTTPRequestOperation!, NSError!)-> Void) -> Void{
+    func requestCompare(success : (jsonObject : NSDictionary)-> Void, failure: ()-> Void) -> Void{
         var urlRequest = self.URL_BASE + "compare_reports/request_comparation.json" + self.encodeParamsToURLResquest()
         self.genericRequest(urlRequest, success: success, failure: failure)
     }
 
     
-    private func genericRequest(url: String,success : (AFHTTPRequestOperation!, AnyObject!)-> Void, failure: (AFHTTPRequestOperation!, NSError!)-> Void){
+    private func genericRequest(url: String,success : (jsonObject : NSDictionary)-> Void, failure: ()-> Void){
+        Alamofire.request(.GET, url).responseJSON { (_, _, JSON, _) in
+            var jsonResponse = JSON as! NSDictionary
+            success(jsonObject: jsonResponse)
+        }
         
-        self.operationManager.GET(url,
-            parameters: nil,
-            success: success,
-            failure: failure)
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
