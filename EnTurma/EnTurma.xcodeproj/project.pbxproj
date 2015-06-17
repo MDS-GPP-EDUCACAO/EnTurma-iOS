@@ -394,6 +394,8 @@
 			files = (
 				A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */,
 				A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */,
+				A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */,
+				A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */,
 				C09DEB201B304589003E842C /* CompareViewController.swift in Sources */,
 				C09DEB1E1B30457D003E842C /* ReportViewController.swift in Sources */,
 				A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */,

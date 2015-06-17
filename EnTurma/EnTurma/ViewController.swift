@@ -9,14 +9,48 @@
 import UIKit
 import Alamofire
 
+
 class ViewController: UIViewController {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //dados do ideb
+        var gradesIdeb = NSArray(objects:  "2°ano","4°ano")
+        var firstClassScoresIdeb = NSArray(objects: 10,20)
+        var secondClassScoresIdeb = NSArray(objects: 100,2)
+        
+        //dados dos indices
+        var grades = NSArray(objects: "1°ano", "2°ano","3°ano", "4°ano","5°ano","6°ano")
+        
+        var firstClassScores = NSArray(objects: 10,20,10,50,30,100)
+        var secondClassScores = NSArray(objects: 25,67,2,78,12,24)
+
+        var firstClassScoresPerformance = NSArray(objects: 10,20,10,50,30,100)
+        var secondClassScoresPerformane = NSArray(objects: 25,67,2,78,12,24)
+        
+        var firstClassScoresDistortion = NSArray(objects: 10,20,10,50,30,100)
+        var secondClassScoresDistortion = NSArray(objects: 25,67,2,78,12,24)
+        
+        //inicia grafico duplo
+        var pageGraph = PagerGraphViewController(gradesIdeb: gradesIdeb, firstClassScoresIdeb: firstClassScoresIdeb, secondClassScoresIdeb: secondClassScoresIdeb,indexGrades: grades, firstClassEvasionScores: firstClassScores, secondClassEvasionScores: secondClassScores, firstClassPerformanceScores: firstClassScoresPerformance, secondClassPerformanceScores: secondClassScoresPerformane, firstClassDistortionScores: firstClassScoresDistortion, secondClassDistortionScores: secondClassScoresDistortion)
+        
+        
+        
+        pageGraph.view.backgroundColor = .yellowColor()
+        pageGraph.view.frame = CGRectMake(0, 100, view.frame.width, view.frame.width)
+        addChildViewController(pageGraph)
+        view.addSubview(pageGraph.view)
+        didMoveToParentViewController(pageGraph)
+        view.backgroundColor = .blueColor()
+        
         // Do any additional setup after loading the view, typically from a nib.
             
     }
-
+    
+    
+  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

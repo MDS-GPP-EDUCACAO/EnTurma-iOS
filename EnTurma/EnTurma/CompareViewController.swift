@@ -213,7 +213,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             xValues.append("\(i) ano")
         }
         
-        var newChart = EnTurmaLineChartView(frame: chartViewFrame, xValues: xValues, y1Values: y1Valeus, y2Values: y2Values, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(doubleLineGraphframe: chartViewFrame, xValues: xValues, y1Values: y1Valeus, y2Values: y2Values, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
         
         newChart.animate(yAxisDuration: 2.0)
         return newChart

@@ -208,7 +208,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             xValues.append("\(i)")
         }
         
-        var newChart = EnTurmaLineChartView(frame: chartViewFrame, xValues: xValues, yValues: yValeus, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(singleLineGraphframe: chartViewFrame, xValues: xValues, yValues: yValeus, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
     
         newChart.animate(yAxisDuration: 2.0)
         return newChart
