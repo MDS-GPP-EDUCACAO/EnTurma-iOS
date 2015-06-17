@@ -25,7 +25,7 @@ struct GraphTitles {
     
 }
 
-class PagerGraphViewController: UIViewController, ChartViewDelegate {
+class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMenuDelegate {
     
     private var pageMenu: CAPSPageMenu?
     private var chartViewFrame: CGRect!
@@ -41,11 +41,11 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
     var secondClassDistortionScores : NSArray!
     var firstClassPerformanceScores : NSArray!
     var secondClassPerformanceScores : NSArray!
-
-    convenience init(gradesIdeb: NSArray, firstClassScoresIdeb: NSArray, secondClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, secondClassEvasionScores: NSArray , firstClassPerformanceScores: NSArray, secondClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray, secondClassDistortionScores: NSArray){
-
+    
+    convenience init(compareGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, secondClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, secondClassEvasionScores: NSArray , firstClassPerformanceScores: NSArray, secondClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray, secondClassDistortionScores: NSArray){
+        
         self.init()
-        self.gradesIdeb = gradesIdeb
+        self.gradesIdeb = compareGradesIdeb
         self.firstClassScoresIdeb = firstClassScoresIdeb
         self.secondClassScoresIdeb = secondClassScoresIdeb
         self.indexGrades = indexGrades
@@ -58,34 +58,50 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         
     }
     
+    convenience init(reportGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, firstClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray){
+        
+        self.init()
+        self.gradesIdeb = reportGradesIdeb
+        self.firstClassScoresIdeb = firstClassScoresIdeb
+        self.indexGrades = indexGrades
+        self.firstClassDistortionScores = firstClassDistortionScores
+        self.firstClassEvasionScores = firstClassEvasionScores
+        self.firstClassPerformanceScores = firstClassPerformanceScores
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         view.frame = CGRectMake(0, 10,UIScreen.mainScreen().bounds.width ,UIScreen.mainScreen().bounds.width)
         chartViewFrame = view.frame
-
+        
         pagerMenuControllersArray  = []
-
-        
-        // Initialize page menu with controller array, frame, and optional parameters
-        plotIdebDoubleDataGraph(gradesIdeb, firstClassScores: firstClassScoresIdeb, secondClassScores: secondClassScoresIdeb)
         
         
-         plotEvasionDoubleDataGraph(indexGrades, firstClassScores: firstClassEvasionScores, secondClassScores: secondClassEvasionScores)
+        if((secondClassScoresIdeb) != nil){
+            plotIdebDoubleDataGraph(gradesIdeb, firstClassScores: firstClassScoresIdeb, secondClassScores: secondClassScoresIdeb)
+            plotEvasionDoubleDataGraph(indexGrades, firstClassScores: firstClassEvasionScores, secondClassScores: secondClassEvasionScores)
+            plotPerformanceDoubleDataGraph(indexGrades, firstClassScores: firstClassPerformanceScores, secondClassScores: secondClassPerformanceScores)
+            plotDistortionDoubleDataGraph(indexGrades, firstClassScores: firstClassDistortionScores, secondClassScores: secondClassDistortionScores)
+        }else{
+            
+            plotIdebSingleDataGraph(gradesIdeb, firstClassScores: firstClassScoresIdeb)
+            plotEvasionSingleDataGraph(indexGrades, firstClassScores: firstClassEvasionScores)
+            plotPerformanceSingleDataGraph(indexGrades, firstClassScores: firstClassPerformanceScores)
+            plotDistortionSingleDataGraph(indexGrades, firstClassScores: firstClassDistortionScores)
+            
+        }
         
-       
-        plotPerformanceDoubleDataGraph(indexGrades, firstClassScores: firstClassPerformanceScores, secondClassScores: secondClassPerformanceScores)
         
-      
-        plotDistortionDoubleDataGraph(indexGrades, firstClassScores: firstClassDistortionScores, secondClassScores: secondClassDistortionScores)
         
         setupPagerMenu()
-
+        
         // Lastly add page menu as subview of base view controller view
         // or use pageMenu controller in you view hierachy as desired
         self.view.addSubview(pageMenu!.view)
-
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -110,16 +126,16 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
             .MenuItemSeparatorPercentageHeight(0)
             
         ]
-
+        
         let pageMenuFrame = CGRectMake(0, 0, view.bounds.width, self.view.bounds.width+75)
-
+        
         pageMenu = CAPSPageMenu(viewControllers: pagerMenuControllersArray, frame: pageMenuFrame, pageMenuOptions: parameters)
         
     }
-
+    
     func plotEvasionDoubleDataGraph(grades: NSArray, firstClassScores: NSArray, secondClassScores: NSArray){
         
-       
+        
         var graphDescription = GraphDescriptions.evasion
         var graphTitle = GraphTitles.evasion
         var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
@@ -128,9 +144,8 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         controller.view.addSubview(newChart)
         controller.title = "Evasão"
         pagerMenuControllersArray.append(controller)
-
         
-        newChart.animate(yAxisDuration: 2.0)
+        
         
     }
     
@@ -144,9 +159,8 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         controller.view.addSubview(newChart)
         controller.title = "Distorção"
         pagerMenuControllersArray.append(controller)
-
         
-        newChart.animate(yAxisDuration: 2.0)
+        
         
         
     }
@@ -161,9 +175,8 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         controller.view.addSubview(newChart)
         controller.title = "Rendimento"
         pagerMenuControllersArray.append(controller)
-
         
-        newChart.animate(yAxisDuration: 2.0)
+        
         
         
     }
@@ -178,9 +191,70 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         controller.view.addSubview(barChart)
         controller.title = "Ideb"
         pagerMenuControllersArray.append(controller)
-
-        barChart.animate(yAxisDuration: 2.0)
-     
+        
+        
+    }
+    
+    func plotEvasionSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
+        
+        
+        var graphDescription = GraphDescriptions.evasion
+        var graphTitle = GraphTitles.evasion
+        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        
+        var controller : UIViewController = UIViewController()
+        controller.view.addSubview(newChart)
+        controller.title = "Evasão"
+        pagerMenuControllersArray.append(controller)
+        
+        
+        
+    }
+    
+    func plotDistortionSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
+        
+        var graphDescription = GraphDescriptions.distortion
+        var graphTitle = GraphTitles.distortion
+        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        
+        var controller : UIViewController = UIViewController()
+        controller.view.addSubview(newChart)
+        controller.title = "Distorção"
+        pagerMenuControllersArray.append(controller)
+        
+        
+        
+        
+    }
+    
+    func plotPerformanceSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
+        
+        var graphDescription = GraphDescriptions.performance
+        var graphTitle = GraphTitles.performance
+        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        
+        var controller : UIViewController = UIViewController()
+        controller.view.addSubview(newChart)
+        controller.title = "Rendimento"
+        pagerMenuControllersArray.append(controller)
+        
+        
+        
+        
+    }
+    
+    func plotIdebSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
+        
+        var graphDescription = GraphDescriptions.ideb
+        var graphTitle = GraphTitles.ideb
+        var barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+        
+        var controller : UIViewController = UIViewController()
+        controller.view.addSubview(barChart)
+        controller.title = "Ideb"
+        pagerMenuControllersArray.append(controller)
+        
+        
     }
     
     
@@ -188,7 +262,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

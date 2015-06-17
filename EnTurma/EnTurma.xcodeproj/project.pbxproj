@@ -21,6 +21,8 @@
 		A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */; };
 		A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
 		A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
+        C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		A4C579B81B2A605600569634 /* GraphDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDescriptionView.swift; sourceTree = "<group>"; };
 		A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Pods/PageMenu/Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
+        C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTFullManager.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,10 +150,8 @@
 		A48DF3111B28B6C000716E54 /* EnTurma */ = {
 			isa = PBXGroup;
 			children = (
-				A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */,
-				A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */,
-				A4C579B81B2A605600569634 /* GraphDescriptionView.swift */,
-				A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */,
+                C022E6D31B2A81E9009B0E3A /* RESTFull */,
+				A4C127561B3101260013B978 /* Graphs */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
@@ -186,15 +188,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C022E6D31B2A81E9009B0E3A /* RESTFull */ = {
+		A4C127561B3101260013B978 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
-				C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */,
+				A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */,
+				A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */,
+				A4C579B81B2A605600569634 /* GraphDescriptionView.swift */,
+				A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */,
 			);
-			name = RESTFull;
-			sourceTree = "<group>";
-		};
-		C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
+			name = Graphs;
+            sourceTree = "<group>";
+        };
+        C022E6D31B2A81E9009B0E3A /* RESTFull */ = {
+            isa = PBXGroup;
+            children = (
+                C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */,
+            );
+            name = RESTFull;
+            sourceTree = "<group>";
+        };
+        C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1922897D145E3737BFA6ADD5 /* Pods_EnTurma.framework */,
@@ -376,6 +389,7 @@
 				A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */,
 				A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */,
 				A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */,
+                C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 			);

@@ -240,16 +240,20 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         });
         
         
-        NSLog(" chart value selected")
     }
     
     func chartValueNothingSelected(chartView: ChartViewBase) {
-        NSLog("Nothing selected")
     }
     
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func didMoveToWindow() {
+        
+        animate(yAxisDuration: 2.0)
+
     }
     
 }
