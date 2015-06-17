@@ -36,27 +36,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQo-b6-NfR">
-                                <rect key="frame" x="300" y="212" width="264" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="i6a-9f-HGW" id="W9P-Vr-Dje"/>
-                                    <outlet property="delegate" destination="i6a-9f-HGW" id="XtO-68-IeD"/>
-                                </connections>
-                            </pickerView>
-                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msg-fK-TL9">
-                                <rect key="frame" x="16" y="212" width="265" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="i6a-9f-HGW" id="0AH-74-mdM"/>
-                                    <outlet property="delegate" destination="i6a-9f-HGW" id="NwR-7P-2BB"/>
-                                </connections>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6t-ME-Bhd">
-                                <rect key="frame" x="36" y="37" width="528" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="i6a-9f-HGW" id="XC3-pK-1M1"/>
-                                    <outlet property="delegate" destination="i6a-9f-HGW" id="upZ-CY-MS4"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbi-SU-A3n">
                                 <rect key="frame" x="213" y="447" width="174" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,31 +66,78 @@
                                     <action selector="newReport:" destination="i6a-9f-HGW" eventType="touchUpInside" id="yXN-QC-BVO"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Estado" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfr-Kn-SaI">
+                                <rect key="frame" x="16" y="86" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i6a-9f-HGW" id="qID-Cu-lFS"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Turma" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmI-tx-QP6">
+                                <rect key="frame" x="16" y="124" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i6a-9f-HGW" id="3tv-kn-kdc"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ano" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Az-fq-897">
+                                <rect key="frame" x="16" y="162" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i6a-9f-HGW" id="cvf-ME-yPq"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rede" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Cs-oi-Otv">
+                                <rect key="frame" x="16" y="205" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i6a-9f-HGW" id="117-QQ-icg"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2e-B5-6Nj">
+                                <rect key="frame" x="16" y="243" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="i6a-9f-HGW" id="wTF-1U-uED"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LQo-b6-NfR" firstAttribute="height" secondItem="msg-fK-TL9" secondAttribute="height" id="0PR-Nw-3ML"/>
+                            <constraint firstItem="9Cs-oi-Otv" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="27N-uK-x5V"/>
+                            <constraint firstItem="sfr-Kn-SaI" firstAttribute="top" secondItem="28d-8g-DG1" secondAttribute="bottom" constant="21" id="6cN-n1-ifU"/>
                             <constraint firstItem="s6d-X3-bPi" firstAttribute="top" secondItem="Fbi-SU-A3n" secondAttribute="bottom" constant="66" id="B3V-bw-Baj"/>
-                            <constraint firstItem="n6t-ME-Bhd" firstAttribute="top" secondItem="YmE-J7-2eV" secondAttribute="bottom" constant="17" id="DEK-6Z-p5W"/>
-                            <constraint firstItem="LQo-b6-NfR" firstAttribute="top" secondItem="n6t-ME-Bhd" secondAttribute="bottom" constant="13" id="DRn-oN-7Rw"/>
-                            <constraint firstItem="msg-fK-TL9" firstAttribute="top" secondItem="n6t-ME-Bhd" secondAttribute="bottom" constant="13" id="Rq8-qh-BM7"/>
-                            <constraint firstItem="msg-fK-TL9" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="Ux9-27-Dvr"/>
-                            <constraint firstItem="LQo-b6-NfR" firstAttribute="width" secondItem="msg-fK-TL9" secondAttribute="width" id="cXT-ai-bDO"/>
+                            <constraint firstItem="dmI-tx-QP6" firstAttribute="top" secondItem="sfr-Kn-SaI" secondAttribute="bottom" constant="8" id="Eyr-8a-0Up"/>
+                            <constraint firstItem="9Cs-oi-Otv" firstAttribute="trailing" secondItem="r9s-0C-sPG" secondAttribute="trailingMargin" id="Ihl-sD-fWq"/>
+                            <constraint firstItem="9Cs-oi-Otv" firstAttribute="top" secondItem="4Az-fq-897" secondAttribute="bottom" constant="13" id="Jdo-fL-VKw"/>
+                            <constraint firstItem="h2e-B5-6Nj" firstAttribute="top" secondItem="9Cs-oi-Otv" secondAttribute="bottom" constant="8" id="JeB-JP-ZR4"/>
+                            <constraint firstItem="dmI-tx-QP6" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="X7T-Tp-fb3"/>
+                            <constraint firstItem="dmI-tx-QP6" firstAttribute="trailing" secondItem="r9s-0C-sPG" secondAttribute="trailingMargin" id="XN2-cW-aEn"/>
+                            <constraint firstItem="sfr-Kn-SaI" firstAttribute="trailing" secondItem="r9s-0C-sPG" secondAttribute="trailingMargin" id="Xvt-HP-tzM"/>
                             <constraint firstAttribute="centerX" secondItem="Fbi-SU-A3n" secondAttribute="centerX" id="dXF-70-Iq6"/>
+                            <constraint firstItem="h2e-B5-6Nj" firstAttribute="trailing" secondItem="r9s-0C-sPG" secondAttribute="trailingMargin" id="eLR-FF-zbC"/>
+                            <constraint firstItem="4Az-fq-897" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="fGV-yx-Vny"/>
                             <constraint firstItem="28d-8g-DG1" firstAttribute="top" secondItem="YmE-J7-2eV" secondAttribute="bottom" constant="15" id="gur-MJ-KHV"/>
+                            <constraint firstItem="4Az-fq-897" firstAttribute="trailing" secondItem="r9s-0C-sPG" secondAttribute="trailingMargin" id="i7M-0j-PV6"/>
                             <constraint firstItem="28d-8g-DG1" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" constant="27" id="jWB-7W-ld2"/>
-                            <constraint firstItem="n6t-ME-Bhd" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" constant="20" id="nXp-di-RBY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="n6t-ME-Bhd" secondAttribute="trailing" constant="20" id="nbs-ks-PVi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LQo-b6-NfR" secondAttribute="trailing" constant="20" id="qRA-Y1-8Tz"/>
-                            <constraint firstItem="LQo-b6-NfR" firstAttribute="leading" secondItem="msg-fK-TL9" secondAttribute="trailing" constant="19" id="zNK-fb-rFH"/>
+                            <constraint firstItem="4Az-fq-897" firstAttribute="top" secondItem="dmI-tx-QP6" secondAttribute="bottom" constant="8" id="qgb-NF-U2c"/>
+                            <constraint firstItem="h2e-B5-6Nj" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="qmT-Ft-4C1"/>
+                            <constraint firstItem="sfr-Kn-SaI" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="wQK-qf-6Ym"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Relatório" id="ymq-fd-2TG"/>
                     <connections>
-                        <outlet property="local" destination="LQo-b6-NfR" id="4ZL-KI-EKw"/>
-                        <outlet property="mainPickeView" destination="n6t-ME-Bhd" id="DVA-OY-ZWc"/>
-                        <outlet property="network" destination="msg-fK-TL9" id="sTS-4c-9el"/>
+                        <outlet property="grade" destination="dmI-tx-QP6" id="mVS-2Q-1on"/>
+                        <outlet property="local" destination="h2e-B5-6Nj" id="c43-N7-kV6"/>
                         <outlet property="newReport" destination="28d-8g-DG1" id="Dig-XP-pEE"/>
+                        <outlet property="state" destination="sfr-Kn-SaI" id="Tc1-mz-Yyq"/>
+                        <outlet property="test_type" destination="9Cs-oi-Otv" id="Aph-5n-0h3"/>
+                        <outlet property="year" destination="4Az-fq-897" id="EMb-hl-up8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7G-fb-16s" userLabel="First Responder" sceneMemberID="firstResponder"/>

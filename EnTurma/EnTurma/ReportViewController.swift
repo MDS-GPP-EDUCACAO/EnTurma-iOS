@@ -9,29 +9,39 @@
 import UIKit
 import Alamofire
 
-class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
 
-    @IBOutlet weak var mainPickeView: UIPickerView!
-    @IBOutlet weak var network: UIPickerView!
-    @IBOutlet weak var local: UIPickerView!
+    @IBOutlet weak var state: UITextField!
+    @IBOutlet weak var grade: UITextField!
+    @IBOutlet weak var year: UITextField!
+    @IBOutlet weak var test_type: UITextField!
+    @IBOutlet weak var local: UITextField!
     @IBOutlet weak var newReport: UIButton!
+    
+    var picker : UIPickerView?
+    var firstResponderIndex = 0
     
     var pageMenu: CAPSPageMenu?
     
-    private var optionsForSelect : NSDictionary =
-    ["state":["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
-        "grades" : ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
-        "years" : ["2008","2009","2010","2011","2012","2013"],
-        "network" : ["Total","Privada", "Publica"],
-        "public_type" : ["Total", "Municipal","Estadual","Federal"],
-        "local" : ["Total", "Urbana", "Rural"]
-    ]
+    private var optionsForSelect = [["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
+        ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
+        ["2008","2009","2010","2011","2012","2013"],
+        ["Total","Privada", "Publica"],
+        ["Total", "Municipal","Estadual","Federal"],
+        ["Total", "Urbana", "Rural"]]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.newReport.hidden = true
+        self.picker = UIPickerView(frame: CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300))
+        self.picker?.delegate = self;
+        self.state.inputView = self.picker
+        self.grade.inputView = self.picker
+        self.year.inputView = self.picker
+        self.test_type.inputView = self.picker
+        self.local.inputView = self.picker
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,69 +49,56 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - PickerView  delegate
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        
-        var numberOfComponets = 0;
-        
-        switch pickerView.tag {
-            case 0:
-                numberOfComponets = 3
-            default:
-                numberOfComponets = 1
-        }
-        return numberOfComponets
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        var numberOfRows = 0
-        
-        if pickerView.tag == 0{
-            switch component{
-                case 0:
-                    numberOfRows = (optionsForSelect.objectForKey("state") as! NSArray).count
-                case 1:
-                    numberOfRows = (optionsForSelect.objectForKey("grades") as! NSArray).count
-                case 2:
-                    numberOfRows = (optionsForSelect.objectForKey("years") as! NSArray).count
-                default:
-                    numberOfRows = 0
-            }
-        }else if pickerView.tag == 1{
-            numberOfRows = (optionsForSelect.objectForKey("network") as! NSArray).count
-        }else if pickerView.tag == 2{
-            numberOfRows = (optionsForSelect.objectForKey("local") as! NSArray).count
-        }
-        
+        var numberOfRows = self.optionsForSelect[self.firstResponderIndex].count
         return numberOfRows
     }
     
     // MARK: - PickerView  Data Source
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        
-        var title = ""
-        
-        if pickerView.tag == 0{
-        switch component{
-            case 0:
-                title = (optionsForSelect.objectForKey("state") as! NSArray).objectAtIndex(row) as! String
-            case 1:
-                title = (optionsForSelect.objectForKey("grades") as! NSArray).objectAtIndex(row) as! String
-            case 2:
-                title = (optionsForSelect.objectForKey("years") as! NSArray).objectAtIndex(row) as! String
-            default:
-                title = ""
-            }
-        }else if pickerView.tag == 1{
-            title = (optionsForSelect.objectForKey("network") as! NSArray).objectAtIndex(row) as! String
-        }else if pickerView.tag == 2{
-            title = (optionsForSelect.objectForKey("local") as! NSArray).objectAtIndex(row) as! String
-        }
+        var title = self.optionsForSelect[self.firstResponderIndex][row]
         return title
     }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       var text = self.optionsForSelect[self.firstResponderIndex][row]
+        switch self.firstResponderIndex{
+            case 0:
+            self.state.text = text
+            case 1:
+            self.grade.text = text
+            case 2:
+            self.year.text = text
+            case 3:
+            self.test_type.text = text
+            case 4:
+                        self.test_type.text = text
+            case 5:
+            self.local.text = text
+        default:
+                        self.test_type.text = text
+        }
+    }
+    
+    // MARK: - TextFild  Delegate
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.firstResponderIndex = textField.tag
+        self.picker?.reloadAllComponents()
+    }
+    
     
     @IBAction func requestReport(sender: AnyObject) {
         self.prepareParams()
@@ -109,13 +106,13 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     private func prepareParams(){
         //request Rest
-        var year = self.titleForItemSelected(self.mainPickeView, componet: 2)
-        var grade = self.titleForItemSelected(self.mainPickeView, componet: 1)
-        var state = self.titleForItemSelected(self.mainPickeView, componet: 0)
-        var network = self.titleForItemSelected(self.network, componet: 0)
-        var local = self.titleForItemSelected(self.local, componet: 0)
+        var year = self.year.text
+        var grade = self.grade.text
+        var state = self.state.text
+        var test_type = self.test_type.text
+        var local = self.local.text
         
-        var params = ["year":year, "grade":grade, "state":state, "test_type":network, "local":local,"public_type": "Total"]
+        var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": "Total"]
 
         var rest = RESTFullManager(params: params)
         rest.requestReport({ (jsonObject) -> Void in
@@ -124,13 +121,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
         })
     }
-    
-    
-    func titleForItemSelected(pickerView: UIPickerView,componet: Int) -> String{
-        var title = self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(componet), forComponent: componet)
-        return title
-    }
-    
     
     func plotData(jsonObject : NSDictionary) -> Void{
         
@@ -191,16 +181,13 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // or use pageMenu controller in you view hierachy as desired
         self.view.addSubview(pageMenu!.view)
         self.newReport.hidden = false
-        self.mainPickeView.hidden = true
-        self.network.hidden = true
-        self.local.hidden = true
     }
     
     func setupGraph(yValeus : NSArray, graphTitleString : String, graphDescription : String) -> EnTurmaLineChartView{
         
         let chartViewFrame = CGRectMake(0, 10, view.bounds.width, self.view.bounds.width)
         
-        var initialYear = self.titleForItemSelected(self.mainPickeView, componet: 2).toInt()!
+        var initialYear = self.year.text.toInt()!
         
         var xValues:[String] = []
         
@@ -224,8 +211,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func newReport(sender: AnyObject) {
         self.pageMenu!.view.removeFromSuperview()
         self.newReport.hidden = true
-        self.mainPickeView.hidden = false
-        self.network.hidden = false
         self.local.hidden = false
     }
 }
