@@ -291,11 +291,9 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         });
         
         
-        NSLog(" chart value selected")
     }
     
     func chartValueNothingSelected(chartView: ChartViewBase) {
-        NSLog("Nothing selected")
     }
     
     

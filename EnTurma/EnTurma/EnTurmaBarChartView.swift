@@ -60,8 +60,8 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         descriptionText = ""
         noDataTextDescription = "O grafico precisa de dados"
         
-        highlightEnabled = true
-        dragEnabled = true
+        highlightEnabled = false
+        dragEnabled = false
         //true motherfoca
         doubleTapToZoomEnabled = false
         scaleXEnabled = false
@@ -69,13 +69,14 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         setScaleEnabled(false)
         drawGridBackgroundEnabled = false
         
+        
         xAxis.enabled = true
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
         xAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
         xAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         xAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         xAxis.labelWidth = 2
-        xAxis.drawGridLinesEnabled = false
+        xAxis.drawGridLinesEnabled = true
         
         leftAxis.enabled = true
         leftAxis.startAtZeroEnabled = true
@@ -96,7 +97,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         valueFormatter = NSNumberFormatter()
         valueFormatter.maximumFractionDigits = 1;
         
-        let descriptionButtonFrame = CGRectMake(0, 0 , bounds.width, 25)
+        let descriptionButtonFrame = CGRectMake(0, -10 , bounds.width, 25)
         let descriptionButton = UIButton(frame: descriptionButtonFrame)
         descriptionButton.titleLabel!.textAlignment = .Center
         descriptionButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Medium", size: 25)!
@@ -171,14 +172,14 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         
         let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
         dataSet2.setColor(UIColor.redColor())
-        
         var dataSets = NSArray(objects: dataSet1,dataSet2)
         
         var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSets: dataSets as? [BarChartDataSet])
         
         barChartData.groupSpace = 0.5
         barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
-        
+        barChartData.highlightEnabled = false
+    
         data = barChartData
 
         
