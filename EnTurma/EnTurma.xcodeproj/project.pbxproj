@@ -146,10 +146,7 @@
 		A48DF3111B28B6C000716E54 /* EnTurma */ = {
 			isa = PBXGroup;
 			children = (
-				A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */,
-				A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */,
-				A4C579B81B2A605600569634 /* GraphDescriptionView.swift */,
-				A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */,
+				A4C127561B3101260013B978 /* Graphs */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
@@ -184,6 +181,26 @@
 				A48DF3291B28B6C000716E54 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+<<<<<<< HEAD
+		A4C127561B3101260013B978 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */,
+				A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */,
+				A4C579B81B2A605600569634 /* GraphDescriptionView.swift */,
+				A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */,
+			);
+			name = Graphs;
+=======
+		C022E6D31B2A81E9009B0E3A /* RESTFull */ = {
+			isa = PBXGroup;
+			children = (
+				C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */,
+			);
+			name = RESTFull;
+>>>>>>> origin/Graphs-Ranking
 			sourceTree = "<group>";
 		};
 		C221EE7BFD8DD9EBCB916E1A /* Frameworks */ = {
