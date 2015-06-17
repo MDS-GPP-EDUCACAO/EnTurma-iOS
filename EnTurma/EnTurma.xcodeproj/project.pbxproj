@@ -28,7 +28,6 @@
 		C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB221B30459C003E842C /* RankingViewController.swift */; };
 		C09DEB251B3045A9003E842C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB241B3045A9003E842C /* ContactViewController.swift */; };
 		C0AECFB61B30823600B01DD3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0AECFB51B30823600B01DD3 /* logo.png */; };
-		C0AECFB81B30840B00B01DD3 /* RESTFullManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AECFB71B30840B00B01DD3 /* RESTFullManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +93,6 @@
 		C09DEB221B30459C003E842C /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		C09DEB241B3045A9003E842C /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		C0AECFB51B30823600B01DD3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		C0AECFB71B30840B00B01DD3 /* RESTFullManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTFullManager.swift; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
         C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTFullManager.swift; sourceTree = "<group>"; };
 
@@ -429,7 +427,6 @@ sourceTree = "<group>";
 				C09DEB251B3045A9003E842C /* ContactViewController.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
-				C0AECFB81B30840B00B01DD3 /* RESTFullManager.swift in Sources */,
 				C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
