@@ -14,9 +14,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//====================================graphs data: json response ======================
-
         //dados do ideb
         var gradesIdeb = NSArray(objects:  "2°ano","4°ano")
         var firstClassScoresIdeb = NSArray(objects: 10,20)
@@ -34,22 +31,18 @@ class ViewController: UIViewController {
         var firstClassScoresDistortion = NSArray(objects: 10,20,10,50,30,100)
         var secondClassScoresDistortion = NSArray(objects: 25,67,2,78,12,24)
         
-//====================================plot double line graph ======================
-        var pageCompareGraph = PagerGraphViewController(compareGradesIdeb: gradesIdeb, firstClassScoresIdeb: firstClassScoresIdeb, secondClassScoresIdeb: secondClassScoresIdeb,indexGrades: grades, firstClassEvasionScores: firstClassScores, secondClassEvasionScores: secondClassScores, firstClassPerformanceScores: firstClassScoresPerformance, secondClassPerformanceScores: secondClassScoresPerformane, firstClassDistortionScores: firstClassScoresDistortion, secondClassDistortionScores: secondClassScoresDistortion)
-
-        pageCompareGraph.view.frame = CGRectMake(0, 0, view.frame.width, view.frame.width)
-        addChildViewController(pageCompareGraph)
-        view.addSubview(pageCompareGraph.view)
-        pageCompareGraph.didMoveToParentViewController(self)
+        //inicia grafico duplo
+        var pageGraph = PagerGraphViewController(gradesIdeb: gradesIdeb, firstClassScoresIdeb: firstClassScoresIdeb, secondClassScoresIdeb: secondClassScoresIdeb,indexGrades: grades, firstClassEvasionScores: firstClassScores, secondClassEvasionScores: secondClassScores, firstClassPerformanceScores: firstClassScoresPerformance, secondClassPerformanceScores: secondClassScoresPerformane, firstClassDistortionScores: firstClassScoresDistortion, secondClassDistortionScores: secondClassScoresDistortion)
         
-//====================================plot single line graph ======================
-        var pageReportGraph = PagerGraphViewController(reportGradesIdeb: gradesIdeb, firstClassScoresIdeb: firstClassScoresIdeb, indexGrades: grades, firstClassEvasionScores: firstClassScores, firstClassPerformanceScores: firstClassScoresPerformance, firstClassDistortionScores: firstClassScoresDistortion)
-
-        pageReportGraph.view.frame = CGRectMake(0, 300, view.frame.width, view.frame.width)
-        addChildViewController(pageReportGraph)
-        view.addSubview(pageReportGraph.view)
-        pageReportGraph.didMoveToParentViewController(self)
-
+        
+        
+        pageGraph.view.backgroundColor = .yellowColor()
+        pageGraph.view.frame = CGRectMake(0, 100, view.frame.width, view.frame.width)
+        addChildViewController(pageGraph)
+        view.addSubview(pageGraph.view)
+        didMoveToParentViewController(pageGraph)
+        view.backgroundColor = .blueColor()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
