@@ -296,6 +296,10 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     func chartValueNothingSelected(chartView: ChartViewBase) {
     }
     
+    override func didMoveToWindow() {
+        animate(yAxisDuration: 2.0)
+
+    }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
