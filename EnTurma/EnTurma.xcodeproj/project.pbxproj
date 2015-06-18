@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002cef52aa385580fff5cf86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3141B28B6C000716E54 /* AppDelegate.swift */; };
+		00cad3439c8467c36a99ee48 /* PagerGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */; };
+		04a7f9a82201746d0495b028 /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788ba1431f13f0798657818a /* calabash.framework */; };
+		1c1ec27b12f401df1fc071b6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB241B3045A9003E842C /* ContactViewController.swift */; };
+		2281d3f8ff4d279414428f20 /* Pods_EnTurma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E667BA1F5B2B390431A1C /* Pods_EnTurma.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		271a349d54eaebe12011e7f9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DF3161B28B6C000716E54 /* ViewController.swift */; };
+		314a60c72746d4c108ecd6fc /* EnTurmaLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */; };
+		33ba9f529a4afe9e7a4a0bab /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4E12A701B331AB800B0FE6F /* Localizable.strings */; };
+		3650bbc52956492bff3bd724 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6D1B33173300B0FE6F /* RankingCell.swift */; };
+		44a9c7cad9d77ca2da83a934 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31D1B28B6C000716E54 /* LaunchScreen.xib */; };
+		678ac9e791f70e548acfd5a8 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
+		88ce0ef73fc7f80bef44c9dd /* EnTurmaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127501B30C3CC0013B978 /* EnTurmaBarChartView.swift */; };
+		8cd1d137c179a40293072a65 /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB1F1B304589003E842C /* CompareViewController.swift */; };
+		963870140d15b756c7af7a8b /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31B1B28B6C000716E54 /* Images.xcassets */; };
+		9e10da04890bcdf5e4114009 /* PagerRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */; };
+		9fdaf4c8914052df9d7fcb37 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */; };
 		A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; };
 		A42AECED1B29CBAC00B8E578 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */; };
@@ -30,6 +46,14 @@
 		C09DEB201B304589003E842C /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB1F1B304589003E842C /* CompareViewController.swift */; };
 		C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB221B30459C003E842C /* RankingViewController.swift */; };
 		C09DEB251B3045A9003E842C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB241B3045A9003E842C /* ContactViewController.swift */; };
+		b3ecfb3626c6d1636c361639 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB1D1B30457D003E842C /* ReportViewController.swift */; };
+		b6e76ed48cfb8a601614711e /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB221B30459C003E842C /* RankingViewController.swift */; };
+		c25b6d7d70fc67eb82895785 /* RESTFullManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */; };
+		dc423193c3bdcc6111e3a2db /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0123a487eb43e594eaa7fd0a /* CFNetwork.framework */; };
+		e0ef1cc09b1ac3f4715b1e79 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; };
+		efe27e82e5ead7b6d11a592f /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		f2aa5eb5d60146a337afc1b0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48DF3181B28B6C000716E54 /* Main.storyboard */; };
+		fd80c8e0302060e0bc20902a /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +81,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7127cc58e73bf9b40f3d882a /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				efe27e82e5ead7b6d11a592f /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A42AECF01B29CBAD00B8E578 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,11 +106,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0123a487eb43e594eaa7fd0a /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4F4E667BA1F5B2B390431A1C /* Pods_EnTurma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnTurma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		788ba1431f13f0798657818a /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
 		7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.debug.xcconfig"; sourceTree = "<group>"; };
 		A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EnTurma-Bridging-Header.h"; sourceTree = "<group>"; };
 		A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = EnTurma/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnTurmaLineChartView.swift; sourceTree = "<group>"; };
+		A43CD6441B33704500D7CCEB /* EnTurma-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EnTurma-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF30F1B28B6C000716E54 /* EnTurma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnTurma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48DF3131B28B6C000716E54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48DF3141B28B6C000716E54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +157,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		c02029430c82664867965f34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				e0ef1cc09b1ac3f4715b1e79 /* Charts.framework in Frameworks */,
+				2281d3f8ff4d279414428f20 /* Pods_EnTurma.framework in Frameworks */,
+				dc423193c3bdcc6111e3a2db /* CFNetwork.framework in Frameworks */,
+				04a7f9a82201746d0495b028 /* calabash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -157,6 +206,7 @@
 			children = (
 				A48DF30F1B28B6C000716E54 /* EnTurma.app */,
 				A48DF3241B28B6C000716E54 /* EnTurmaTests.xctest */,
+				A43CD6441B33704500D7CCEB /* EnTurma-cal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				4F4E667BA1F5B2B390431A1C /* Pods_EnTurma.framework */,
+				0123a487eb43e594eaa7fd0a /* CFNetwork.framework */,
+				788ba1431f13f0798657818a /* calabash.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,6 +348,28 @@
 			productReference = A48DF3241B28B6C000716E54 /* EnTurmaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		bce4e0b6859cc2cc323ff7fe /* EnTurma-cal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43453f6ee2fb1b41221ad601 /* Build configuration list for PBXNativeTarget "EnTurma-cal" */;
+			buildPhases = (
+				755243ae1f13f405712a3ac3 /* Check Pods Manifest.lock */,
+				29672c52c8713857a6a71d54 /* Sources */,
+				c02029430c82664867965f34 /* Frameworks */,
+				e053edfeeb947d2b880363bd /* Resources */,
+				7cfb6771f0c27e3754e9ddbf /* Copy Pods Resources */,
+				7127cc58e73bf9b40f3d882a /* Embed Frameworks */,
+				97d7dff81d71a42c0a0ec966 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A42AECEF1B29CBAC00B8E578 /* PBXTargetDependency */,
+			);
+			name = "EnTurma-cal";
+			productName = "EnTurma-cal";
+			productReference = A43CD6441B33704500D7CCEB /* EnTurma-cal.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,7 +381,7 @@
 				TargetAttributes = {
 					A48DF30E1B28B6C000716E54 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = A7C793TRBB;
+						DevelopmentTeam = B865ENT4P3;
 					};
 					A48DF3231B28B6C000716E54 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -336,6 +410,7 @@
 			targets = (
 				A48DF30E1B28B6C000716E54 /* EnTurma */,
 				A48DF3231B28B6C000716E54 /* EnTurmaTests */,
+				bce4e0b6859cc2cc323ff7fe /* EnTurma-cal */,
 			);
 		};
 /* End PBXProject section */
@@ -366,6 +441,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		e053edfeeb947d2b880363bd /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				f2aa5eb5d60146a337afc1b0 /* Main.storyboard in Resources */,
+				33ba9f529a4afe9e7a4a0bab /* Localizable.strings in Resources */,
+				44a9c7cad9d77ca2da83a934 /* LaunchScreen.xib in Resources */,
+				963870140d15b756c7af7a8b /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +488,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		755243ae1f13f405712a3ac3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7cfb6771f0c27e3754e9ddbf /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97d7dff81d71a42c0a0ec966 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B0D1DD713B4E85C3727744F4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +551,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		29672c52c8713857a6a71d54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				fd80c8e0302060e0bc20902a /* GraphDescriptionView.swift in Sources */,
+				314a60c72746d4c108ecd6fc /* EnTurmaLineChartView.swift in Sources */,
+				88ce0ef73fc7f80bef44c9dd /* EnTurmaBarChartView.swift in Sources */,
+				00cad3439c8467c36a99ee48 /* PagerGraphViewController.swift in Sources */,
+				9fdaf4c8914052df9d7fcb37 /* RankingTableViewController.swift in Sources */,
+				8cd1d137c179a40293072a65 /* CompareViewController.swift in Sources */,
+				b3ecfb3626c6d1636c361639 /* ReportViewController.swift in Sources */,
+				678ac9e791f70e548acfd5a8 /* CAPSPageMenu.swift in Sources */,
+				c25b6d7d70fc67eb82895785 /* RESTFullManager.swift in Sources */,
+				1c1ec27b12f401df1fc071b6 /* ContactViewController.swift in Sources */,
+				3650bbc52956492bff3bd724 /* RankingCell.swift in Sources */,
+				271a349d54eaebe12011e7f9 /* ViewController.swift in Sources */,
+				9e10da04890bcdf5e4114009 /* PagerRankViewController.swift in Sources */,
+				002cef52aa385580fff5cf86 /* AppDelegate.swift in Sources */,
+				b6e76ed48cfb8a601614711e /* RankingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A48DF30B1B28B6C000716E54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -485,10 +638,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		46f103ef7404a1cc5b7b002c /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				INFOPLIST_FILE = EnTurma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		85a5c5a6ba88e1a599512d2c /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				INFOPLIST_FILE = EnTurma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
 		A48DF32C1B28B6C000716E54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -523,9 +730,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -533,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -563,6 +772,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -573,8 +783,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				INFOPLIST_FILE = EnTurma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -587,8 +799,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				INFOPLIST_FILE = EnTurma/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -632,6 +846,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		43453f6ee2fb1b41221ad601 /* Build configuration list for PBXNativeTarget "EnTurma-cal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46f103ef7404a1cc5b7b002c /* Debug */,
+				85a5c5a6ba88e1a599512d2c /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A48DF30A1B28B6C000716E54 /* Build configuration list for PBXProject "EnTurma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
