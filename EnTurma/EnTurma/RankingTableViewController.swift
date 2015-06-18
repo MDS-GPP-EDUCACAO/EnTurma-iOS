@@ -24,6 +24,7 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
         
         dataDescriptionButton.addTarget(self, action: "showDataDescription:", forControlEvents: UIControlEvents.TouchUpInside)
         dataDescriptionButton.setTitle(descriptionButtonTitle, forState: .Normal)
+
         
         // Do any additional setup after loading the view.
     }

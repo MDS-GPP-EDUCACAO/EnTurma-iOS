@@ -71,6 +71,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Iys-bA-Dsw" secondAttribute="bottom" constant="332" id="Axb-oI-caV"/>
                                     <constraint firstAttribute="trailing" secondItem="H8U-8Z-ShL" secondAttribute="trailing" constant="8" id="Cax-Qn-WrJ"/>
                                     <constraint firstItem="H8U-8Z-ShL" firstAttribute="leading" secondItem="6Dr-HW-jcO" secondAttribute="leading" constant="8" id="KIp-EG-cCT"/>
+                                    <constraint firstItem="H8U-8Z-ShL" firstAttribute="leading" secondItem="6Dr-HW-jcO" secondAttribute="leading" constant="8" id="ONd-ST-EcV"/>
                                     <constraint firstItem="x4O-oN-aLE" firstAttribute="width" secondItem="Iys-bA-Dsw" secondAttribute="width" id="Paf-su-lny"/>
                                     <constraint firstAttribute="bottom" secondItem="Iys-bA-Dsw" secondAttribute="bottom" constant="332" id="Q9X-ur-epo"/>
                                     <constraint firstItem="x4O-oN-aLE" firstAttribute="top" secondItem="H8U-8Z-ShL" secondAttribute="bottom" constant="28" id="SOp-0W-3TL"/>
@@ -79,6 +80,8 @@
                                     <constraint firstItem="H8U-8Z-ShL" firstAttribute="leading" secondItem="x4O-oN-aLE" secondAttribute="leading" id="cs3-Xf-YVL"/>
                                     <constraint firstItem="H8U-8Z-ShL" firstAttribute="top" secondItem="6Dr-HW-jcO" secondAttribute="top" constant="85" id="fwr-IX-4wH"/>
                                     <constraint firstItem="x4O-oN-aLE" firstAttribute="leading" secondItem="H8U-8Z-ShL" secondAttribute="leading" id="gfo-Zs-NFD"/>
+                                    <constraint firstAttribute="trailing" secondItem="H8U-8Z-ShL" secondAttribute="trailing" constant="8" id="gtW-8z-9vi"/>
+                                    <constraint firstItem="H8U-8Z-ShL" firstAttribute="top" secondItem="6Dr-HW-jcO" secondAttribute="top" constant="96" id="kEO-Ds-F6l"/>
                                     <constraint firstAttribute="bottom" secondItem="Iys-bA-Dsw" secondAttribute="bottom" constant="332" id="kpn-kX-KIh"/>
                                     <constraint firstItem="H8U-8Z-ShL" firstAttribute="trailing" secondItem="x4O-oN-aLE" secondAttribute="trailing" id="q9X-p9-z3k"/>
                                     <constraint firstItem="x4O-oN-aLE" firstAttribute="trailing" secondItem="H8U-8Z-ShL" secondAttribute="trailing" id="r7Z-ox-LGc"/>
@@ -92,6 +95,8 @@
                                         <exclude reference="9wo-ud-sxQ"/>
                                         <exclude reference="Cax-Qn-WrJ"/>
                                         <exclude reference="KIp-EG-cCT"/>
+                                        <exclude reference="ScW-k4-Shd"/>
+                                        <exclude reference="aNW-P2-Jkg"/>
                                         <exclude reference="cs3-Xf-YVL"/>
                                         <exclude reference="fwr-IX-4wH"/>
                                         <exclude reference="q9X-p9-z3k"/>
@@ -137,6 +142,7 @@
                                 <exclude reference="kuX-Kb-8nC"/>
                                 <exclude reference="ytY-jg-1zv"/>
                                 <exclude reference="I7F-zf-gkp"/>
+                                <exclude reference="SkY-k0-81c"/>
                                 <exclude reference="smg-eg-X17"/>
                             </mask>
                         </variation>
@@ -164,9 +170,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-Sc-rhW">
-                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-Sc-rhW">
+                                <rect key="frame" x="0.0" y="80" width="600" height="300"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="v08-1e-wb4"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankingCell" id="3Te-hv-o4r" customClass="RankingCell" customModule="EnTurma" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -174,19 +183,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDR-sf-k1Y">
-                                                    <rect key="frame" x="8" y="11" width="17" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="16.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.24%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-Lr-n6Z">
-                                                    <rect key="frame" x="543" y="11" width="49" height="21"/>
+                                                    <rect key="frame" x="543" y="11" width="48.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distrito Federal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-cI-EyB">
-                                                    <rect key="frame" x="245" y="12" width="110" height="21"/>
+                                                    <rect key="frame" x="245" y="12" width="110" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -249,6 +258,7 @@
                             <mask key="constraints">
                                 <exclude reference="gkL-uF-FG4"/>
                                 <exclude reference="jFC-aT-2dw"/>
+                                <exclude reference="JnI-aB-v1i"/>
                             </mask>
                         </variation>
                     </view>

@@ -43,6 +43,10 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.activityIndicator?.hidesWhenStopped = true
         self.activityIndicator?.color = UIColor.grayColor()
         self.view.addSubview(self.activityIndicator!)
+        
+        scrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height - 50)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,28 +94,66 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBAction func requestRanking(sender: AnyObject) {
         
         
-        let evasionRankVC = PagerRankViewController()
-        //addChildViewController(evasionRankVC)
-        presentViewController(evasionRankVC, animated: true, completion: nil)
+        var allRankedStates: NSDictionary! = [
+            "evasion": [
+                ["stateName":"Brasilia","stateScore":"32"],
+                ["stateName":"Goias","stateScore":"32"],
+            ],
+            "performance": [
+                ["stateName":"Formosa","stateScore":"32"],
+                ["stateName":"Taguatinga","stateScore":"32"],
+                
+            ],
+            "distortion": [
+                ["stateName":"Anapolis","stateScore":"32"],
+                ["stateName":"Pirinopolis","stateScore":"32"],
+                
+            ],
+            "ideb": [
+                ["stateName":"Sop","stateScore":"32"],
+                ["stateName":"GOT","stateScore":"32"],
+            ]
+        ]
+
         
-//        var year = self.year.text
-//        var grade = self.grade.text
-//        
-//        var params = ["year":year, "grade":grade]
-//        
-//        self.showActivityIndicator(true)
-//        
-//        var rest = RESTFullManager(params: params)
-//        rest.requestRanking({ (jsonObject) -> Void in
-//            println(jsonObject)
-//            
+        
+        
+        
+        var year = self.year.text
+        var grade = self.grade.text
+        
+        var params = ["year":year, "grade":grade]
+        
+        self.showActivityIndicator(true)
+        
+        var rest = RESTFullManager(params: params)
+        rest.requestRanking({ (jsonObject) -> Void in
+            println(jsonObject)
+            
+            self.showRanking(allRankedStates)
+
+            self.showActivityIndicator(false)
+        }, failure: { () -> Void in
+            println("Error")
+            self.showActivityIndicator(false)
+        })
 //
-//            self.showActivityIndicator(false)
-//        }, failure: { () -> Void in
-//            println("Error")
-//            self.showActivityIndicator(false)
-//        })
-//
+    }
+    
+    
+    func showRanking(rankStatesData: NSDictionary){
+        
+        let evasionRankVC = PagerRankViewController()
+        evasionRankVC.allRankedStates = rankStatesData
+        evasionRankVC.viewDidLoad()
+        
+        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.width + evasionRankVC.view.frame.height)
+        
+        evasionRankVC.view.frame = CGRectMake(view.frame.origin.x, year.frame.origin.y + 200, view.frame.width, 370)
+        
+        scrollView.addSubview(evasionRankVC.view)
+        addChildViewController(evasionRankVC)
+
     }
     
     func showActivityIndicator(status : Bool){
