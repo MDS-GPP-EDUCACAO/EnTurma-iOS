@@ -141,21 +141,23 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
         var distortion = jsonObject.objectForKey("distortion_list") as! NSArray
         var evasion = jsonObject.objectForKey("evasion_list") as! NSArray
         var performance = jsonObject.objectForKey("peformance_list") as! NSArray
+        var ideb = jsonObject.objectForKey("ideb_list") as! NSDictionary
         
-        var distortionParsed = self.serializeRateToDictionary(distortion, key: "distortion")
-        var evasionParsed = self.serializeRateToDictionary(evasion, key: "evasion")
-        var performanceParsed = self.serializeRateToDictionary(performance, key: "peformance")
+        var distortionParsed = self.serializeDataToDictionary(distortion, key: "distortion")
+        var evasionParsed = self.serializeDataToDictionary(evasion, key: "evasion")
+        var performanceParsed = self.serializeDataToDictionary(performance, key: "peformance")
+        var idebParsed : [Dictionary<String,String>] = []
         
+        if (ideb.objectForKey("status") as! String)  == "avaliable"{
+            idebParsed = self.serializeDataToDictionary(ideb.objectForKey("ideb") as! NSArray, key: "score")
+        }
         
-        var ideb = [ ["stateName":"Sop","stateScore":"32"],
-            ["stateName":"GOT","stateScore":"32"]]
+        self.allRankedStates = ["evasion" : evasionParsed, "performance" : performanceParsed, "distortion" : distortionParsed, "ideb" : idebParsed]
         
-        self.allRankedStates = ["evasion" : evasionParsed, "performance" : performanceParsed, "distortion" : distortionParsed, "ideb" : ideb]
-        
-        println(self.allRankedStates)
+        println(jsonObject)
     }
     
-    func serializeRateToDictionary(rate: NSArray, key : String) -> [Dictionary<String,String>]{
+    func serializeDataToDictionary(rate: NSArray, key : String) -> [Dictionary<String,String>]{
         var parsedJSON: [Dictionary<String,String>] = []
         
         for currenteRate in rate{

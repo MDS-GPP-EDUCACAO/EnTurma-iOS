@@ -13,6 +13,7 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var dataDescriptionButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noRakingView: UIView!
     var graphDescriptionString: String!
     var statesToShow: NSArray!
     var descriptionButtonTitle: String!
@@ -24,7 +25,14 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
         
         dataDescriptionButton.addTarget(self, action: "showDataDescription:", forControlEvents: UIControlEvents.TouchUpInside)
         dataDescriptionButton.setTitle(descriptionButtonTitle, forState: .Normal)
-
+        
+        if self.statesToShow.count == 0 {
+            self.tableView.hidden = true
+            self.noRakingView.hidden = false
+        }else{
+            self.tableView.hidden = false
+            self.noRakingView.hidden = true
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -36,10 +44,10 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var isChampion = false
-        if indexPath.row == 1{
+        var isChampion = true
+        if indexPath.row == 0{
             
-            isChampion = true
+            isChampion = false
             
         }
         var currentState = statesToShow.objectAtIndex(indexPath.row) as! NSDictionary

@@ -46,7 +46,10 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         scrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height - 50)
         
-        
+        var tap = UITapGestureRecognizer(target: self, action: "removeKeybord")
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.scrollView.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,9 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
+    func removeKeybord(){
+        self.view.endEditing(true)
+    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -93,6 +99,8 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBAction func requestRanking(sender: AnyObject) {
 
+        self.removeKeybord()
+        
         var year = self.year.text
         var grade = self.grade.text
         
@@ -102,6 +110,10 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         var rest = RESTFullManager(params: params)
         rest.requestRanking({ (jsonObject) -> Void in
+            println(jsonObject)
+            
+            self.showRanking(jsonObject)
+
             self.showActivityIndicator(false)
             
         }, failure: { () -> Void in
@@ -111,6 +123,19 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
 //
     }
     
+    
+    func showRanking(jsonObject: NSDictionary){
+        
+        let rank = PagerRankViewController(jsonObject: jsonObject)
+        rank.viewDidLoad()
+        
+        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.width + rank.view.frame.height)
+        
+        rank.view.frame = CGRectMake(view.frame.origin.x, year.frame.origin.y + 200, view.frame.width, 370)
+        
+        scrollView.addSubview(rank.view)
+        addChildViewController(rank)
+    }
     
     func showActivityIndicator(status : Bool){
         if status{

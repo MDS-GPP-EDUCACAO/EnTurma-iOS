@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -172,7 +172,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-Sc-rhW">
                                 <rect key="frame" x="0.0" y="80" width="600" height="300"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="v08-1e-wb4"/>
                                 </constraints>
@@ -242,17 +242,50 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktg-up-gsb">
+                                <rect key="frame" x="0.0" y="88" width="600" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mais não houve IDEB nesse ano." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E4i-6D-DYO">
+                                        <rect key="frame" x="16" y="27" width="568" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.68613795230263153" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A prova do IDEB é realizada acada 2 anos." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlH-IJ-l7C">
+                                        <rect key="frame" x="16" y="46" width="568" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="Yk9-q7-KU0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VlH-IJ-l7C" secondAttribute="trailing" constant="16" id="27D-Zg-Pbp"/>
+                                    <constraint firstItem="VlH-IJ-l7C" firstAttribute="leading" secondItem="ktg-up-gsb" secondAttribute="leading" constant="16" id="INe-a5-LZO"/>
+                                    <constraint firstItem="VlH-IJ-l7C" firstAttribute="top" secondItem="E4i-6D-DYO" secondAttribute="bottom" constant="-1" id="c9W-SV-9k4"/>
+                                    <constraint firstItem="E4i-6D-DYO" firstAttribute="top" secondItem="ktg-up-gsb" secondAttribute="top" constant="27" id="rTJ-19-GRr"/>
+                                    <constraint firstItem="E4i-6D-DYO" firstAttribute="leading" secondItem="ktg-up-gsb" secondAttribute="leading" constant="16" id="uEN-DX-L7A"/>
+                                    <constraint firstAttribute="trailing" secondItem="E4i-6D-DYO" secondAttribute="trailing" constant="16" id="uJa-PJ-cby"/>
+                                    <constraint firstAttribute="height" constant="132" id="xpa-18-dyP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="L3b-Sc-rhW" firstAttribute="top" secondItem="lLC-ay-AyY" secondAttribute="bottom" constant="60" id="2H8-Ns-WJf"/>
                             <constraint firstAttribute="centerX" secondItem="KwQ-Cc-c6W" secondAttribute="centerX" id="55d-as-h0b"/>
+                            <constraint firstItem="ktg-up-gsb" firstAttribute="top" secondItem="lLC-ay-AyY" secondAttribute="bottom" constant="68" id="74X-Dz-8uw"/>
                             <constraint firstItem="L3b-Sc-rhW" firstAttribute="top" secondItem="KwQ-Cc-c6W" secondAttribute="bottom" constant="8" id="B7l-Fp-nzV"/>
                             <constraint firstItem="tMg-pH-zMT" firstAttribute="top" secondItem="L3b-Sc-rhW" secondAttribute="bottom" id="JnI-aB-v1i"/>
                             <constraint firstItem="L3b-Sc-rhW" firstAttribute="width" secondItem="TUZ-ah-NFR" secondAttribute="width" id="KY5-CE-L8y"/>
+                            <constraint firstItem="ktg-up-gsb" firstAttribute="leading" secondItem="TUZ-ah-NFR" secondAttribute="leadingMargin" constant="-16" id="Xmo-Yw-Q8m"/>
                             <constraint firstAttribute="centerY" secondItem="L3b-Sc-rhW" secondAttribute="centerY" id="gkL-uF-FG4"/>
                             <constraint firstItem="L3b-Sc-rhW" firstAttribute="height" secondItem="TUZ-ah-NFR" secondAttribute="height" id="jFC-aT-2dw"/>
                             <constraint firstAttribute="centerX" secondItem="L3b-Sc-rhW" secondAttribute="centerX" id="rcA-ij-SGO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ktg-up-gsb" secondAttribute="trailing" constant="-16" id="uo4-4F-2Er"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -264,6 +297,7 @@
                     </view>
                     <connections>
                         <outlet property="dataDescriptionButton" destination="KwQ-Cc-c6W" id="EYN-z3-QKM"/>
+                        <outlet property="noRakingView" destination="ktg-up-gsb" id="8bV-k3-oC4"/>
                         <outlet property="tableView" destination="L3b-Sc-rhW" id="e0A-PM-Vck"/>
                     </connections>
                 </viewController>
