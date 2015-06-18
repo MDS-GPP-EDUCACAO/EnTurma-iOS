@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 //====================================plot single line graph ======================
         var pageReportGraph = PagerGraphViewController(reportGradesIdeb: gradesIdeb, firstClassScoresIdeb: firstClassScoresIdeb, indexGrades: grades, firstClassEvasionScores: firstClassScores, firstClassPerformanceScores: firstClassScoresPerformance, firstClassDistortionScores: firstClassScoresDistortion)
 
-//        pageReportGraph.view.frame = CGRectMake(0, 300, view.frame.width, view.frame.width)
+//        pageReportGraph.view.frame = CGRectMake(0, 100, view.frame.width, view.frame.width)
 //        addChildViewController(pageReportGraph)
 //        view.addSubview(pageReportGraph.view)
 //        pageReportGraph.didMoveToParentViewController(self)

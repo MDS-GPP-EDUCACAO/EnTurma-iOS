@@ -181,6 +181,7 @@
                     <connections>
                         <outlet property="grade" destination="dmI-tx-QP6" id="mVS-2Q-1on"/>
                         <outlet property="local" destination="h2e-B5-6Nj" id="c43-N7-kV6"/>
+                        <outlet property="scrollView" destination="uV6-Nb-Pfp" id="rlO-s9-mCG"/>
                         <outlet property="state" destination="sfr-Kn-SaI" id="Tc1-mz-Yyq"/>
                         <outlet property="test_type" destination="9Cs-oi-Otv" id="Aph-5n-0h3"/>
                         <outlet property="year" destination="4Az-fq-897" id="EMb-hl-up8"/>

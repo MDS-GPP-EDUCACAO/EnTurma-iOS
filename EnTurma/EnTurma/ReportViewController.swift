@@ -16,11 +16,11 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var test_type: UITextField!
     @IBOutlet weak var local: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var picker : UIPickerView?
     var firstResponderIndex = 0
-    
-    var pageMenu: CAPSPageMenu?
+    var pageReportGraph: PagerGraphViewController!
     
     private var optionsForSelect = [["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
         ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
@@ -40,6 +40,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.year.inputView = self.picker
         self.test_type.inputView = self.picker
         self.local.inputView = self.picker
+        self.scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height - 50)
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,59 +126,68 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var rates: NSDictionary = jsonObject.objectForKey("rates") as! NSDictionary
         var ideb: NSDictionary = jsonObject.objectForKey("ideb")as! NSDictionary
         
-        // Create variables for all view controllers you want to put in the
-        // page menu, initialize them, and add each to the controller array.
-        // (Can be any UIViewController subclass)
-        // Make sure the title property of all view controllers is set
-        var controllerArray : [UIViewController] = []
+        
+        var grades = ["1","2","3","4","5","6"]
+        var idebGrades = ideb.objectForKey("ideb_grade_ids") as! NSArray
+        
+        var idebScores = ideb.objectForKey("ideb") as! NSArray
+        var evasionScores = rates.objectForKey("evasion") as! NSArray
+        var performanceScores = rates.objectForKey("performance") as! NSArray
+        var distortionScores = rates.objectForKey("distortion") as! NSArray
         
         
-        if  rates.objectForKey("status") as! String == "available"{
-            var evasionChart = self.setupGraph(rates.objectForKey("evasion") as! NSArray, graphTitleString: "Evasão", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
+        if(pageReportGraph == nil){
             
-            var peformanceChart = self.setupGraph(rates.objectForKey("performance") as! NSArray, graphTitleString: "Rendimento", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
+            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
             
-            var distortionChart = self.setupGraph(rates.objectForKey("distortion") as! NSArray, graphTitleString: "Distorção", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
+            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width)
+        
+            UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                
+                self.scrollView.addSubview(self.pageReportGraph.view)
+                
+                
+                }, completion: { finished in
+                    
+            })
             
-            var evasionController = self.createViewController("Evasão", graph: evasionChart)
-            var peformanceController = self.createViewController("Rendimento", graph: peformanceChart)
-            var distortionController = self.createViewController("Distorção", graph: distortionChart)
             
-            controllerArray.append(evasionController)
-            controllerArray.append(peformanceController)
-            controllerArray.append(distortionController)
-        }
+            scrollView.contentSize = CGSizeMake(view.frame.width, scrollView.contentSize.height + pageReportGraph.view.frame.height + 40 )
+            
+            scrollView.scrollRectToVisible(CGRectMake(pageReportGraph.view.frame.origin.x,pageReportGraph.view.frame.origin.y+100, pageReportGraph.view.frame.width, pageReportGraph.view.frame.height+40), animated: true)
 
-        
-        
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
-        var parameters: [CAPSPageMenuOption] = [
-            .MenuItemSeparatorWidth(0),
-            .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .ViewBackgroundColor(UIColor.whiteColor()),
-            .BottomMenuHairlineColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.blackColor()),
-            .MenuMargin(20.0),
-            .MenuHeight(40.0),
-            .SelectedMenuItemLabelColor(UIColor.blackColor()),
-            .UnselectedMenuItemLabelColor(UIColor(red: 127/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1.0)),
-            .MenuItemFont(UIFont(name: "HelveticaNeue-Medium", size: 15.0)!),
-            .UseMenuLikeSegmentedControl(true),
-            .MenuItemSeparatorRoundEdges(false),
-            .SelectionIndicatorHeight(2.0),
-            .MenuItemSeparatorPercentageHeight(0)
+        }else{
             
-        ]
+            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
+            
+
+            
+            UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                self.pageReportGraph.view.removeFromSuperview()
+                self.view.setNeedsDisplay()
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height - self.pageReportGraph.view.frame.height - 40 )
+                self.pageReportGraph.view.frame = CGRectMake(0, self.scrollView.contentSize.height - 100, self.view.frame.width, self.view.frame.width)
+
+                
+                }, completion: { finished in
+                    
+                    UIView.transitionWithView(self.scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                        self.scrollView.addSubview(self.pageReportGraph.view)
+                        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height + self.pageReportGraph.view.frame.height + 40 )
+
+                        self.scrollView.scrollRectToVisible(CGRectMake(self.pageReportGraph.view.frame.origin.x,self.pageReportGraph.view.frame.origin.y+100, self.pageReportGraph.view.frame.width, self.pageReportGraph.view.frame.height+40), animated: false)
+
+
+                    }, completion: { finished in
+                        
+                })
+            })
+            
+
+            
+        }
         
-        let pageMenuFrame = CGRectMake(0, 100, view.bounds.width, self.view.bounds.width+100)
         
-        // Initialize page menu with controller array, frame, and optional parameters
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: pageMenuFrame, pageMenuOptions: parameters)
-        
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        self.view.addSubview(pageMenu!.view)
     }
     
     func setupGraph(yValeus : NSArray, graphTitleString : String, graphDescription : String) -> EnTurmaLineChartView{
@@ -205,8 +215,5 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return controller
     }
     
-    @IBAction func newReport(sender: AnyObject) {
-        self.pageMenu!.view.removeFromSuperview()
-        self.local.hidden = false
-    }
+  
 }
