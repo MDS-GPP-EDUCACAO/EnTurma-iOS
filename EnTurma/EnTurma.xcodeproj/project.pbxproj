@@ -165,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				C022E6D31B2A81E9009B0E3A /* RESTFull */,
-				A4C127561B3101260013B978 /* Graphs */,
 				C09DEB1C1B30454D003E842C /* ViewController */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
@@ -219,8 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				C09DEB221B30459C003E842C /* RankingViewController.swift */,
-				A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */,
 				A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */,
+				A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */,
 				A4E12A6D1B33173300B0FE6F /* RankingCell.swift */,
 			);
 			name = Ranking;
@@ -237,6 +236,7 @@
 		C09DEB1C1B30454D003E842C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A4C127561B3101260013B978 /* Graphs */,
 				A4E12A681B33116B00B0FE6F /* Ranking */,
 				C09DEB1D1B30457D003E842C /* ReportViewController.swift */,
 				C09DEB1F1B304589003E842C /* CompareViewController.swift */,

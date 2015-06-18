@@ -14,9 +14,8 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dataDescriptionButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var graphDescriptionString: String!
-    var allRankedStates: NSDictionary!
     var statesToShow: NSArray!
-    var rankDataToShowIndex: Int!
+    var descriptionButtonTitle: String!
     
     
     
@@ -24,80 +23,12 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         dataDescriptionButton.addTarget(self, action: "showDataDescription:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        
-        allRankedStates = [
-          "evasion": [
-                ["stateName":"Brasilia","stateScore":"32"],
-                ["stateName":"Goias","stateScore":"32"],
-            ],
-           "performance": [
-                ["stateName":"Formosa","stateScore":"32"],
-                ["stateName":"Taguatinga","stateScore":"32"],
-
-            ],
-            "distortion": [
-                ["stateName":"Anapolis","stateScore":"32"],
-                ["stateName":"Pirinopolis","stateScore":"32"],
-
-            ],
-            "ideb": [
-                ["stateName":"Sop","stateScore":"32"],
-                ["stateName":"GOT","stateScore":"32"],
-            ]
-        ]
-        
-        setupCurrentDataToShow()
-        
+        dataDescriptionButton.setTitle(descriptionButtonTitle, forState: .Normal)
         
         // Do any additional setup after loading the view.
     }
     
     
-    func setupCurrentDataToShow(){
-        rankDataToShowIndex  = 0
-        
-        switch(rankDataToShowIndex){
-            
-        case 0:
-            graphDescriptionString = NSLocalizedString("evasion_description", comment: "")
-            statesToShow = allRankedStates.objectForKey("evasion") as! NSArray
-            dataDescriptionButton.titleLabel?.text = "  Evasão"
-            break;
-            
-        case 1:
-            graphDescriptionString = NSLocalizedString("performance_description", comment: "")
-            statesToShow = allRankedStates.objectForKey("performance") as! NSArray
-            dataDescriptionButton.titleLabel?.text = "  Performance"
-
-            break;
-            
-        case 2:
-            graphDescriptionString = NSLocalizedString("distortion_description", comment: "")
-            statesToShow = allRankedStates.objectForKey("distortion") as! NSArray
-            dataDescriptionButton.titleLabel?.text = "  Distorção"
-
-            break;
-            
-        case 3:
-            graphDescriptionString = NSLocalizedString("ideb_description", comment: "")
-            statesToShow = allRankedStates.objectForKey("ideb") as! NSArray
-            dataDescriptionButton.titleLabel?.text = "  Ideb"
-
-            break;
-            
-        default:
-            graphDescriptionString = NSLocalizedString("evasion_description", comment: "")
-            statesToShow = allRankedStates.objectForKey("evasion") as! NSArray
-            dataDescriptionButton.titleLabel?.text = "  Evasão"
-
-            break;
-            
-            
-        }
-        
-    }
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return statesToShow.count
     }
