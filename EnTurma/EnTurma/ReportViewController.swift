@@ -41,6 +41,12 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.test_type.inputView = self.picker
         self.local.inputView = self.picker
         self.scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height - 50)
+        
+        var tap = UITapGestureRecognizer(target: self, action: "removeKeybord")
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.scrollView.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +54,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    func removeKeybord(){
         self.view.endEditing(true)
     }
     
@@ -83,11 +88,11 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             case 3:
             self.test_type.text = text
             case 4:
-                        self.test_type.text = text
+            self.test_type.text = text
             case 5:
             self.local.text = text
         default:
-                        self.test_type.text = text
+            self.test_type.text = text
         }
     }
     
@@ -125,9 +130,10 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var rates: NSDictionary = jsonObject.objectForKey("rates") as! NSDictionary
         var ideb: NSDictionary = jsonObject.objectForKey("ideb")as! NSDictionary
+        var initialYear = (jsonObject.objectForKey("year") as! String).toInt()!
+        var initialGrade = jsonObject.objectForKey("grade") as! Int
         
-        
-        var grades = ["1","2","3","4","5","6"]
+        var grades = self.selectXGrades(initialYear, initialGrade: initialGrade)
         var idebGrades = ideb.objectForKey("ideb_grade_ids") as! NSArray
         
         var idebScores = ideb.objectForKey("ideb") as! NSArray
@@ -190,30 +196,12 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-    func setupGraph(yValeus : NSArray, graphTitleString : String, graphDescription : String) -> EnTurmaLineChartView{
-        
-        let chartViewFrame = CGRectMake(0, 10, view.bounds.width, self.view.bounds.width)
-        
-        var initialYear = self.year.text.toInt()!
-        
-        var xValues:[String] = []
-        
-        for i in initialYear...2013{
-            xValues.append("\(i)")
+    func selectXGrades(initialYear: Int, initialGrade: Int) -> NSArray{
+        var xValues : [String] = []
+        for i in 0...(2013 - initialYear){
+            xValues.append("\(i+initialGrade)° ano")
         }
-        
-        var newChart = EnTurmaLineChartView(singleLineGraphframe: chartViewFrame, xValues: xValues, yValues: yValeus, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
-    
-        newChart.animate(yAxisDuration: 2.0)
-        return newChart
+        return xValues
     }
-    
-    func createViewController(title:String, graph : EnTurmaLineChartView) -> UIViewController{
-        var controller : UIViewController = UIViewController()
-        controller.title = title
-        controller.view.addSubview(graph)
-        return controller
-    }
-    
   
 }

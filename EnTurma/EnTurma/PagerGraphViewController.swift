@@ -18,10 +18,10 @@ struct GraphDescriptions {
 
 
 struct GraphTitles {
-    static let evasion = ""
-    static let distortion = ""
-    static let performance = ""
-    static let ideb = ""
+    static let evasion = "Evasão"
+    static let distortion = "Distorção"
+    static let performance = "Rendimento"
+    static let ideb = "IDEB"
     
 }
 
