@@ -88,31 +88,25 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
 
     
     @IBAction func requestRanking(sender: AnyObject) {
+
+        var year = self.year.text
+        var grade = self.grade.text
         
+        var params = ["year":year, "grade":grade]
         
-        let evasionRankVC = PagerRankViewController()
-        //addChildViewController(evasionRankVC)
-        presentViewController(evasionRankVC, animated: true, completion: nil)
+        self.showActivityIndicator(true)
         
-//        var year = self.year.text
-//        var grade = self.grade.text
-//        
-//        var params = ["year":year, "grade":grade]
-//        
-//        self.showActivityIndicator(true)
-//        
-//        var rest = RESTFullManager(params: params)
-//        rest.requestRanking({ (jsonObject) -> Void in
-//            println(jsonObject)
-//            
-//
-//            self.showActivityIndicator(false)
-//        }, failure: { () -> Void in
-//            println("Error")
-//            self.showActivityIndicator(false)
-//        })
+        var rest = RESTFullManager(params: params)
+        rest.requestRanking({ (jsonObject) -> Void in
+            self.showActivityIndicator(false)
+            
+        }, failure: { () -> Void in
+            println("Error")
+            self.showActivityIndicator(false)
+        })
 //
     }
+    
     
     func showActivityIndicator(status : Bool){
         if status{

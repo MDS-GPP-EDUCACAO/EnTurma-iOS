@@ -17,31 +17,13 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
     private var rankViewFrame: CGRect!
     var allRankedStates: NSDictionary!
     
+    convenience init(jsonObject : NSDictionary){
+        self.init()
+        self.parseJSONToRanking(jsonObject)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        allRankedStates = [
-            "evasion": [
-                ["stateName":"Brasilia","stateScore":"32"],
-                ["stateName":"Goias","stateScore":"32"],
-            ],
-            "performance": [
-                ["stateName":"Formosa","stateScore":"32"],
-                ["stateName":"Taguatinga","stateScore":"32"],
-                
-            ],
-            "distortion": [
-                ["stateName":"Anapolis","stateScore":"32"],
-                ["stateName":"Pirinopolis","stateScore":"32"],
-                
-            ],
-            "ideb": [
-                ["stateName":"Sop","stateScore":"32"],
-                ["stateName":"GOT","stateScore":"32"],
-            ]
-        ]
-
-        
         
          view.frame = CGRectMake(0, 20,UIScreen.mainScreen().bounds.width ,UIScreen.mainScreen().bounds.height)
         rankViewFrame = view.frame
@@ -116,14 +98,42 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
         pageMenu = CAPSPageMenu(viewControllers: pagerMenuControllersArray, frame: pageMenuFrame, pageMenuOptions: parameters)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func parseJSONToRanking(jsonObject : NSDictionary){
+        var distortion = jsonObject.objectForKey("distortion_list") as! NSArray
+        var evasion = jsonObject.objectForKey("evasion_list") as! NSArray
+        var performance = jsonObject.objectForKey("peformance_list") as! NSArray
+        
+        var distortionParsed = self.serializeRateToDictionary(distortion, key: "distortion")
+        var evasionParsed = self.serializeRateToDictionary(evasion, key: "evasion")
+        var performanceParsed = self.serializeRateToDictionary(performance, key: "peformance")
+        
+        
+        var ideb = [ ["stateName":"Sop","stateScore":"32"],
+            ["stateName":"GOT","stateScore":"32"]]
+        
+        self.allRankedStates = ["evasion" : evasionParsed, "performance" : performanceParsed, "distortion" : distortionParsed, "ideb" : ideb]
+        
+        println(self.allRankedStates)
     }
-    */
+    
+    func serializeRateToDictionary(rate: NSArray, key : String) -> [Dictionary<String,String>]{
+        var parsedJSON: [Dictionary<String,String>] = []
+        
+        for currenteRate in rate{
+            var currentParsedObject : Dictionary<String,String> = [:]
+            currentParsedObject["stateName"] = self.getStateFromID(currenteRate.objectForKey("state_id") as! Int)
+                var score = currenteRate.objectForKey(key) as! Double
+            currentParsedObject["stateScore"] = "\(score)"
+
+            parsedJSON.append(currentParsedObject)
+        }
+        return parsedJSON
+    }
+
+    func getStateFromID(stateId: Int) -> String{
+        var states = ["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"]
+        return states[stateId-1]
+    }
 
 }
