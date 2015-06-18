@@ -21,6 +21,8 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var picker : UIPickerView?
     var firstResponderIndex = 0
     var pageReportGraph: PagerGraphViewController!
+    var activityIndicator : UIActivityIndicatorView?
+    var activityLabel : UILabel?
     
     private var optionsForSelect = [["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
         ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
@@ -47,6 +49,20 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         tap.numberOfTouchesRequired = 1
         self.scrollView.addGestureRecognizer(tap)
         
+        
+        self.activityLabel = UILabel(frame: CGRectMake(self.view.frame.width/2 - 150, self.view.frame.height/2-35, 300, 20))
+        self.activityLabel!.text = "Requisitando Dados"
+        self.activityLabel!.textColor = UIColor.grayColor()
+        self.activityLabel!.alpha = 0;
+        self.activityLabel?.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(self.activityLabel!)
+        
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.width/2 - 10, self.view.frame.height/2-10, 20, 20))
+        self.activityIndicator?.hidesWhenStopped = true
+        self.activityIndicator?.color = UIColor.grayColor()
+        self.view.addSubview(self.activityIndicator!)
+        
+        self.title = "Relatório"
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,9 +134,13 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": "Total"]
 
+        self.activityIndicator?.startAnimating()
+        self.showActivityIndicator(true)
         var rest = RESTFullManager(params: params)
         rest.requestReport({ (jsonObject) -> Void in
             self.plotData(jsonObject)
+            self.activityIndicator?.stopAnimating()
+            self.showActivityIndicator(false)
         }, failure: { () -> Void in
             
         })
@@ -195,6 +215,22 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         
     }
+    
+
+    func showActivityIndicator(status : Bool){
+        if status{
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 0
+                self.activityLabel?.alpha = 1
+            })
+        }else{
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 1
+                self.activityLabel?.alpha = 0
+            })
+        }
+    }
+    
     
     func selectXGrades(initialYear: Int, initialGrade: Int) -> NSArray{
         var xValues : [String] = []
