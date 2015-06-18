@@ -43,6 +43,10 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.activityIndicator?.hidesWhenStopped = true
         self.activityIndicator?.color = UIColor.grayColor()
         self.view.addSubview(self.activityIndicator!)
+        
+        scrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height - 50)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

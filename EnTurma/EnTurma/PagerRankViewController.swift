@@ -30,35 +30,8 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
         
         pagerMenuControllersArray  = []
         
-        let storyboard = UIStoryboard(name:"Main", bundle: nil)
-        
-        let evasionRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
-        evasionRankVC.statesToShow = allRankedStates.objectForKey("evasion") as! NSArray
-        evasionRankVC.graphDescriptionString = NSLocalizedString("evasion_description", comment: "")
-        evasionRankVC.descriptionButtonTitle = "  Evasão"
-        evasionRankVC.view.frame = rankViewFrame
-        pagerMenuControllersArray.append(evasionRankVC)
-        
-        let performanceRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
-        performanceRankVC.statesToShow = allRankedStates.objectForKey("performance") as! NSArray
-        performanceRankVC.graphDescriptionString = NSLocalizedString("performance_description", comment: "")
-        performanceRankVC.descriptionButtonTitle = "  Performance"
-        performanceRankVC.view.frame = rankViewFrame
-        pagerMenuControllersArray.append(performanceRankVC)
-        
-        let distortionRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
-        distortionRankVC.statesToShow = allRankedStates.objectForKey("distortion") as! NSArray
-        distortionRankVC.graphDescriptionString = NSLocalizedString("distortion_description", comment: "")
-        distortionRankVC.descriptionButtonTitle = "  Distorção"
-        distortionRankVC.view.frame = rankViewFrame
-        pagerMenuControllersArray.append(distortionRankVC)
-        
-        let idebRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
-        idebRankVC.statesToShow = allRankedStates.objectForKey("ideb") as! NSArray
-        idebRankVC.graphDescriptionString = NSLocalizedString("ideb_description", comment: "")
-        idebRankVC.descriptionButtonTitle = "  Ideb"
-        idebRankVC.view.frame = rankViewFrame
-        pagerMenuControllersArray.append(idebRankVC)
+        setupRanks()
+   
         
         setupPagerMenu()
         
@@ -70,7 +43,72 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupRanks(){
+        
+        
+        setupEvasionRank()
+        setupPerformanceRank()
+        setupDistortionRank()
+        setupIdebRank()
     
+    
+    }
+    
+    func setupEvasionRank(){
+        
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        
+        let evasionRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
+        evasionRankVC.statesToShow = allRankedStates.objectForKey("evasion") as! NSArray
+        evasionRankVC.graphDescriptionString = NSLocalizedString("evasion_description", comment: "")
+        evasionRankVC.title = "Evasão"
+        evasionRankVC.descriptionButtonTitle = "  Evasão"
+        evasionRankVC.view.frame = rankViewFrame
+        pagerMenuControllersArray.append(evasionRankVC)
+
+    }
+    
+    func setupPerformanceRank(){
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+
+        let performanceRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
+        performanceRankVC.statesToShow = allRankedStates.objectForKey("performance") as! NSArray
+        performanceRankVC.graphDescriptionString = NSLocalizedString("performance_description", comment: "")
+        performanceRankVC.descriptionButtonTitle = "  Rendimento"
+        performanceRankVC.title = "Rendimento"
+
+        performanceRankVC.view.frame = rankViewFrame
+        pagerMenuControllersArray.append(performanceRankVC)
+
+        
+    }
+    
+    func setupDistortionRank(){
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+
+        let distortionRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
+        distortionRankVC.statesToShow = allRankedStates.objectForKey("distortion") as! NSArray
+        distortionRankVC.graphDescriptionString = NSLocalizedString("distortion_description", comment: "")
+        distortionRankVC.descriptionButtonTitle = "  Distorção"
+        distortionRankVC.title = "Distorção"
+        distortionRankVC.view.frame = rankViewFrame
+        pagerMenuControllersArray.append(distortionRankVC)
+
+    }
+    
+    func setupIdebRank(){
+        
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+
+        let idebRankVC = storyboard.instantiateViewControllerWithIdentifier("RankingTableView") as! RankingTableViewController
+        idebRankVC.statesToShow = allRankedStates.objectForKey("ideb") as! NSArray
+        idebRankVC.graphDescriptionString = NSLocalizedString("ideb_description", comment: "")
+        idebRankVC.descriptionButtonTitle = "  Ideb"
+        idebRankVC.title = "Ideb"
+        idebRankVC.view.frame = rankViewFrame
+        pagerMenuControllersArray.append(idebRankVC)
+        
+    }
     
     func setupPagerMenu(){
         
