@@ -16,7 +16,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var test_type: UITextField!
     @IBOutlet weak var local: UITextField!
-    @IBOutlet weak var newReport: UIButton!
     
     var picker : UIPickerView?
     var firstResponderIndex = 0
@@ -34,7 +33,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.newReport.hidden = true
         self.picker = UIPickerView(frame: CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300))
         self.picker?.delegate = self;
         self.state.inputView = self.picker
@@ -180,7 +178,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Lastly add page menu as subview of base view controller view
         // or use pageMenu controller in you view hierachy as desired
         self.view.addSubview(pageMenu!.view)
-        self.newReport.hidden = false
     }
     
     func setupGraph(yValeus : NSArray, graphTitleString : String, graphDescription : String) -> EnTurmaLineChartView{
@@ -210,7 +207,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func newReport(sender: AnyObject) {
         self.pageMenu!.view.removeFromSuperview()
-        self.newReport.hidden = true
         self.local.hidden = false
     }
 }
