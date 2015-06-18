@@ -16,13 +16,52 @@
                     <view key="view" contentMode="scaleToFill" id="0jU-Wj-YS5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ano" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x4O-oN-aLE">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tlP-qh-KPH" id="G4T-Jx-CLe"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Turma" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-8Z-ShL">
+                                <rect key="frame" x="16" y="64" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tlP-qh-KPH" id="dSS-Ku-JMy"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iys-bA-Dsw">
+                                <rect key="frame" x="264" y="125" width="56" height="30"/>
+                                <state key="normal" title="Ranking">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestRanking:" destination="tlP-qh-KPH" eventType="touchUpInside" id="nAT-Hz-9TC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x4O-oN-aLE" firstAttribute="leading" secondItem="0jU-Wj-YS5" secondAttribute="leadingMargin" id="53u-0n-LFU"/>
+                            <constraint firstItem="H8U-8Z-ShL" firstAttribute="trailing" secondItem="0jU-Wj-YS5" secondAttribute="trailingMargin" id="5Es-tD-n1o"/>
+                            <constraint firstItem="H8U-8Z-ShL" firstAttribute="leading" secondItem="0jU-Wj-YS5" secondAttribute="leadingMargin" id="6vU-ts-p2D"/>
+                            <constraint firstItem="x4O-oN-aLE" firstAttribute="trailing" secondItem="0jU-Wj-YS5" secondAttribute="trailingMargin" id="g36-Wo-uQg"/>
+                            <constraint firstItem="H8U-8Z-ShL" firstAttribute="top" secondItem="x4O-oN-aLE" secondAttribute="bottom" constant="14" id="qto-9V-8on"/>
+                            <constraint firstItem="x4O-oN-aLE" firstAttribute="top" secondItem="jjh-xL-3lp" secondAttribute="bottom" id="wBQ-wz-WcN"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ranking" image="rankIcon" id="Y34-MP-MHs"/>
+                    <connections>
+                        <outlet property="grade" destination="H8U-8Z-ShL" id="4zc-D9-OKR"/>
+                        <outlet property="year" destination="x4O-oN-aLE" id="IG0-4h-nJ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJc-e9-qY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="1362"/>
+            <point key="canvasLocation" x="886" y="1455"/>
         </scene>
         <!--Relatório-->
         <scene sceneID="SCc-4p-Tag">
