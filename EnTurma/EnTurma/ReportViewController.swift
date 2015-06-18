@@ -235,7 +235,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func selectXGrades(initialYear: Int, initialGrade: Int) -> NSArray{
         var xValues : [String] = []
         for i in 0...(2013 - initialYear){
-            xValues.append("\(i+initialGrade)° ano")
+            xValues.append("\(i+initialGrade)°ano")
         }
         return xValues
     }

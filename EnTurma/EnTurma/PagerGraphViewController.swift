@@ -74,7 +74,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         super.viewDidLoad()
         
         
-        view.frame = CGRectMake(0, 10,UIScreen.mainScreen().bounds.width ,UIScreen.mainScreen().bounds.width)
+        view.frame = CGRectMake(0, 20,UIScreen.mainScreen().bounds.width ,UIScreen.mainScreen().bounds.width)
         chartViewFrame = view.frame
         
         pagerMenuControllersArray  = []
@@ -127,7 +127,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
             
         ]
         
-        let pageMenuFrame = CGRectMake(0, 0, view.bounds.width, self.view.bounds.width+75)
+        let pageMenuFrame = CGRectMake(0, 0, view.bounds.width, self.view.bounds.width+95)
         
         pageMenu = CAPSPageMenu(viewControllers: pagerMenuControllersArray, frame: pageMenuFrame, pageMenuOptions: parameters)
         

@@ -93,7 +93,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         legend.form = ChartLegend.ChartLegendForm.Line
         
         
-        let descriptionButtonFrame = CGRectMake(0, 0 , bounds.width, 25)
+        let descriptionButtonFrame = CGRectMake(0,-10 , bounds.width, 25)
         let descriptionButton = UIButton(frame: descriptionButtonFrame)
         descriptionButton.titleLabel!.textAlignment = .Center
         descriptionButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Medium", size: 25)!

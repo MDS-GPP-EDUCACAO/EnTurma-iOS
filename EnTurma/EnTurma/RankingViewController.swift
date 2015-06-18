@@ -12,6 +12,7 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var grade: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var picker : UIPickerView?
     var firstResponderIndex = 0
     var pageReportGraph: PagerGraphViewController!
@@ -34,7 +35,7 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         self.activityLabel = UILabel(frame: CGRectMake(self.view.frame.width/2 - 150, self.view.frame.height/2-35, 300, 20))
         self.activityLabel!.text = "Requisitando Dados"
         self.activityLabel!.textColor = UIColor.grayColor()
-        self.activityLabel!.alpha = 1;
+        self.activityLabel!.alpha = 0;
         self.activityLabel?.textAlignment = NSTextAlignment.Center
         self.view.addSubview(self.activityLabel!)
         
@@ -92,15 +93,34 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         var params = ["year":year, "grade":grade]
         
-        self.activityIndicator?.startAnimating()
+        self.showActivityIndicator(true)
         
         var rest = RESTFullManager(params: params)
         rest.requestRanking({ (jsonObject) -> Void in
             println(jsonObject)
+            self.showActivityIndicator(false)
         }, failure: { () -> Void in
             println("Error")
+            self.showActivityIndicator(false)
         })
 
     }
+    
+    func showActivityIndicator(status : Bool){
+        if status{
+            self.activityIndicator?.startAnimating()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 0
+                self.activityLabel?.alpha = 1
+            })
+        }else{
+            self.activityIndicator?.stopAnimating()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 1
+                self.activityLabel?.alpha = 0
+            })
+        }
+    }
+
 
 }
