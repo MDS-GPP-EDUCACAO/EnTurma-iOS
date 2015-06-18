@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ranking" id="Y34-MP-MHs"/>
+                    <tabBarItem key="tabBarItem" title="Ranking" image="rankIcon" id="Y34-MP-MHs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJc-e9-qY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +130,7 @@
                             <constraint firstItem="sfr-Kn-SaI" firstAttribute="leading" secondItem="r9s-0C-sPG" secondAttribute="leadingMargin" id="wQK-qf-6Ym"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Relatório" id="ymq-fd-2TG"/>
+                    <tabBarItem key="tabBarItem" title="Relatório" image="reportIcon" id="ymq-fd-2TG"/>
                     <connections>
                         <outlet property="grade" destination="dmI-tx-QP6" id="mVS-2Q-1on"/>
                         <outlet property="local" destination="h2e-B5-6Nj" id="c43-N7-kV6"/>
@@ -215,7 +215,7 @@
                             <constraint firstAttribute="centerX" secondItem="zCb-Lk-quT" secondAttribute="centerX" id="vlb-gf-glP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Comparar" id="Cpk-fO-YPJ"/>
+                    <tabBarItem key="tabBarItem" title="Comparar" image="compareIcon" id="Cpk-fO-YPJ"/>
                     <connections>
                         <outlet property="firstPicker" destination="Sro-kb-rAt" id="tbS-sV-9VW"/>
                         <outlet property="newCompare" destination="Xfq-oS-UqL" id="MP0-Vb-fbH"/>
@@ -238,8 +238,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fEQ-xp-Ukk">
-                                <rect key="frame" x="22" y="139" width="1674" height="404"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fEQ-xp-Ukk">
+                                <rect key="frame" x="16" y="176" width="568" height="325"/>
                                 <string key="text">O EnTurma é uma aplicação desenvolvida por alunos de Graduação de Engenharia de Software da Universidade de Brasília com o propósito de fornecer informação acerca da evolução do ensino fundamental brasileiro.
 O EnTurma permite a análise da progressão das turmas de ensino fundamental ao longo do tempo a partir de dados da Prova Brasil e do Censo Escolar. Esses dados são utilizados para o cálculo do Índice de Desenvolvimento da Educação Básica (IDEB).</string>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
@@ -247,24 +247,47 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="I9m-Sm-oOd">
-                                <rect key="frame" x="179" y="5" width="228" height="121"/>
+                                <rect key="frame" x="186" y="45" width="228" height="121"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="5sU-RU-kd5"/>
                                     <constraint firstAttribute="height" constant="121" id="USa-Ku-8dg"/>
+                                    <constraint firstAttribute="height" constant="121" id="wbg-Ri-fwa"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="USa-Ku-8dg"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="fEQ-xp-Ukk" secondAttribute="trailing" constant="6" id="C0K-1H-x1L"/>
+                            <constraint firstItem="fEQ-xp-Ukk" firstAttribute="trailing" secondItem="sOy-6H-t80" secondAttribute="trailingMargin" id="Oq1-CM-z3j"/>
+                            <constraint firstItem="Apd-pQ-ztB" firstAttribute="top" secondItem="fEQ-xp-Ukk" secondAttribute="bottom" constant="50" id="Q5n-zK-06J"/>
+                            <constraint firstItem="fEQ-xp-Ukk" firstAttribute="top" secondItem="I9m-Sm-oOd" secondAttribute="bottom" constant="10" id="STi-D3-Pms"/>
+                            <constraint firstAttribute="centerX" secondItem="I9m-Sm-oOd" secondAttribute="centerX" id="ZuN-w7-oyh"/>
+                            <constraint firstItem="I9m-Sm-oOd" firstAttribute="top" secondItem="qpz-Di-aTK" secondAttribute="bottom" constant="25" id="h5Q-io-wes"/>
                             <constraint firstItem="I9m-Sm-oOd" firstAttribute="top" secondItem="qpz-Di-aTK" secondAttribute="bottom" constant="-15" id="hVs-gR-UcK"/>
                             <constraint firstItem="I9m-Sm-oOd" firstAttribute="leading" secondItem="sOy-6H-t80" secondAttribute="leadingMargin" constant="163" id="kNl-Je-Cjt"/>
+                            <constraint firstItem="fEQ-xp-Ukk" firstAttribute="leading" secondItem="sOy-6H-t80" secondAttribute="leadingMargin" id="o46-p1-9Kd"/>
                             <constraint firstItem="fEQ-xp-Ukk" firstAttribute="top" secondItem="I9m-Sm-oOd" secondAttribute="bottom" constant="13" id="rAp-Yd-nk7"/>
-                            <constraint firstItem="Apd-pQ-ztB" firstAttribute="top" secondItem="fEQ-xp-Ukk" secondAttribute="bottom" constant="8" id="rBB-U6-pzq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I9m-Sm-oOd" secondAttribute="trailing" constant="177" id="ruT-nb-kEC"/>
+                            <constraint firstAttribute="centerX" secondItem="fEQ-xp-Ukk" secondAttribute="centerX" id="xzI-Di-iVe"/>
                             <constraint firstItem="fEQ-xp-Ukk" firstAttribute="leading" secondItem="sOy-6H-t80" secondAttribute="leadingMargin" constant="6" id="zvt-8j-StN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C0K-1H-x1L"/>
+                                <exclude reference="rAp-Yd-nk7"/>
+                                <exclude reference="zvt-8j-StN"/>
+                                <exclude reference="hVs-gR-UcK"/>
+                                <exclude reference="kNl-Je-Cjt"/>
+                                <exclude reference="ruT-nb-kEC"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sobre" id="0EL-cc-H9A"/>
+                    <tabBarItem key="tabBarItem" title="Sobre" image="aboutIcon" id="0EL-cc-H9A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPV-l9-yya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,14 +328,19 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Contato" id="Zta-Xq-UM3"/>
+                    <tabBarItem key="tabBarItem" title="Contato" image="contactIcon" id="Zta-Xq-UM3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-0W-I9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="2028"/>
+            <point key="canvasLocation" x="487" y="2043"/>
         </scene>
     </scenes>
     <resources>
+        <image name="aboutIcon" width="25" height="25"/>
+        <image name="compareIcon" width="25" height="19"/>
+        <image name="contactIcon" width="22" height="22"/>
         <image name="logo.png" width="295" height="263"/>
+        <image name="rankIcon" width="24" height="22"/>
+        <image name="reportIcon" width="25" height="19"/>
     </resources>
 </document>
