@@ -20,13 +20,16 @@
 		A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */; };
 		A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
 		A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
+		A4E12A6C1B3316A400B0FE6F /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */; };
+		A4E12A6E1B33173300B0FE6F /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6D1B33173300B0FE6F /* RankingCell.swift */; };
+		A4E12A711B331AB800B0FE6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4E12A701B331AB800B0FE6F /* Localizable.strings */; };
+		A4E12A731B3324EA00B0FE6F /* PagerRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */; };
 		AFCC8FDE7372480A689D8BC6 /* Pods_EnTurma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4E667BA1F5B2B390431A1C /* Pods_EnTurma.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */; };
 		C09DEB1E1B30457D003E842C /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB1D1B30457D003E842C /* ReportViewController.swift */; };
 		C09DEB201B304589003E842C /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB1F1B304589003E842C /* CompareViewController.swift */; };
 		C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB221B30459C003E842C /* RankingViewController.swift */; };
 		C09DEB251B3045A9003E842C /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DEB241B3045A9003E842C /* ContactViewController.swift */; };
-		C0AECFB61B30823600B01DD3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C0AECFB51B30823600B01DD3 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,12 +90,15 @@
 		A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerGraphViewController.swift; sourceTree = "<group>"; };
 		A4C579B81B2A605600569634 /* GraphDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDescriptionView.swift; sourceTree = "<group>"; };
 		A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Pods/PageMenu/Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
+		A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
+		A4E12A6D1B33173300B0FE6F /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
+		A4E12A701B331AB800B0FE6F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerRankViewController.swift; sourceTree = "<group>"; };
 		C022E6D41B2A821E009B0E3A /* RESTFullManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTFullManager.swift; sourceTree = "<group>"; };
 		C09DEB1D1B30457D003E842C /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		C09DEB1F1B304589003E842C /* CompareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareViewController.swift; sourceTree = "<group>"; };
 		C09DEB221B30459C003E842C /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		C09DEB241B3045A9003E842C /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		C0AECFB51B30823600B01DD3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		EBC3588F53BF82B2F2429928 /* Pods-EnTurma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,8 +170,8 @@
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
 				A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */,
 				A48DF3141B28B6C000716E54 /* AppDelegate.swift */,
+				A4E12A701B331AB800B0FE6F /* Localizable.strings */,
 				A48DF3181B28B6C000716E54 /* Main.storyboard */,
-				C0AECFB51B30823600B01DD3 /* logo.png */,
 				A48DF31B1B28B6C000716E54 /* Images.xcassets */,
 				A48DF31D1B28B6C000716E54 /* LaunchScreen.xib */,
 				A48DF3121B28B6C000716E54 /* Supporting Files */,
@@ -209,6 +215,17 @@
 			name = Graphs;
 			sourceTree = "<group>";
 		};
+		A4E12A681B33116B00B0FE6F /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				C09DEB221B30459C003E842C /* RankingViewController.swift */,
+				A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */,
+				A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */,
+				A4E12A6D1B33173300B0FE6F /* RankingCell.swift */,
+			);
+			name = Ranking;
+			sourceTree = "<group>";
+		};
 		C022E6D31B2A81E9009B0E3A /* RESTFull */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,9 +237,9 @@
 		C09DEB1C1B30454D003E842C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A4E12A681B33116B00B0FE6F /* Ranking */,
 				C09DEB1D1B30457D003E842C /* ReportViewController.swift */,
 				C09DEB1F1B304589003E842C /* CompareViewController.swift */,
-				C09DEB221B30459C003E842C /* RankingViewController.swift */,
 				C09DEB241B3045A9003E842C /* ContactViewController.swift */,
 			);
 			name = ViewController;
@@ -338,8 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0AECFB61B30823600B01DD3 /* logo.png in Resources */,
 				A48DF31A1B28B6C000716E54 /* Main.storyboard in Resources */,
+				A4E12A711B331AB800B0FE6F /* Localizable.strings in Resources */,
 				A48DF31F1B28B6C000716E54 /* LaunchScreen.xib in Resources */,
 				A48DF31C1B28B6C000716E54 /* Images.xcassets in Resources */,
 			);
@@ -411,12 +428,15 @@
 				A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */,
 				A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */,
 				A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */,
+				A4E12A6C1B3316A400B0FE6F /* RankingTableViewController.swift in Sources */,
 				C09DEB201B304589003E842C /* CompareViewController.swift in Sources */,
 				C09DEB1E1B30457D003E842C /* ReportViewController.swift in Sources */,
 				A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */,
 				C022E6D51B2A821E009B0E3A /* RESTFullManager.swift in Sources */,
 				C09DEB251B3045A9003E842C /* ContactViewController.swift in Sources */,
+				A4E12A6E1B33173300B0FE6F /* RankingCell.swift in Sources */,
 				A48DF3171B28B6C000716E54 /* ViewController.swift in Sources */,
+				A4E12A731B3324EA00B0FE6F /* PagerRankViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 				C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */,
 			);

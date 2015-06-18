@@ -9,12 +9,6 @@
 import UIKit
 import Charts
 
-struct GraphDescriptions {
-    static let evasion = "O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb)."
-    static let distortion = "O Índice de Distorção representa o percentual de alunos que se encontram em condição de distorção idade-série. O aluno que reprova ou abandona os estudos por dois anos ou mais durante a trajetória de escolarização, repetindo por consequência uma mesma série, se encontra em defasem em relação à idade considerada adequada para cada ano de estudo, de acordo com o que propõe a legislação educacional do país. Neste caso o aluno será contabilizado na situação de distorção idade-série."
-    static let ideb = "O Índice de Desenvolvimento da Educação Básica (Ideb) tem o objetivo de reunir em um único indicador dois conceitos importantes para a qualidade da educação: fluxo escolar e média de desempenho nas avaliações. Ele agrega ao enfoque pedagógico dos resultados das avaliações em larga escala do Inep a possibilidade de resultados sintéticos, facilmente assimiláveis, e que permitem traçar metas de qualidade educacional para os sistemas. O indicador é calculado a partir dos dados sobre aprovação, obtidos no Censo Escolar, e médias de desempenho nas avaliações do Inep: o Seab (para unidades da federação e para o país) e a Prova Brasil (para os municípios)."
-    static let performance = "O Índice de Rendimento é baseado na Anresc. A Avaliação Nacional do Redimento Escolar (Anresc) é uma avaliação criada pelo Ministério da Educação. Sendo complementar ao Sistema Nacional de Educação Básica e um dos componentes para o cálculo do Índice de Desenvolvimento da Educação Básica, a avaliação é realizada a cada dois anos e participam todos os estudantes de escolas públicas urbanas do 5º ao 9º ano em turmas com 20 ou mais alunos. A avaliação é dividida em duas provas: Língua Portuguesa e Matemática."
-}
 
 
 struct GraphTitles {
@@ -136,7 +130,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     func plotEvasionDoubleDataGraph(grades: NSArray, firstClassScores: NSArray, secondClassScores: NSArray){
         
         
-        var graphDescription = GraphDescriptions.evasion
+        var graphDescription = NSLocalizedString("evasion_description", comment: "")
         var graphTitle = GraphTitles.evasion
         var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -151,7 +145,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotDistortionDoubleDataGraph(grades: NSArray, firstClassScores: NSArray, secondClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.distortion
+        var graphDescription = NSLocalizedString("distortion_description", comment: "")
         var graphTitle = GraphTitles.distortion
         var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -167,7 +161,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotPerformanceDoubleDataGraph(grades: NSArray, firstClassScores: NSArray, secondClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.performance
+        var graphDescription = NSLocalizedString("performance_description", comment: "")
         var graphTitle = GraphTitles.performance
         var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -183,7 +177,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotIdebDoubleDataGraph(grades: NSArray, firstClassScores: NSArray, secondClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.ideb
+        var graphDescription = NSLocalizedString("ideb_description", comment: "")
         var graphTitle = GraphTitles.ideb
         var barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: grades, y1Values: firstClassScores, y2Values: secondClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
         
@@ -198,7 +192,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     func plotEvasionSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
         
         
-        var graphDescription = GraphDescriptions.evasion
+        var graphDescription =  NSLocalizedString("evasion_description", comment: "")
         var graphTitle = GraphTitles.evasion
         var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -213,7 +207,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotDistortionSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.distortion
+        var graphDescription = NSLocalizedString("distortion_description", comment: "")
         var graphTitle = GraphTitles.distortion
         var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -229,7 +223,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotPerformanceSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.performance
+        var graphDescription = NSLocalizedString("performance_description", comment: "")
         var graphTitle = GraphTitles.performance
         var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
         
@@ -245,7 +239,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     
     func plotIdebSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
         
-        var graphDescription = GraphDescriptions.ideb
+        var graphDescription = NSLocalizedString("ideb_description", comment: "")
         var graphTitle = GraphTitles.ideb
         var barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
         

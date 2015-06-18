@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Turma" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-8Z-ShL">
-                                        <rect key="frame" x="8" y="85" width="584" height="40"/>
+                                        <rect key="frame" x="8" y="96" width="584" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Beo-Yc-L3r"/>
@@ -33,7 +33,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ano" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x4O-oN-aLE">
-                                        <rect key="frame" x="8" y="153" width="584" height="40"/>
+                                        <rect key="frame" x="8" y="164" width="584" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="f13-et-MT2"/>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iys-bA-Dsw">
-                                        <rect key="frame" x="8" y="228" width="584" height="40"/>
+                                        <rect key="frame" x="8" y="239" width="584" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3Mf-MW-ggT"/>
@@ -62,6 +62,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="requestRanking:" destination="tlP-qh-KPH" eventType="touchUpInside" id="nAT-Hz-9TC"/>
+                                            <segue destination="hbr-1m-QGS" kind="show" id="oZe-M9-KB2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -89,6 +90,7 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="9wo-ud-sxQ"/>
                                         <exclude reference="Cax-Qn-WrJ"/>
                                         <exclude reference="KIp-EG-cCT"/>
                                         <exclude reference="cs3-Xf-YVL"/>
@@ -102,7 +104,10 @@
                                 </variation>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-nS-fn1">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Peu-tm-Off"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Ranking" id="7nq-wE-e8B"/>
                                 </items>
@@ -114,6 +119,7 @@
                             <constraint firstItem="H8U-8Z-ShL" firstAttribute="top" secondItem="7Uh-nS-fn1" secondAttribute="bottom" constant="41" id="I7F-zf-gkp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Uh-nS-fn1" secondAttribute="trailing" constant="-16" id="Oi5-RX-FLQ"/>
                             <constraint firstItem="7Uh-nS-fn1" firstAttribute="leading" secondItem="0jU-Wj-YS5" secondAttribute="leadingMargin" constant="-16" id="QHG-Zx-Csc"/>
+                            <constraint firstItem="H8U-8Z-ShL" firstAttribute="top" secondItem="7Uh-nS-fn1" secondAttribute="bottom" constant="40" id="SkY-k0-81c"/>
                             <constraint firstItem="H8U-8Z-ShL" firstAttribute="centerX" secondItem="7Uh-nS-fn1" secondAttribute="centerX" id="eCZ-rQ-gMu"/>
                             <constraint firstItem="6Dr-HW-jcO" firstAttribute="width" secondItem="0jU-Wj-YS5" secondAttribute="width" id="eLR-nQ-JPx"/>
                             <constraint firstAttribute="bottom" secondItem="6Dr-HW-jcO" secondAttribute="bottom" id="eyD-b8-9gk"/>
@@ -146,6 +152,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJc-e9-qY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886" y="1455"/>
+        </scene>
+        <!--Ranking Table View Controller-->
+        <scene sceneID="1v4-sc-JqQ">
+            <objects>
+                <viewController restorationIdentifier="RankingTableView" storyboardIdentifier="RankingTableView" id="hbr-1m-QGS" customClass="RankingTableViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lLC-ay-AyY"/>
+                        <viewControllerLayoutGuide type="bottom" id="tMg-pH-zMT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TUZ-ah-NFR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-Sc-rhW">
+                                <rect key="frame" x="0.0" y="80" width="600" height="471"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankingCell" id="3Te-hv-o4r" customClass="RankingCell" customModule="EnTurma" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Te-hv-o4r" id="AXW-VH-ubv">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDR-sf-k1Y">
+                                                    <rect key="frame" x="8" y="11" width="17" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.24%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-Lr-n6Z">
+                                                    <rect key="frame" x="543" y="11" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distrito Federal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-cI-EyB">
+                                                    <rect key="frame" x="245" y="12" width="110" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ranked" translatesAutoresizingMaskIntoConstraints="NO" id="fSH-tJ-a7D">
+                                                    <rect key="frame" x="212" y="9" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="AXu-rC-Fc9"/>
+                                                        <constraint firstAttribute="height" constant="25" id="WFq-kS-heZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="xIf-cI-EyB" secondAttribute="centerY" id="2W2-fW-lFb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hRZ-Lr-n6Z" secondAttribute="bottom" constant="3" id="8OX-BF-zV2"/>
+                                                <constraint firstItem="MDR-sf-k1Y" firstAttribute="top" secondItem="AXW-VH-ubv" secondAttribute="topMargin" constant="3" id="Df3-E9-0Cz"/>
+                                                <constraint firstItem="xIf-cI-EyB" firstAttribute="leading" secondItem="fSH-tJ-a7D" secondAttribute="trailing" constant="8" id="ENO-RY-OLQ"/>
+                                                <constraint firstItem="MDR-sf-k1Y" firstAttribute="leading" secondItem="AXW-VH-ubv" secondAttribute="leadingMargin" id="HTT-1e-DmT"/>
+                                                <constraint firstAttribute="centerY" secondItem="fSH-tJ-a7D" secondAttribute="centerY" id="Hqx-Zl-epp"/>
+                                                <constraint firstItem="hRZ-Lr-n6Z" firstAttribute="top" secondItem="AXW-VH-ubv" secondAttribute="topMargin" constant="3" id="Pjv-JP-ozB"/>
+                                                <constraint firstAttribute="centerX" secondItem="xIf-cI-EyB" secondAttribute="centerX" id="Sb3-0S-6mf"/>
+                                                <constraint firstItem="hRZ-Lr-n6Z" firstAttribute="trailing" secondItem="AXW-VH-ubv" secondAttribute="trailingMargin" id="aHW-Pf-xNr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MDR-sf-k1Y" secondAttribute="bottom" constant="3" id="gp2-fd-GC4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="championStateIndicator" destination="fSH-tJ-a7D" id="ha9-iJ-mIH"/>
+                                            <outlet property="stateName" destination="xIf-cI-EyB" id="IAL-cj-PMc"/>
+                                            <outlet property="statePosition" destination="MDR-sf-k1Y" id="ezg-je-Krc"/>
+                                            <outlet property="stateScore" destination="hRZ-Lr-n6Z" id="sxr-GP-S9e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hbr-1m-QGS" id="gvY-5A-OPx"/>
+                                    <outlet property="delegate" destination="hbr-1m-QGS" id="zqU-HW-pPs"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwQ-Cc-c6W">
+                                <rect key="frame" x="255" y="50" width="90" height="22"/>
+                                <state key="normal" title="  Evasão" image="infoButton">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L3b-Sc-rhW" firstAttribute="top" secondItem="lLC-ay-AyY" secondAttribute="bottom" constant="60" id="2H8-Ns-WJf"/>
+                            <constraint firstAttribute="centerX" secondItem="KwQ-Cc-c6W" secondAttribute="centerX" id="55d-as-h0b"/>
+                            <constraint firstItem="L3b-Sc-rhW" firstAttribute="top" secondItem="KwQ-Cc-c6W" secondAttribute="bottom" constant="8" id="B7l-Fp-nzV"/>
+                            <constraint firstItem="tMg-pH-zMT" firstAttribute="top" secondItem="L3b-Sc-rhW" secondAttribute="bottom" id="JnI-aB-v1i"/>
+                            <constraint firstItem="L3b-Sc-rhW" firstAttribute="width" secondItem="TUZ-ah-NFR" secondAttribute="width" id="KY5-CE-L8y"/>
+                            <constraint firstAttribute="centerY" secondItem="L3b-Sc-rhW" secondAttribute="centerY" id="gkL-uF-FG4"/>
+                            <constraint firstItem="L3b-Sc-rhW" firstAttribute="height" secondItem="TUZ-ah-NFR" secondAttribute="height" id="jFC-aT-2dw"/>
+                            <constraint firstAttribute="centerX" secondItem="L3b-Sc-rhW" secondAttribute="centerX" id="rcA-ij-SGO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gkL-uF-FG4"/>
+                                <exclude reference="jFC-aT-2dw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="dataDescriptionButton" destination="KwQ-Cc-c6W" id="EYN-z3-QKM"/>
+                        <outlet property="tableView" destination="L3b-Sc-rhW" id="e0A-PM-Vck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72k-Q8-YJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="1472"/>
         </scene>
         <!--Relatório-->
         <scene sceneID="SCc-4p-Tag">
@@ -521,8 +636,10 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
         <image name="aboutIcon" width="25" height="25"/>
         <image name="compareIcon" width="25" height="19"/>
         <image name="contactIcon" width="22" height="22"/>
+        <image name="infoButton" width="21" height="22"/>
         <image name="logo.png" width="295" height="263"/>
         <image name="rankIcon" width="24" height="22"/>
+        <image name="ranked" width="25" height="24"/>
         <image name="reportIcon" width="25" height="19"/>
     </resources>
 </document>
