@@ -36,7 +36,16 @@ xcuserdata
 Pods/
 # Carthage
 #
+
+.irb_history
+#.idea/
+.idea/
+*.irb-history
+
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
 Carthage/Build
+EnTurma/.irb-history
+
+EnTurma/.irb-history
