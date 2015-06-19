@@ -15,3 +15,6 @@
 "performance_description" = "O Índice de Rendimento é baseado na Anresc. A Avaliação Nacional do Redimento Escolar (Anresc) é uma avaliação criada pelo Ministério da Educação. Sendo complementar ao Sistema Nacional de Educação Básica e um dos componentes para o cálculo do Índice de Desenvolvimento da Educação Básica, a avaliação é realizada a cada dois anos e participam todos os estudantes de escolas públicas urbanas do 5º ao 9º ano em turmas com 20 ou mais alunos. A avaliação é dividida em duas provas: Língua Portuguesa e Matemática.";
 
 "fill_all_the_text_fields_alert_message" = "Você precisa preencher todos os campos para obter um relatório correto";
+
+"no_connection" = "Parece que você está sem conecxão. Para utilizar o app, é necessario ter internet.";
+"time_out_request" = "O servidor está desligado, tente novamente mais tarde.";

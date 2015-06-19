@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ContactViewController: UIViewController {
+class ContactViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +21,21 @@ class ContactViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func sendEmail(sender: AnyObject) {
+        var picker = MFMailComposeViewController()
+        picker.setToRecipients(["contatoenturma@gmail.com "])
+        picker.mailComposeDelegate = self
+        picker.setSubject("EnTurma contato - iOS")
+        picker.setMessageBody("", isHTML: false)
+        
+        presentViewController(picker, animated: true, completion: nil)
     }
-    */
+
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

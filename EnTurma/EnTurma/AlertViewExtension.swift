@@ -20,5 +20,17 @@ extension UIAlertView {
         
     }
     
+    func showNoConnectionNetwork(){
+        var alertMenssage = NSLocalizedString("no_connection", comment: "")
+        var alert = UIAlertView(title: "Sem conecxão", message: alertMenssage, delegate: self, cancelButtonTitle: "OK")
+        alert.show()
+    }
+    
+    func showFailRequest(){
+        var alertMenssage = NSLocalizedString("time_out_request", comment: "")
+        var alert = UIAlertView(title: "Falha", message: alertMenssage, delegate: self, cancelButtonTitle: "OK")
+        alert.show()
+    }
+    
 
 }

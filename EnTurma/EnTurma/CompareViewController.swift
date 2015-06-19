@@ -11,27 +11,52 @@ import Alamofire
 
 class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet weak var firstPicker: UIPickerView!
-    @IBOutlet weak var secondPicker: UIPickerView!
-    @IBOutlet weak var newCompare: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var grade: UITextField!
+    @IBOutlet weak var secondTestType: UITextField!
+    @IBOutlet weak var secondLocal: UITextField!
+    @IBOutlet weak var secondState: UITextField!
+    @IBOutlet weak var secondYear: UITextField!
+    @IBOutlet weak var firstTestType: UITextField!
+    @IBOutlet weak var firstLocal: UITextField!
+    @IBOutlet weak var firstState: UITextField!
+    @IBOutlet weak var firstYear: UITextField!
     
-    private var json : NSDictionary = ["":""]
+    private var optionsForSelect = [["2008","2009","2010","2011","2012","2013"],["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
+        ["Total", "Urbana", "Rural"],
+        ["Total","Privada", "Publica"],
+        ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
+        ["2008","2009","2010","2011","2012","2013"],["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
+        ["Total", "Urbana", "Rural"],
+        ["Total","Privada", "Publica"]]
     
-    var pageMenu: CAPSPageMenu?
-    
-    private var optionsForSelect : NSDictionary =
-    ["state":["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
-        "grades" : ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
-        "years" : ["2008","2009","2010","2011","2012","2013"],
-        "network" : ["Total","Privada", "Publica"],
-        "public_type" : ["Total", "Municipal","Estadual","Federal"],
-        "local" : ["Total", "Urbana", "Rural"]
-    ]
+    var firstResponderIndex = 0
+     var picker : UIPickerView?
+    var pageReportGraph: PagerGraphViewController!
+    var activityIndicator : UIActivityIndicatorView?
+    var activityLabel : UILabel?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.picker = UIPickerView(frame: CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300))
+        self.picker?.delegate = self;
+        self.firstYear.inputView = self.picker
+        self.firstLocal.inputView = self.picker
+        self.firstState.inputView = self.picker
+        self.firstTestType.inputView = self.picker
+        self.secondYear.inputView = self.picker
+        self.secondState.inputView = self.picker
+        self.secondLocal.inputView = self.picker
+        self.secondTestType.inputView = self.picker
+        self.grade.inputView = self.picker
+        
+        var tap = UITapGestureRecognizer(target: self, action: "removeKeybord")
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        self.scrollView.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,205 +65,207 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
+    func removeKeybord(){
+        self.view.endEditing(true)
+    }
+    
     // MARK: - PickerView  delegate
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 5
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        var numberOfRows = 0
-        
-        switch component{
-        case 0:
-            numberOfRows = (optionsForSelect.objectForKey("state") as! NSArray).count
-        case 1:
-            numberOfRows = (optionsForSelect.objectForKey("grades") as! NSArray).count
-        case 2:
-            numberOfRows = (optionsForSelect.objectForKey("years") as! NSArray).count
-        case 3:
-            numberOfRows = (optionsForSelect.objectForKey("network") as! NSArray).count
-        case 4:
-            numberOfRows = (optionsForSelect.objectForKey("local") as! NSArray).count
-        default:
-            numberOfRows = 0
-        }
-        
+        var numberOfRows = self.optionsForSelect[self.firstResponderIndex].count
         return numberOfRows
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var text = self.optionsForSelect[self.firstResponderIndex][row]
+        switch self.firstResponderIndex{
+        case 0:
+            self.firstYear.text = text
+        case 1:
+            self.firstState.text = text
+        case 2:
+            self.firstLocal.text = text
+        case 3:
+            self.firstTestType.text = text
+        case 4:
+            self.grade.text = text
+        case 5:
+            self.secondYear.text = text
+        case 6:
+            self.secondState.text = text
+        case 7:
+            self.secondLocal.text = text
+        case 8:
+            self.secondTestType.text = text
+        default:
+            self.secondTestType.text = text
+        }
     }
     
     // MARK: - PickerView  Data Source
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        
-        var title = ""
-        
-        switch component{
-        case 0:
-            title = (optionsForSelect.objectForKey("state") as! NSArray).objectAtIndex(row) as! String
-        case 1:
-            title = (optionsForSelect.objectForKey("grades") as! NSArray).objectAtIndex(row) as! String
-        case 2:
-            title = (optionsForSelect.objectForKey("years") as! NSArray).objectAtIndex(row) as! String
-        case 3:
-            title = (optionsForSelect.objectForKey("network") as! NSArray).objectAtIndex(row) as! String
-        case 4:
-            title = (optionsForSelect.objectForKey("local") as! NSArray).objectAtIndex(row) as! String
-        default:
-            title = ""
-            }
+        var title = self.optionsForSelect[self.firstResponderIndex][row]
         return title
+    }
+    
+    // MARK: - TextFild  Delegate
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.firstResponderIndex = textField.tag
+        self.picker?.reloadAllComponents()
+        
+        if textField.text.isEmpty{
+            textField.text = self.optionsForSelect[self.firstResponderIndex][0]
+        }
     }
     @IBAction func requestCompare(sender: AnyObject) {
-        self.prepareParams()
+        
+        if self.firstYear.text.isEmpty ||
+        self.firstState.text.isEmpty ||
+        self.firstLocal.text.isEmpty ||
+        self.firstTestType.text.isEmpty ||
+        self.grade.text.isEmpty ||
+        self.secondYear.text.isEmpty ||
+        self.secondState.text.isEmpty ||
+        self.secondLocal.text.isEmpty ||
+            self.secondTestType.text.isEmpty{
+        
+                UIAlertView().showFillFieldsAlert()
+        }else{
+            self.prepareParams()
+        }
     }
     
-    private func prepareParams(){
+    func prepareParams(){
         //request Rest
-        var state = self.titleForItemSelected(self.firstPicker, componet: 0)
-        var grade = self.titleForItemSelected(self.firstPicker, componet: 1)
-        var year = self.titleForItemSelected(self.firstPicker, componet: 2)
-        var network = self.titleForItemSelected(self.firstPicker, componet: 3)
-        var local = self.titleForItemSelected(self.firstPicker, componet: 4)
+        var firstYear = self.firstYear.text
+        var grade = self.grade.text
+        var firstState = self.firstState.text
+        var firstTestType = self.firstTestType.text
+        var firstLocal = self.firstLocal.text
+        var secondState = self.secondState.text
+        var secondTestType = self.secondTestType.text
+        var secondLocal = self.secondLocal.text
+        var secondYear = self.secondYear.text
         
-        var state2 = self.titleForItemSelected(self.secondPicker, componet: 0)
-        var grade2 = self.titleForItemSelected(self.secondPicker, componet: 1)
-        var year2 = self.titleForItemSelected(self.secondPicker, componet: 2)
-        var network2 = self.titleForItemSelected(self.secondPicker, componet: 3)
-        var local2 = self.titleForItemSelected(self.secondPicker, componet: 4)
+        var params = ["first_year":firstYear, "grade":grade, "first_state":firstState, "first_test_type":firstTestType, "first_local":firstLocal,"first_public_type": "Total","second_year":secondYear, "second_state":secondState, "second_test_type":secondTestType, "second_local":secondLocal,"second_public_type": "Total"]
         
-        var params = ["first_year":year, "grade":grade, "first_state":state, "first_test_type":network, "first_local":local,"first_public_type": "Total","second_year":year2, "second_state":state2, "second_test_type":network2, "second_local":local2,"second_public_type": "Total"]
- 
-    
+        self.showActivityIndicator(true)
         var rest = RESTFullManager(params: params)
         rest.requestCompare({ (jsonObject) -> Void in
-            self.json = jsonObject
+            self.plotData(jsonObject.objectForKey("first_report") as! NSDictionary, secondReport: jsonObject.objectForKey("second_report") as! NSDictionary)
             println(jsonObject)
-            self.plotData(jsonObject)
+            self.showActivityIndicator(false)
             }, failure: { () -> Void in
-                
+                UIAlertView().showFailRequest()
+                self.showActivityIndicator(false)
         })
+        
     }
     
-    
-    func plotData(jsonObject : NSDictionary) -> Void{
-        
-        
-        var firstGrade : NSDictionary = jsonObject.objectForKey("first_report") as! NSDictionary
-        var secondGrade : NSDictionary = jsonObject.objectForKey("second_report") as! NSDictionary
-        
-        var firstRates: NSDictionary = firstGrade.objectForKey("rates") as! NSDictionary
-        var secondRates: NSDictionary = secondGrade.objectForKey("rates") as! NSDictionary
-    
-        // Create variables for all view controllers you want to put in the
-        // page menu, initialize them, and add each to the controller array.
-        // (Can be any UIViewController subclass)
-        // Make sure the title property of all view controllers is set
-        var controllerArray : [UIViewController] = []
-        
-        
-        if  firstRates.objectForKey("status") as! String == "available" && secondRates.objectForKey("status") as! String == "available"{
-            
-            var evasionChart = self.setupGraph(firstRates.objectForKey("evasion") as! NSArray, y2Values: secondRates.objectForKey("evasion") as! NSArray,graphTitleString: "Evasão", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
-            
-            var peformanceChart = self.setupGraph(firstRates.objectForKey("performance") as! NSArray, y2Values:secondRates.objectForKey("performance") as! NSArray, graphTitleString: "Rendimento", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
-            
-            var distortionChart = self.setupGraph(firstRates.objectForKey("distortion") as! NSArray, y2Values:secondRates.objectForKey("distortion") as! NSArray,graphTitleString: "Distorção", graphDescription: " O Índice de Evasão retrata o percentual de alunos que deixaram de frequentar a escola, caracterizando dessa forma abandono escolar. Tal índice é obtido por meio do Censo Escolar pelo Inep e compõe o Índice de Desenvolvimento da Educação Brasileira (Ideb).")
-            
-            var evasionController = self.createViewController("Evasão", graph: evasionChart)
-            var peformanceController = self.createViewController("Rendimento", graph: peformanceChart)
-            var distortionController = self.createViewController("Distorção", graph: distortionChart)
-            
-            controllerArray.append(evasionController)
-            controllerArray.append(peformanceController)
-            controllerArray.append(distortionController)
-        }
-        
-        
-        
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
-        var parameters: [CAPSPageMenuOption] = [
-            .MenuItemSeparatorWidth(0),
-            .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .ViewBackgroundColor(UIColor.whiteColor()),
-            .BottomMenuHairlineColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.blackColor()),
-            .MenuMargin(20.0),
-            .MenuHeight(40.0),
-            .SelectedMenuItemLabelColor(UIColor.blackColor()),
-            .UnselectedMenuItemLabelColor(UIColor(red: 127/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1.0)),
-            .MenuItemFont(UIFont(name: "HelveticaNeue-Medium", size: 15.0)!),
-            .UseMenuLikeSegmentedControl(true),
-            .MenuItemSeparatorRoundEdges(false),
-            .SelectionIndicatorHeight(2.0),
-            .MenuItemSeparatorPercentageHeight(0)
-            
-        ]
-        
-        let pageMenuFrame = CGRectMake(0, 100, view.bounds.width, self.view.bounds.width+100)
-        
-        // Initialize page menu with controller array, frame, and optional parameters
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: pageMenuFrame, pageMenuOptions: parameters)
-        
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
-        self.view.addSubview(pageMenu!.view)
-        self.newCompare.hidden = false
-        self.firstPicker.hidden = true
-        self.secondPicker.hidden = true
-    }
-    
-    func setupGraph(y1Valeus : NSArray, y2Values : NSArray,graphTitleString : String, graphDescription : String) -> EnTurmaLineChartView{
-        
-        let chartViewFrame = CGRectMake(0, 10, view.bounds.width, self.view.bounds.width)
-        
-        var initialGrade = self.json.objectForKey("first_report")?.objectForKey("grade") as! Int
-        var firstSampleData = self.json.objectForKey("first_report")?.objectForKey("rates")?.objectForKey("evasion") as! NSArray
-        
-        var secondSampleData = self.json.objectForKey("second_report")?.objectForKey("rates")?.objectForKey("evasion") as! NSArray
-        
-        var numberOfPoints = 0
-        
-        if firstSampleData.count >= secondSampleData.count{
-            numberOfPoints = firstSampleData.count
+    func showActivityIndicator(status : Bool){
+        if status{
+            self.activityIndicator?.startAnimating()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 0
+                self.activityLabel?.alpha = 1
+            })
         }else{
-            numberOfPoints = secondSampleData.count
+            self.activityIndicator?.stopAnimating()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.scrollView.alpha = 1
+                self.activityLabel?.alpha = 0
+            })
+        }
+    }
+    
+    func plotData(firstReport : NSDictionary, secondReport: NSDictionary){
+        var firstSerialize = self.serializeDataToPlot(firstReport)
+        var secondSerialize = self.serializeDataToPlot(secondReport)
+        
+        if(pageReportGraph == nil){
+            
+            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray)
+            
+            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width)
+            
+            UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                
+                self.scrollView.addSubview(self.pageReportGraph.view)
+                
+                
+                }, completion: { finished in
+                    
+            })
+            
+            
+            scrollView.contentSize = CGSizeMake(view.frame.width, scrollView.contentSize.height + pageReportGraph.view.frame.height + 40 )
+            
+            scrollView.scrollRectToVisible(CGRectMake(pageReportGraph.view.frame.origin.x,pageReportGraph.view.frame.origin.y+100, pageReportGraph.view.frame.width, pageReportGraph.view.frame.height+40), animated: true)
+            
+        }else{
+            
+            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray)
+            
+            UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                self.pageReportGraph.view.removeFromSuperview()
+                self.view.setNeedsDisplay()
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height - self.pageReportGraph.view.frame.height - 40 )
+                self.pageReportGraph.view.frame = CGRectMake(0, self.scrollView.contentSize.height - 100, self.view.frame.width, self.view.frame.width)
+                
+                
+                }, completion: { finished in
+                    
+                    UIView.transitionWithView(self.scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                        self.scrollView.addSubview(self.pageReportGraph.view)
+                        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height + self.pageReportGraph.view.frame.height + 40 )
+                        
+                        self.scrollView.scrollRectToVisible(CGRectMake(self.pageReportGraph.view.frame.origin.x,self.pageReportGraph.view.frame.origin.y+100, self.pageReportGraph.view.frame.width, self.pageReportGraph.view.frame.height+40), animated: false)
+                        
+                        
+                        }, completion: { finished in
+                            
+                    })
+            })
         }
         
-        var xValues:[String] = []
+    }
+    
+    func serializeDataToPlot(report : NSDictionary) -> NSArray{
+        var rates: NSDictionary = report.objectForKey("rates") as! NSDictionary
+        var ideb: NSDictionary = report.objectForKey("ideb")as! NSDictionary
+        var initialYear = (report.objectForKey("year") as! String).toInt()!
+        var initialGrade = report.objectForKey("grade") as! Int
         
-        for i in initialGrade...(initialGrade+numberOfPoints-1){
-            xValues.append("\(i) ano")
+        var grades = PagerGraphViewController.selectXData(initialYear, initialGrade: initialGrade)
+        
+        var idebGrades : NSArray!
+        
+        var idebScores : NSArray!
+        
+        var idebStatus = ideb.objectForKey("status") as! String
+        
+        if idebStatus == "unavailable"{
+            idebGrades = []
+            idebScores = []
+            
+        }else{
+            idebGrades = ideb.objectForKey("ideb_years") as! NSArray
+            idebScores = ideb.objectForKey("ideb") as! NSArray
         }
+        var evasionScores = rates.objectForKey("evasion") as! NSArray
+        var performanceScores = rates.objectForKey("performance") as! NSArray
+        var distortionScores = rates.objectForKey("distortion") as! NSArray
         
-        var newChart = EnTurmaLineChartView(doubleLineGraphframe: chartViewFrame, xValues: xValues, y1Values: y1Valeus, y2Values: y2Values, graphTitleString: graphTitleString, graphTextDescription: graphDescription)
-        
-        newChart.animate(yAxisDuration: 2.0)
-        return newChart
+        return [idebGrades,idebScores, evasionScores,performanceScores,distortionScores, grades]
     }
     
-    func createViewController(title:String, graph : EnTurmaLineChartView) -> UIViewController{
-        var controller : UIViewController = UIViewController()
-        controller.title = title
-        controller.view.addSubview(graph)
-        return controller
-    }
+    
 
-    
-    
-    
-    func titleForItemSelected(pickerView: UIPickerView,componet: Int) -> String{
-        var title = self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(componet), forComponent: componet)
-        return title
-    }
-
-    @IBAction func newCompare(sender: AnyObject) {
-        self.pageMenu!.view.removeFromSuperview()
-        self.newCompare.hidden = true
-        self.firstPicker.hidden = false
-        self.secondPicker.hidden = false
-    }
     
 }

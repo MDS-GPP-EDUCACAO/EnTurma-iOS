@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class RESTFullManager {
-    private var URL_BASE = "http://www.projetoenturma.com.br/"
+    private var URL_BASE = "http://192.168.0.14:3000/"
     private var params : NSDictionary
     
     init(params : NSDictionary){
@@ -44,10 +44,14 @@ class RESTFullManager {
 
     
     private func genericRequest(url: String,success : (jsonObject : NSDictionary)-> Void, failure: ()-> Void){
-        Alamofire.request(.GET, url).responseJSON { (_, _, JSON, _) in
-            var jsonResponse = JSON as! NSDictionary
-            success(jsonObject: jsonResponse)
-        }        
+        Alamofire.request(.GET, url).responseJSON { (request, response, data, error) -> Void in
+            if error != nil{
+                println(error)
+                failure()
+            }else{
+                success(jsonObject: data as! NSDictionary)
+            }
+        }
     }
     
     
