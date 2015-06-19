@@ -180,14 +180,16 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var idebScores : NSArray!
         
-        if (ideb.objectForKey("status")?.isEqualToString("unavailable") != nil){
+        var idebStatus = ideb.objectForKey("status") as! String
+        
+        if idebStatus == "unavailable"{
             idebGrades = []
             idebScores = []
             
         }else{
-            var idebGrades = ideb.objectForKey("ideb_years") as! NSArray
+            idebGrades = ideb.objectForKey("ideb_years") as! NSArray
             
-            var idebScores = ideb.objectForKey("ideb") as! NSArray
+            idebScores = ideb.objectForKey("ideb") as! NSArray
 
             
         }
