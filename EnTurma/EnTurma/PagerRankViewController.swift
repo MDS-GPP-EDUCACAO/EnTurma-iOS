@@ -154,7 +154,6 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
         
         self.allRankedStates = ["evasion" : evasionParsed, "performance" : performanceParsed, "distortion" : distortionParsed, "ideb" : idebParsed]
         
-        println(jsonObject)
     }
     
     func serializeDataToDictionary(rate: NSArray, key : String) -> [Dictionary<String,String>]{

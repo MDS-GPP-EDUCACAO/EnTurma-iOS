@@ -251,6 +251,28 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
     }
     
+    internal static func selectXData(initialYear: Int, initialGrade: Int) -> NSArray{
+        var xValues : [String] = []
+        
+        var numberOfGrades = 9 - initialGrade
+        var numberOfYears = 2013 - initialYear
+        
+        var numberOfXData : Int
+        if numberOfGrades > numberOfYears{
+            
+            numberOfXData = numberOfYears
+            
+        }else{
+            
+            numberOfXData = numberOfGrades
+        }
+        
+        for i in 0...(numberOfXData){
+            xValues.append("\(i+initialYear)")
+        }
+        return xValues
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

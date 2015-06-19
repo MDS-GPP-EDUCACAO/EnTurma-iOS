@@ -18,6 +18,7 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var pageReportGraph: PagerGraphViewController!
     var activityIndicator : UIActivityIndicatorView?
     var activityLabel : UILabel?
+    var rankVC : PagerRankViewController!
     
     private var optionsForSelect = [
         ["2008","2009","2010","2011","2012","2013"],
@@ -94,11 +95,38 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
     func textFieldDidBeginEditing(textField: UITextField) {
         self.firstResponderIndex = textField.tag
         self.picker?.reloadAllComponents()
+        if textField.text.isEmpty{
+            textField.text = self.optionsForSelect[self.firstResponderIndex][0]
+        }
+    }
+    
+    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            
+            UIMenuController.sharedMenuController().setMenuVisible(false, animated: false)
+        });
+        if action == Selector("paste:"){
+            
+            return false
+            
+        }
+        
+        return false
     }
 
     
     @IBAction func requestRanking(sender: AnyObject) {
 
+        
+        if self.grade.text.isEmpty ||
+            self.year.text.isEmpty{
+                
+                UIAlertView().showFillFieldsAlert()
+                
+        }else{
+        
         self.removeKeybord()
         
         var year = self.year.text
@@ -110,31 +138,71 @@ class RankingViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         var rest = RESTFullManager(params: params)
         rest.requestRanking({ (jsonObject) -> Void in
-            println(jsonObject)
+            self.showActivityIndicator(false)
             
             self.showRanking(jsonObject)
-
-            self.showActivityIndicator(false)
             
         }, failure: { () -> Void in
             println("Error")
             self.showActivityIndicator(false)
         })
+            
+        }
 //
     }
     
     
+    
     func showRanking(jsonObject: NSDictionary){
         
-        let rank = PagerRankViewController(jsonObject: jsonObject)
-        rank.viewDidLoad()
+
+        var rankVCFrame = CGRectMake(view.frame.origin.x, year.frame.origin.y + 130, view.frame.width, 370)
         
-        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.width + rank.view.frame.height)
+        if rankVC == nil{
         
-        rank.view.frame = CGRectMake(view.frame.origin.x, year.frame.origin.y + 200, view.frame.width, 370)
+        rankVC = PagerRankViewController(jsonObject: jsonObject)
+        rankVC.viewDidLoad()
+        rankVC.view.frame = rankVCFrame
+
         
-        scrollView.addSubview(rank.view)
-        addChildViewController(rank)
+        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.width + rankVC.view.frame.height + 100)
+            
+        UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                
+            self.scrollView.scrollRectToVisible(CGRectMake(self.rankVC.view.frame.origin.x,self.rankVC.view.frame.origin.y+50, self.rankVC.view.frame.width, self.rankVC.view.frame.height), animated: true)
+            
+            
+            self.scrollView.addSubview(self.rankVC.view)
+                
+                }, completion: { finished in
+                    
+            })
+
+        
+        }else{
+            rankVC.view.removeFromSuperview()
+            view.setNeedsDisplay()
+            rankVC = PagerRankViewController(jsonObject: jsonObject)
+            rankVC.viewDidLoad()
+            rankVC.view.frame = rankVCFrame
+            
+
+            UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                
+                self.scrollView.scrollRectToVisible(CGRectMake(self.rankVC.view.frame.origin.x,self.rankVC.view.frame.origin.y+50, self.rankVC.view.frame.width, self.rankVC.view.frame.height), animated: true)
+                
+                
+                self.scrollView.addSubview(self.rankVC.view)
+                
+                }, completion: { finished in
+                    
+            })
+            
+            
+            
+        }
+        
+        
     }
     
     func showActivityIndicator(status : Bool){

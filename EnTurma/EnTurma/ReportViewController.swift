@@ -174,7 +174,8 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var initialYear = (jsonObject.objectForKey("year") as! String).toInt()!
         var initialGrade = jsonObject.objectForKey("grade") as! Int
         
-        var grades = self.selectXYears(initialYear, initialGrade: initialGrade)
+        var grades = PagerGraphViewController.selectXData(initialYear, initialGrade: initialGrade)
+       
         var idebGrades = ideb.objectForKey("ideb_years") as! NSArray
         
         var idebScores = ideb.objectForKey("ideb") as! NSArray
@@ -268,21 +269,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+   
     
-    func selectXGrades(initialYear: Int, initialGrade: Int) -> NSArray{
-        var xValues : [String] = []
-        for i in 0...(2013 - initialYear){
-            xValues.append("\(i+initialGrade)°ano")
-        }
-        return xValues
-    }
-    
-    func selectXYears(initialYear: Int, initialGrade: Int) -> NSArray{
-        var xValues : [String] = []
-        for i in 0...(2013 - initialYear){
-            xValues.append("\(i+initialYear)")
-        }
-        return xValues
-    }
     
 }
