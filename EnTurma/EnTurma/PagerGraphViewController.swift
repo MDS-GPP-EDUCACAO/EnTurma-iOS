@@ -179,7 +179,26 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("ideb_description", comment: "")
         var graphTitle = GraphTitles.ideb
-        var barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: grades, y1Values: firstClassScores, y2Values: secondClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+        
+        var barChart : UIView
+        
+        if grades.count > 0 {
+            barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: grades, y1Values: firstClassScores, y2Values: secondClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+        }else{
+            
+            barChart = UIView(frame: chartViewFrame)
+            barChart.backgroundColor = .whiteColor()
+            var noIdebExceptionLabel = UILabel(frame: CGRectMake(0, barChart.center.y, barChart.frame.width, barChart.frame.height/5))
+            noIdebExceptionLabel.text = "Desculpe, mais não houve IDEB nesse ano."
+            noIdebExceptionLabel.textColor = .redColor()
+            noIdebExceptionLabel.numberOfLines = 2
+            noIdebExceptionLabel.textAlignment = .Center
+            noIdebExceptionLabel.font = UIFont().charValueLabelFont
+            
+            barChart.addSubview(noIdebExceptionLabel)
+            
+        }
+
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(barChart)
@@ -241,7 +260,25 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("ideb_description", comment: "")
         var graphTitle = GraphTitles.ideb
-        var barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+        
+        var barChart : UIView
+        
+        if grades.count > 0 {
+            barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+        }else{
+            
+            barChart = UIView(frame: chartViewFrame)
+            barChart.backgroundColor = .whiteColor()
+            var noIdebExceptionLabel = UILabel(frame: CGRectMake(0, barChart.center.y, barChart.frame.width, barChart.frame.height/5))
+            noIdebExceptionLabel.text = "Desculpe, mais não houve IDEB nesse ano."
+            noIdebExceptionLabel.textColor = .redColor()
+            noIdebExceptionLabel.numberOfLines = 2
+            noIdebExceptionLabel.textAlignment = .Center
+            noIdebExceptionLabel.font = UIFont().charValueLabelFont
+            
+            barChart.addSubview(noIdebExceptionLabel)
+
+        }
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(barChart)

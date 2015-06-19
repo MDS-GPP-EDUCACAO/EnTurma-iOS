@@ -176,13 +176,25 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var grades = PagerGraphViewController.selectXData(initialYear, initialGrade: initialGrade)
        
-        var idebGrades = ideb.objectForKey("ideb_years") as! NSArray
+        var idebGrades : NSArray!
         
-        var idebScores = ideb.objectForKey("ideb") as! NSArray
+        var idebScores : NSArray!
+        
+        if (ideb.objectForKey("status")?.isEqualToString("unavailable") != nil){
+            idebGrades = []
+            idebScores = []
+            
+        }else{
+            var idebGrades = ideb.objectForKey("ideb_years") as! NSArray
+            
+            var idebScores = ideb.objectForKey("ideb") as! NSArray
+
+            
+        }
         var evasionScores = rates.objectForKey("evasion") as! NSArray
         var performanceScores = rates.objectForKey("performance") as! NSArray
         var distortionScores = rates.objectForKey("distortion") as! NSArray
-        
+
         
         if(pageReportGraph == nil){
             
