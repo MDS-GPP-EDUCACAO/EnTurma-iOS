@@ -72,7 +72,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         
         xAxis.enabled = true
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
-        xAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        xAxis.labelFont = UIFont().chartAxixLabelFont   
         xAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         xAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         xAxis.labelWidth = 2
@@ -82,7 +82,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         leftAxis.startAtZeroEnabled = true
         leftAxis.drawGridLinesEnabled = true
         leftAxis.drawLimitLinesBehindDataEnabled = true
-        leftAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        leftAxis.labelFont = UIFont().chartAxixLabelFont
         leftAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         leftAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         
@@ -90,7 +90,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         
         rightAxis.enabled = false
         legend.position = ChartLegend.ChartLegendPosition.BelowChartCenter
-        legend.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        legend.font = UIFont().charValueLabelFont
         legend.textColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         legend.form = ChartLegend.ChartLegendForm.Square
         
@@ -100,7 +100,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         let descriptionButtonFrame = CGRectMake(0, -10 , bounds.width, 25)
         let descriptionButton = UIButton(frame: descriptionButtonFrame)
         descriptionButton.titleLabel!.textAlignment = .Center
-        descriptionButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Medium", size: 25)!
+        descriptionButton.titleLabel!.font = UIFont().chartDescriptionButtonFont
         descriptionButton.setTitle(graphTitle, forState: .Normal)
         descriptionButton.setTitleColor(
             UIColor(
@@ -156,7 +156,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSet: dataSet1 as BarChartDataSet)
         
         barChartData.groupSpace = 0.5
-        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
+        barChartData.setValueFont(UIFont().barChartDataFont)
         
         data = barChartData
     }
@@ -177,7 +177,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSets: dataSets as? [BarChartDataSet])
         
         barChartData.groupSpace = 0.5
-        barChartData.setValueFont(UIFont(name: "HelveticaNeue-Light",size:10.0))
+        barChartData.setValueFont(UIFont().barChartDataFont)
         barChartData.highlightEnabled = false
     
         data = barChartData

@@ -123,7 +123,7 @@ class PagerRankViewController: UIViewController, CAPSPageMenuDelegate {
             .MenuHeight(40.0),
             .SelectedMenuItemLabelColor(UIColor.blackColor()),
             .UnselectedMenuItemLabelColor(UIColor(red: 127/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1.0)),
-            .MenuItemFont(UIFont(name: "HelveticaNeue-Medium", size: 12.0)!),
+            .MenuItemFont(UIFont().pagerMenuItemFont),
             .UseMenuLikeSegmentedControl(true),
             .MenuItemSeparatorRoundEdges(false),
             .SelectionIndicatorHeight(2.0),

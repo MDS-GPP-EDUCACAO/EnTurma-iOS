@@ -36,6 +36,8 @@
 		A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */; };
 		A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C579B81B2A605600569634 /* GraphDescriptionView.swift */; };
 		A4D078DB1B2B090600E92920 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */; };
+		A4D0F52F1B345110007CAB55 /* AlertViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D0F52E1B345110007CAB55 /* AlertViewExtension.swift */; };
+		A4D0F5311B34518F007CAB55 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D0F5301B34518F007CAB55 /* UIFontExtension.swift */; };
 		A4E12A6C1B3316A400B0FE6F /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */; };
 		A4E12A6E1B33173300B0FE6F /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6D1B33173300B0FE6F /* RankingCell.swift */; };
 		A4E12A711B331AB800B0FE6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4E12A701B331AB800B0FE6F /* Localizable.strings */; };
@@ -128,6 +130,8 @@
 		A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerGraphViewController.swift; sourceTree = "<group>"; };
 		A4C579B81B2A605600569634 /* GraphDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDescriptionView.swift; sourceTree = "<group>"; };
 		A4D078DA1B2B090600E92920 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = Pods/PageMenu/Classes/CAPSPageMenu.swift; sourceTree = "<group>"; };
+		A4D0F52E1B345110007CAB55 /* AlertViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewExtension.swift; sourceTree = "<group>"; };
+		A4D0F5301B34518F007CAB55 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		A4E12A6D1B33173300B0FE6F /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		A4E12A701B331AB800B0FE6F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		A48DF3111B28B6C000716E54 /* EnTurma */ = {
 			isa = PBXGroup;
 			children = (
+				A4D0F52D1B34507F007CAB55 /* Extensions */,
 				C022E6D31B2A81E9009B0E3A /* RESTFull */,
 				C09DEB1C1B30454D003E842C /* ViewController */,
 				A48DF3161B28B6C000716E54 /* ViewController.swift */,
@@ -262,6 +267,15 @@
 				A4C127541B30F76D0013B978 /* PagerGraphViewController.swift */,
 			);
 			name = Graphs;
+			sourceTree = "<group>";
+		};
+		A4D0F52D1B34507F007CAB55 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4D0F52E1B345110007CAB55 /* AlertViewExtension.swift */,
+				A4D0F5301B34518F007CAB55 /* UIFontExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		A4E12A681B33116B00B0FE6F /* Ranking */ = {
@@ -579,7 +593,9 @@
 			files = (
 				A4C579BA1B2A605700569634 /* GraphDescriptionView.swift in Sources */,
 				A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */,
+				A4D0F5311B34518F007CAB55 /* UIFontExtension.swift in Sources */,
 				A4C127511B30C3CC0013B978 /* EnTurmaBarChartView.swift in Sources */,
+				A4D0F52F1B345110007CAB55 /* AlertViewExtension.swift in Sources */,
 				A4C127551B30F76D0013B978 /* PagerGraphViewController.swift in Sources */,
 				A4E12A6C1B3316A400B0FE6F /* RankingTableViewController.swift in Sources */,
 				C09DEB201B304589003E842C /* CompareViewController.swift in Sources */,

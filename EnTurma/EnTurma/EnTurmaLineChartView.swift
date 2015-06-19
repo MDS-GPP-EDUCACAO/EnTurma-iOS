@@ -70,7 +70,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         xAxis.enabled = true
         xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
-        xAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        xAxis.labelFont = UIFont().chartAxixLabelFont
         xAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         xAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         xAxis.labelWidth = 2
@@ -80,7 +80,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         leftAxis.startAtZeroEnabled = true
         leftAxis.drawGridLinesEnabled = true
         leftAxis.drawLimitLinesBehindDataEnabled = true
-        leftAxis.labelFont = UIFont(name: "HelveticaNeue-Bold", size: 8)!
+        leftAxis.labelFont = UIFont().chartAxixLabelFont
         leftAxis.labelTextColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         leftAxis.axisLineColor = UIColor(white: 0, alpha: 0)
         
@@ -88,7 +88,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         rightAxis.enabled = false
         legend.position = ChartLegend.ChartLegendPosition.BelowChartCenter
-        legend.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        legend.font = UIFont().charValueLabelFont
         legend.textColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1)
         legend.form = ChartLegend.ChartLegendForm.Line
         
@@ -96,7 +96,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         let descriptionButtonFrame = CGRectMake(0,-10 , bounds.width, 25)
         let descriptionButton = UIButton(frame: descriptionButtonFrame)
         descriptionButton.titleLabel!.textAlignment = .Center
-        descriptionButton.titleLabel!.font = UIFont(name: "HelveticaNeue-Medium", size: 25)!
+        descriptionButton.titleLabel!.font = UIFont().chartDescriptionButtonFont
         descriptionButton.setTitle(graphTitle, forState: .Normal)
         descriptionButton.setTitleColor(
             UIColor(
@@ -167,7 +167,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         let labelFrame1 = CGRectMake(0, frame.height - 5 , frame.width, 15)
         valueLabel1 = UILabel(frame: labelFrame1)
         valueLabel1.textAlignment = .Center
-        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        valueLabel1.font = UIFont().charValueLabelFont
         valueLabel1.text = ""
         addSubview(valueLabel1);
         
@@ -218,13 +218,13 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         let labelFrame1 = CGRectMake(center.x - 45, frame.height - 5 , frame.width/2, 15)
         valueLabel1 = UILabel(frame: labelFrame1)
-        valueLabel1.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        valueLabel1.font = UIFont().charValueLabelFont
         
         valueLabel1.text = ""
         
         let labelFrame2 = CGRectMake(center.x + 30, frame.height - 5 , frame.width/2, 15)
         valueLabel2 = UILabel(frame: labelFrame2)
-        valueLabel2.font = UIFont(name: "HelveticaNeue-Bold", size: 15)!
+        valueLabel2.font = UIFont().charValueLabelFont
         valueLabel2.text = ""
         
         addSubview(valueLabel1);

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
-
+    
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var year: UITextField!
@@ -49,8 +49,6 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         tap.numberOfTouchesRequired = 1
         self.scrollView.addGestureRecognizer(tap)
         
-        
-        
         self.activityLabel = UILabel(frame: CGRectMake(self.view.frame.width/2 - 150, self.view.frame.height/2-35, 300, 20))
         self.activityLabel!.text = "Requisitando Dados"
         self.activityLabel!.textColor = UIColor.grayColor()
@@ -65,7 +63,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         self.title = "Relatório"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,19 +92,19 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       var text = self.optionsForSelect[self.firstResponderIndex][row]
+        var text = self.optionsForSelect[self.firstResponderIndex][row]
         switch self.firstResponderIndex{
-            case 0:
+        case 0:
             self.state.text = text
-            case 1:
+        case 1:
             self.grade.text = text
-            case 2:
+        case 2:
             self.year.text = text
-            case 3:
+        case 3:
             self.test_type.text = text
-            case 4:
+        case 4:
             self.test_type.text = text
-            case 5:
+        case 5:
             self.local.text = text
         default:
             self.test_type.text = text
@@ -117,7 +115,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
-
+        
         self.firstResponderIndex = textField.tag
         self.picker?.reloadAllComponents()
         
@@ -128,8 +126,24 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func requestReport(sender: AnyObject) {
-        self.prepareParams()
+        
+        if self.state.text.isEmpty ||
+            self.grade.text.isEmpty ||
+            self.year.text.isEmpty ||
+            self.test_type.text.isEmpty ||
+            self.local.text.isEmpty{
+                
+                UIAlertView().showFillFieldsAlert()
+                
+        }else{
+            
+            self.prepareParams()
+            
+        }
+        
     }
+    
+
     
     private func prepareParams(){
         //request Rest
@@ -140,7 +154,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var local = self.local.text
         
         var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": "Total"]
-
+        
         self.activityIndicator?.startAnimating()
         self.showActivityIndicator(true)
         var rest = RESTFullManager(params: params)
@@ -148,8 +162,8 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.plotData(jsonObject)
             self.activityIndicator?.stopAnimating()
             self.showActivityIndicator(false)
-        }, failure: { () -> Void in
-            
+            }, failure: { () -> Void in
+                
         })
     }
     
@@ -174,7 +188,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
             
             pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width)
-        
+            
             UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 
                 self.scrollView.addSubview(self.pageReportGraph.view)
@@ -188,35 +202,35 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             scrollView.contentSize = CGSizeMake(view.frame.width, scrollView.contentSize.height + pageReportGraph.view.frame.height + 40 )
             
             scrollView.scrollRectToVisible(CGRectMake(pageReportGraph.view.frame.origin.x,pageReportGraph.view.frame.origin.y+100, pageReportGraph.view.frame.width, pageReportGraph.view.frame.height+40), animated: true)
-
+            
         }else{
             
             pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
             
-
+            
             
             UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 self.pageReportGraph.view.removeFromSuperview()
                 self.view.setNeedsDisplay()
                 self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height - self.pageReportGraph.view.frame.height - 40 )
                 self.pageReportGraph.view.frame = CGRectMake(0, self.scrollView.contentSize.height - 100, self.view.frame.width, self.view.frame.width)
-
+                
                 
                 }, completion: { finished in
                     
                     UIView.transitionWithView(self.scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                         self.scrollView.addSubview(self.pageReportGraph.view)
                         self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height + self.pageReportGraph.view.frame.height + 40 )
-
-                        self.scrollView.scrollRectToVisible(CGRectMake(self.pageReportGraph.view.frame.origin.x,self.pageReportGraph.view.frame.origin.y+100, self.pageReportGraph.view.frame.width, self.pageReportGraph.view.frame.height+40), animated: false)
-
-
-                    }, completion: { finished in
                         
-                })
+                        self.scrollView.scrollRectToVisible(CGRectMake(self.pageReportGraph.view.frame.origin.x,self.pageReportGraph.view.frame.origin.y+100, self.pageReportGraph.view.frame.width, self.pageReportGraph.view.frame.height+40), animated: false)
+                        
+                        
+                        }, completion: { finished in
+                            
+                    })
             })
             
-
+            
             
         }
         
@@ -235,11 +249,11 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             return false
             
         }
-
+        
         return false
     }
     
-
+    
     func showActivityIndicator(status : Bool){
         if status{
             UIView.animateWithDuration(0.2, animations: { () -> Void in
@@ -270,5 +284,5 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         return xValues
     }
-  
+    
 }
