@@ -50,6 +50,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.scrollView.addGestureRecognizer(tap)
         
         
+        
         self.activityLabel = UILabel(frame: CGRectMake(self.view.frame.width/2 - 150, self.view.frame.height/2-35, 300, 20))
         self.activityLabel!.text = "Requisitando Dados"
         self.activityLabel!.textColor = UIColor.grayColor()
@@ -115,8 +116,14 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // MARK: - TextFild  Delegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        
+
         self.firstResponderIndex = textField.tag
         self.picker?.reloadAllComponents()
+        
+        if textField.text.isEmpty{
+            textField.text = self.optionsForSelect[self.firstResponderIndex][0]
+        }
     }
     
     
@@ -153,8 +160,8 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var initialYear = (jsonObject.objectForKey("year") as! String).toInt()!
         var initialGrade = jsonObject.objectForKey("grade") as! Int
         
-        var grades = self.selectXGrades(initialYear, initialGrade: initialGrade)
-        var idebGrades = ideb.objectForKey("ideb_grade_ids") as! NSArray
+        var grades = self.selectXYears(initialYear, initialGrade: initialGrade)
+        var idebGrades = ideb.objectForKey("ideb_years") as! NSArray
         
         var idebScores = ideb.objectForKey("ideb") as! NSArray
         var evasionScores = rates.objectForKey("evasion") as! NSArray
@@ -216,6 +223,22 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
+    override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+        
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            
+            UIMenuController.sharedMenuController().setMenuVisible(false, animated: false)
+        });
+        if action == Selector("paste:"){
+            
+            return false
+            
+        }
+
+        return false
+    }
+    
 
     func showActivityIndicator(status : Bool){
         if status{
@@ -236,6 +259,14 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var xValues : [String] = []
         for i in 0...(2013 - initialYear){
             xValues.append("\(i+initialGrade)°ano")
+        }
+        return xValues
+    }
+    
+    func selectXYears(initialYear: Int, initialGrade: Int) -> NSArray{
+        var xValues : [String] = []
+        for i in 0...(2013 - initialYear){
+            xValues.append("\(i+initialYear)")
         }
         return xValues
     }
