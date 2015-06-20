@@ -180,6 +180,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     @IBAction func requestCompare(sender: AnyObject) {
         self.removeKeybord()
+        
         if self.firstYear.text.isEmpty ||
         self.firstState.text.isEmpty ||
         self.firstLocal.text.isEmpty ||
