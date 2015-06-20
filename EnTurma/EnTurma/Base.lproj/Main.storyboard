@@ -8,7 +8,7 @@
         <!--Ranking-->
         <scene sceneID="38S-iV-VOz">
             <objects>
-                <viewController id="tlP-qh-KPH" customClass="RankingViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="tlP-qh-KPH" customClass="RankingViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jjh-xL-3lp"/>
                         <viewControllerLayoutGuide type="bottom" id="xaD-Dv-tf8"/>
@@ -161,7 +161,7 @@
         <!--Ranking Table View Controller-->
         <scene sceneID="1v4-sc-JqQ">
             <objects>
-                <viewController storyboardIdentifier="RankingTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hbr-1m-QGS" customClass="RankingTableViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RankingTableView" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hbr-1m-QGS" customClass="RankingTableViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lLC-ay-AyY"/>
                         <viewControllerLayoutGuide type="bottom" id="tMg-pH-zMT"/>
@@ -183,19 +183,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDR-sf-k1Y">
-                                                    <rect key="frame" x="8" y="11" width="17" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="16.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.24%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-Lr-n6Z">
-                                                    <rect key="frame" x="543" y="11" width="49" height="21"/>
+                                                    <rect key="frame" x="543" y="11" width="48.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distrito Federal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-cI-EyB">
-                                                    <rect key="frame" x="245" y="12" width="110" height="21"/>
+                                                    <rect key="frame" x="245" y="12" width="110" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -246,7 +246,7 @@
                                 <rect key="frame" x="0.0" y="88" width="600" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mais não houve IDEB nesse ano." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E4i-6D-DYO">
-                                        <rect key="frame" x="16" y="27" width="568" height="21"/>
+                                        <rect key="frame" x="16" y="27" width="568" height="20.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.68613795230263153" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -308,7 +308,7 @@
         <!--Relatório-->
         <scene sceneID="SCc-4p-Tag">
             <objects>
-                <viewController id="i6a-9f-HGW" customClass="ReportViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="i6a-9f-HGW" customClass="ReportViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YmE-J7-2eV"/>
                         <viewControllerLayoutGuide type="bottom" id="s6d-X3-bPi"/>
@@ -500,7 +500,7 @@
         <!--Comparar-->
         <scene sceneID="YdJ-Ja-Ziy">
             <objects>
-                <viewController id="Z6N-zB-X5H" customClass="CompareViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Z6N-zB-X5H" customClass="CompareViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zia-si-4WV"/>
                         <viewControllerLayoutGuide type="bottom" id="nMk-r2-z3u"/>
@@ -771,7 +771,7 @@
         <!--Sobre-->
         <scene sceneID="OA3-zI-HiL">
             <objects>
-                <viewController id="Tzg-DV-zY1" customClass="ViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Tzg-DV-zY1" customClass="ViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qpz-Di-aTK"/>
                         <viewControllerLayoutGuide type="bottom" id="Apd-pQ-ztB"/>
@@ -838,7 +838,7 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
         <!--Tab Bar Controller-->
         <scene sceneID="xLn-yw-JKY">
             <objects>
-                <tabBarController id="KHz-Nm-gO8" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="crossDissolve" id="KHz-Nm-gO8" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Pzu-Tv-Ewf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -860,7 +860,7 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
         <!--Contato-->
         <scene sceneID="1V2-YQ-9Ia">
             <objects>
-                <viewController id="72h-FG-dp0" customClass="ContactViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="72h-FG-dp0" customClass="ContactViewController" customModule="EnTurma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jbj-g3-xJd"/>
                         <viewControllerLayoutGuide type="bottom" id="MCo-0u-wcp"/>
@@ -876,7 +876,7 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiD-Mp-qeh">
-                                <rect key="frame" x="228" y="471" width="145" height="38"/>
+                                <rect key="frame" x="227.5" y="471" width="145" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="GKK-AB-HxG"/>
                                     <constraint firstAttribute="height" constant="38" id="b5M-1i-DtH"/>
