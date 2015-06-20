@@ -11,6 +11,8 @@ import Alamofire
 
 class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBOutlet weak var secondFont: UITextField!
+    @IBOutlet weak var firstFont: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var secondTestType: UITextField!
@@ -28,10 +30,12 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     private var optionsForSelect = [["2008","2009","2010","2011","2012","2013"],["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
         ["Total", "Urbana", "Rural"],
         ["Total","Privada", "Publica"],
+        ["Total", "Municipal","Estadual","Federal"],
         ["1° ano","2° ano","3° ano","4° ano","5° ano","6° ano","7° ano","8° ano","9° ano"],
         ["2008","2009","2010","2011","2012","2013"],["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
         ["Total", "Urbana", "Rural"],
-        ["Total","Privada", "Publica"]]
+        ["Total","Privada", "Publica"],
+        ["Total", "Municipal","Estadual","Federal"]]
     
     var firstResponderIndex = 0
      var picker : UIPickerView?
@@ -54,6 +58,9 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.secondLocal.inputView = self.picker
         self.secondTestType.inputView = self.picker
         self.grade.inputView = self.picker
+        self.firstFont.inputView = self.picker
+        self.secondFont.inputView = self.picker
+        
         
         var tap = UITapGestureRecognizer(target: self, action: "removeKeybord")
         tap.numberOfTapsRequired = 1
@@ -108,18 +115,49 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.firstLocal.text = text
         case 3:
             self.firstTestType.text = text
+            if  text == "Publica"{
+                self.showFontTextFild(0)
+            }else{
+               self.hideFontTextfild(0)
+            }
         case 4:
-            self.grade.text = text
+            self.firstFont.text = text
         case 5:
-            self.secondYear.text = text
+            self.grade.text = text
         case 6:
-            self.secondState.text = text
+            self.secondYear.text = text
         case 7:
-            self.secondLocal.text = text
+            self.secondState.text = text
         case 8:
+            self.secondLocal.text = text
+        case 9:
             self.secondTestType.text = text
+            if  text == "Publica"{
+                self.showFontTextFild(1)
+            }else{
+                self.hideFontTextfild(1)
+            }
+        case 10:
+            self.secondFont.text = text
         default:
             self.secondTestType.text = text
+        }
+    }
+    
+    
+    func showFontTextFild(index : Int){
+        if(index == 0){
+            self.firstFont.hidden = false
+        }else{
+            self.secondFont.hidden = false
+        }
+    }
+    
+    func hideFontTextfild(index : Int){
+        if(index == 0){
+            self.firstFont.hidden = true
+        }else{
+            self.secondFont.hidden = true
         }
     }
     
@@ -141,7 +179,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     @IBAction func requestCompare(sender: AnyObject) {
-        
+        self.removeKeybord()
         if self.firstYear.text.isEmpty ||
         self.firstState.text.isEmpty ||
         self.firstLocal.text.isEmpty ||
@@ -169,20 +207,20 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         var secondTestType = self.secondTestType.text
         var secondLocal = self.secondLocal.text
         var secondYear = self.secondYear.text
+        var firtPublicTest = self.firstFont.text
+        var secondPublicTest = self.secondFont.text
         
-        var params = ["first_year":firstYear, "grade":grade, "first_state":firstState, "first_test_type":firstTestType, "first_local":firstLocal,"first_public_type": "Total","second_year":secondYear, "second_state":secondState, "second_test_type":secondTestType, "second_local":secondLocal,"second_public_type": "Total"]
+        var params = ["first_year":firstYear, "grade":grade, "first_state":firstState, "first_test_type":firstTestType, "first_local":firstLocal,"first_public_type": firtPublicTest,"second_year":secondYear, "second_state":secondState, "second_test_type":secondTestType, "second_local":secondLocal,"second_public_type": secondPublicTest]
         
         self.showActivityIndicator(true)
         var rest = RESTFullManager(params: params)
         rest.requestCompare({ (jsonObject) -> Void in
             self.plotData(jsonObject.objectForKey("first_report") as! NSDictionary, secondReport: jsonObject.objectForKey("second_report") as! NSDictionary)
-            println(jsonObject)
             self.showActivityIndicator(false)
             }, failure: { () -> Void in
                 UIAlertView().showFailRequest()
                 self.showActivityIndicator(false)
         })
-        
     }
     
     func showActivityIndicator(status : Bool){

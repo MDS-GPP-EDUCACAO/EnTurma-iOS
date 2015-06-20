@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KHz-Nm-gO8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -405,13 +405,13 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BaK-hO-upw">
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BaK-hO-upw">
                                         <rect key="frame" x="8" y="318" width="584" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="delegate" destination="i6a-9f-HGW" id="JIe-Os-7W3"/>
+                                            <outlet property="delegate" destination="i6a-9f-HGW" id="vf7-J6-m68"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -485,6 +485,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Relatório" image="reportIcon" id="ymq-fd-2TG"/>
                     <connections>
+                        <outlet property="font" destination="BaK-hO-upw" id="tIB-Ag-gdB"/>
                         <outlet property="grade" destination="dmI-tx-QP6" id="mVS-2Q-1on"/>
                         <outlet property="local" destination="h2e-B5-6Nj" id="c43-N7-kV6"/>
                         <outlet property="scrollView" destination="uV6-Nb-Pfp" id="rlO-s9-mCG"/>
@@ -549,16 +550,7 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="Fom-BO-VUM"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ano" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-J6-NHu">
-                                        <rect key="frame" x="316" y="115" width="275" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Z6N-zB-X5H" id="3u4-e5-t7z"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Estado" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVW-KC-Fu7">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Estado" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVW-KC-Fu7">
                                         <rect key="frame" x="316" y="170" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -576,7 +568,7 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="jen-0h-mN7"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Local" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-t2-aEo">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Local" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-t2-aEo">
                                         <rect key="frame" x="316" y="225" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -594,7 +586,7 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="Llz-vK-lgm"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Rede" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jB-f7-upq">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Rede" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jB-f7-upq">
                                         <rect key="frame" x="316" y="280" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -612,7 +604,7 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="Tbs-Tb-i7r"/>
                                         </connections>
                                     </textField>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOY-yf-ZY8">
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOY-yf-ZY8">
                                         <rect key="frame" x="10" y="335" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -621,7 +613,7 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="OSX-R8-iYw"/>
                                         </connections>
                                     </textField>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRu-fu-Psa">
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRu-fu-Psa">
                                         <rect key="frame" x="316" y="335" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -653,7 +645,7 @@
                                             <action selector="requestCompare:" destination="Z6N-zB-X5H" eventType="touchUpInside" id="hOI-UH-wWR"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Turma" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-cf-DYP">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Turma" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-cf-DYP">
                                         <rect key="frame" x="163" y="390" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -662,15 +654,15 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="hpK-Ii-Zki"/>
                                         </connections>
                                     </textField>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-je-69T">
-                                        <rect key="frame" x="0.0" y="0.0" width="598" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="Nmo-re-kYN"/>
-                                        </constraints>
-                                        <items>
-                                            <navigationItem title="Comparar Turmas" id="Ikg-G5-e9z"/>
-                                        </items>
-                                    </navigationBar>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ano" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-J6-NHu">
+                                        <rect key="frame" x="316" y="115" width="275" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Z6N-zB-X5H" id="3u4-e5-t7z"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tgU-J6-NHu" firstAttribute="height" secondItem="Yf5-qm-7j7" secondAttribute="height" id="0KJ-Ui-9qI"/>
@@ -691,7 +683,6 @@
                                     <constraint firstItem="Nfk-Pl-FZt" firstAttribute="height" secondItem="I8I-pk-6qp" secondAttribute="height" id="Kvp-25-Rq6"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="centerX" secondItem="mzQ-t2-aEo" secondAttribute="centerX" id="Lc4-KJ-2Jn"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="top" secondItem="mzQ-t2-aEo" secondAttribute="bottom" constant="15" id="LfN-8G-Iho"/>
-                                    <constraint firstAttribute="trailing" secondItem="ql2-je-69T" secondAttribute="trailing" id="MBI-3k-bMn"/>
                                     <constraint firstItem="Yf5-qm-7j7" firstAttribute="height" secondItem="GRr-qH-EoY" secondAttribute="height" id="Pgt-N0-bie"/>
                                     <constraint firstItem="Nfk-Pl-FZt" firstAttribute="leading" secondItem="iia-dj-0YQ" secondAttribute="trailing" constant="15" id="QNX-QY-SQu"/>
                                     <constraint firstItem="YIW-cf-DYP" firstAttribute="height" secondItem="7jB-f7-upq" secondAttribute="height" id="RXt-VD-zgi"/>
@@ -710,7 +701,6 @@
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="top" secondItem="7jB-f7-upq" secondAttribute="bottom" constant="15" id="g7I-gR-qRl"/>
                                     <constraint firstItem="FnA-05-Cx1" firstAttribute="trailing" secondItem="Dcv-uT-rjR" secondAttribute="trailingMargin" id="gFQ-gV-W4S"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="width" secondItem="mzQ-t2-aEo" secondAttribute="width" id="gzk-WS-f8u"/>
-                                    <constraint firstItem="ql2-je-69T" firstAttribute="top" secondItem="Dcv-uT-rjR" secondAttribute="top" id="hTl-l6-NSO"/>
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="height" secondItem="7jB-f7-upq" secondAttribute="height" id="hsO-6W-0Ss"/>
                                     <constraint firstItem="MVW-KC-Fu7" firstAttribute="width" secondItem="mzQ-t2-aEo" secondAttribute="width" id="iYn-qs-RNK"/>
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="centerX" secondItem="7jB-f7-upq" secondAttribute="centerX" id="jN0-hd-utw"/>
@@ -723,7 +713,6 @@
                                     <constraint firstItem="vbK-fg-kzT" firstAttribute="centerX" secondItem="GRr-qH-EoY" secondAttribute="centerX" id="nmd-8E-jrD"/>
                                     <constraint firstItem="I8I-pk-6qp" firstAttribute="top" secondItem="iia-dj-0YQ" secondAttribute="bottom" constant="-1" id="nvS-ih-uhe"/>
                                     <constraint firstItem="I8I-pk-6qp" firstAttribute="width" secondItem="Yf5-qm-7j7" secondAttribute="width" id="ooD-oo-DxH"/>
-                                    <constraint firstItem="ql2-je-69T" firstAttribute="leading" secondItem="Dcv-uT-rjR" secondAttribute="leading" id="qsj-Zf-88u"/>
                                     <constraint firstItem="yOY-yf-ZY8" firstAttribute="top" secondItem="BEX-Pj-f8i" secondAttribute="bottom" constant="15" id="r8e-3z-pTe"/>
                                     <constraint firstItem="Yf5-qm-7j7" firstAttribute="top" secondItem="I8I-pk-6qp" secondAttribute="bottom" constant="15" id="r9y-LY-xHA"/>
                                     <constraint firstItem="MVW-KC-Fu7" firstAttribute="height" secondItem="mzQ-t2-aEo" secondAttribute="height" id="rFk-Jn-E4N"/>
@@ -741,23 +730,37 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-je-69T">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="sbn-SI-Ae5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Comparar Turmas" id="Ikg-G5-e9z"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Dcv-uT-rjR" secondAttribute="centerY" id="7BL-wC-PSg"/>
                             <constraint firstAttribute="width" secondItem="Dcv-uT-rjR" secondAttribute="width" id="MzW-fB-S4S"/>
+                            <constraint firstItem="ql2-je-69T" firstAttribute="top" secondItem="6bx-uX-tB6" secondAttribute="topMargin" id="ZiZ-RZ-jYX"/>
                             <constraint firstAttribute="centerX" secondItem="Dcv-uT-rjR" secondAttribute="centerX" id="bVQ-Y3-Zue"/>
+                            <constraint firstItem="ql2-je-69T" firstAttribute="leading" secondItem="6bx-uX-tB6" secondAttribute="leadingMargin" constant="-16" id="dac-hg-ULb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ql2-je-69T" secondAttribute="trailing" constant="-16" id="ede-xv-7rR"/>
                             <constraint firstAttribute="height" secondItem="Dcv-uT-rjR" secondAttribute="height" id="zK3-2p-e6d"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comparar" image="compareIcon" id="Cpk-fO-YPJ"/>
                     <connections>
+                        <outlet property="firstFont" destination="yOY-yf-ZY8" id="Rtd-y4-osS"/>
                         <outlet property="firstLocal" destination="vbK-fg-kzT" id="IMx-Ki-J2j"/>
                         <outlet property="firstState" destination="GRr-qH-EoY" id="1Qi-Xv-khj"/>
                         <outlet property="firstTestType" destination="BEX-Pj-f8i" id="7Bz-0Z-yKe"/>
                         <outlet property="firstYear" destination="Yf5-qm-7j7" id="0yc-ux-rjt"/>
                         <outlet property="grade" destination="YIW-cf-DYP" id="nHg-Ie-i8w"/>
                         <outlet property="scrollView" destination="Dcv-uT-rjR" id="AU7-B3-XUm"/>
+                        <outlet property="secondFont" destination="NRu-fu-Psa" id="LX7-At-lDa"/>
                         <outlet property="secondLocal" destination="mzQ-t2-aEo" id="zFZ-DV-ZJ2"/>
                         <outlet property="secondState" destination="MVW-KC-Fu7" id="Vaa-fe-1sO"/>
                         <outlet property="secondTestType" destination="7jB-f7-upq" id="ceL-59-m0g"/>

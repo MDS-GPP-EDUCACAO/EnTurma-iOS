@@ -17,6 +17,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var test_type: UITextField!
     @IBOutlet weak var local: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var font: UITextField!
     
     var picker : UIPickerView?
     var firstResponderIndex = 0
@@ -42,6 +43,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.year.inputView = self.picker
         self.test_type.inputView = self.picker
         self.local.inputView = self.picker
+        self.font.inputView = self.picker
         self.scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height - 50)
         
         var tap = UITapGestureRecognizer(target: self, action: "removeKeybord")
@@ -102,8 +104,13 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.year.text = text
         case 3:
             self.test_type.text = text
+            if  text == "Publica"{
+                self.showFontTextFild()
+            }else{
+                self.hideFontTextfild()
+            }
         case 4:
-            self.test_type.text = text
+            self.font.text = text
         case 5:
             self.local.text = text
         default:
@@ -124,8 +131,17 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    func showFontTextFild(){
+        self.font.hidden = false
+    }
+    
+    func hideFontTextfild(){
+        self.font.hidden = true
+    }
+    
     
     @IBAction func requestReport(sender: AnyObject) {
+        self.removeKeybord()
         
         if self.state.text.isEmpty ||
             self.grade.text.isEmpty ||
@@ -152,8 +168,14 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var state = self.state.text
         var test_type = self.test_type.text
         var local = self.local.text
+        var publicType : String = ""
+        if(self.font.text.isEmpty){
+            publicType = "Total"
+        }else{
+            publicType = self.font.text
+        }
         
-        var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": "Total"]
+        var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": publicType]
         
         activityIndicator?.showActivityIndicator(true, parentView: scrollView, activityLabel: activityLabel!)
         
