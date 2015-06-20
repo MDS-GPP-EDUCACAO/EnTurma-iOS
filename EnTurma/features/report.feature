@@ -1,9 +1,9 @@
-Feature: Running a test
+Feature: 
   As user
   I want to view graphs about the class
   So that I can analyse this class
 
-  Scenario: Example steps
+  Scenario: Graphs Generated
     Given I am on the Welcome Screen
     Given I'm going to report tab
     Then I fill the form fields
