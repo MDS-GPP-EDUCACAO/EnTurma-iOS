@@ -56,7 +56,8 @@ class RankingTableViewController: UIViewController, UITableViewDelegate, UITable
         
         var cell: RankingCell = self.tableView.dequeueReusableCellWithIdentifier("RankingCell") as! RankingCell
         
-        cell.setupRankingCell(stateName, stateScore: stateScore, isChampion: isChampion, statePosition: NSString(format: "%d°",indexPath.row+1) as String)
+        
+        cell.setupRankingCell(stateName, stateScore: NSString(format: "%@%%", stateScore) as String, isChampion: isChampion, statePosition: NSString(format: "%d°",indexPath.row+1) as String)
         return cell
         
     }

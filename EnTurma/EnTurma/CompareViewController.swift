@@ -298,8 +298,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         var initialYear = (report.objectForKey("year") as! String).toInt()!
         var initialGrade = report.objectForKey("grade") as! Int
         
-        var grades = PagerGraphViewController.selectXData(initialYear, initialGrade: initialGrade)
-        
+        var grades = PagerGraphViewController.selectXDataInGrades(initialYear, initialGrade: initialGrade)
         var idebGrades : NSArray!
         
         var idebScores : NSArray!
