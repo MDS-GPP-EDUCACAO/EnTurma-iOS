@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class RESTFullManager {
-    private var URL_BASE = "http://192.168.0.14:3000/"
+    private var URL_BASE = "http://www.projetoenturma.com.br/"
     private var params : NSDictionary
     
     init(params : NSDictionary){
