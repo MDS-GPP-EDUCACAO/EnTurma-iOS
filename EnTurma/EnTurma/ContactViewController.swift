@@ -26,7 +26,7 @@ class ContactViewController: UIViewController,MFMailComposeViewControllerDelegat
         var picker = MFMailComposeViewController()
         picker.setToRecipients(["contatoenturma@gmail.com "])
         picker.mailComposeDelegate = self
-        picker.setSubject("EnTurma contato - iOS")
+        picker.setSubject("Sugestão par o enturma - IOS")
         picker.setMessageBody("", isHTML: false)
         
         presentViewController(picker, animated: true, completion: nil)

@@ -155,14 +155,15 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var params = ["year":year, "grade":grade, "state":state, "test_type":test_type, "local":local,"public_type": "Total"]
         
-        self.showActivityIndicator(true)
+        activityIndicator?.showActivityIndicator(true, parentView: scrollView, activityLabel: activityLabel!)
+        
         var rest = RESTFullManager(params: params)
         rest.requestReport({ (jsonObject) -> Void in
             self.plotData(jsonObject)
-            self.showActivityIndicator(false)
+            self.activityIndicator?.showActivityIndicator(false, parentView: self.scrollView, activityLabel: self.activityLabel!)
             }, failure: { () -> Void in
                 UIAlertView().showFailRequest()
-                self.showActivityIndicator(false)
+                self.activityIndicator?.showActivityIndicator(false, parentView: self.scrollView, activityLabel: self.activityLabel!)
         })
     }
     
@@ -260,19 +261,4 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    func showActivityIndicator(status : Bool){
-        if status{
-            self.activityIndicator?.startAnimating()
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.scrollView.alpha = 0
-                self.activityLabel?.alpha = 1
-            })
-        }else{
-            self.activityIndicator?.stopAnimating()
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.scrollView.alpha = 1
-                self.activityLabel?.alpha = 0
-            })
-        }
-    }
 }

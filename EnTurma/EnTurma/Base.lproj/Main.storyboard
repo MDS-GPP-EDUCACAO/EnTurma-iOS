@@ -113,7 +113,7 @@
                                     <constraint firstAttribute="height" constant="56" id="Peu-tm-Off"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Ranking" id="7nq-wE-e8B"/>
+                                    <navigationItem title="Ranking Entre Turmas" id="7nq-wE-e8B"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -183,19 +183,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDR-sf-k1Y">
-                                                    <rect key="frame" x="8" y="11" width="16.5" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="17" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.24%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-Lr-n6Z">
-                                                    <rect key="frame" x="543" y="11" width="48.5" height="21"/>
+                                                    <rect key="frame" x="543" y="11" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distrito Federal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-cI-EyB">
-                                                    <rect key="frame" x="245" y="12" width="110" height="20.5"/>
+                                                    <rect key="frame" x="245" y="12" width="110" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -246,7 +246,7 @@
                                 <rect key="frame" x="0.0" y="88" width="600" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mais não houve IDEB nesse ano." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E4i-6D-DYO">
-                                        <rect key="frame" x="16" y="27" width="568" height="20.5"/>
+                                        <rect key="frame" x="16" y="27" width="568" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.68613795230263153" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -468,7 +468,7 @@
                                     <constraint firstAttribute="height" constant="56" id="8rm-oT-q6L"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Relatório" id="eiV-51-NRQ"/>
+                                    <navigationItem title="Relatório Da Turma" id="eiV-51-NRQ"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -513,7 +513,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iia-dj-0YQ">
-                                        <rect key="frame" x="300" y="53" width="1" height="1"/>
+                                        <rect key="frame" x="300" y="80" width="1" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="jYj-J0-pge"/>
                                             <constraint firstAttribute="height" constant="1" id="km8-wK-SOF"/>
@@ -523,7 +523,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turma 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8I-pk-6qp">
-                                        <rect key="frame" x="10" y="53" width="275" height="20"/>
+                                        <rect key="frame" x="10" y="80" width="275" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="ndE-87-dch"/>
                                         </constraints>
@@ -532,13 +532,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turma 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfk-Pl-FZt">
-                                        <rect key="frame" x="316" y="53" width="275" height="20"/>
+                                        <rect key="frame" x="316" y="80" width="275" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ano" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yf5-qm-7j7">
-                                        <rect key="frame" x="10" y="88" width="275" height="40"/>
+                                        <rect key="frame" x="10" y="115" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="S48-78-jTn"/>
@@ -550,7 +550,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ano" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-J6-NHu">
-                                        <rect key="frame" x="316" y="88" width="275" height="40"/>
+                                        <rect key="frame" x="316" y="115" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -559,7 +559,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Estado" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVW-KC-Fu7">
-                                        <rect key="frame" x="316" y="143" width="275" height="40"/>
+                                        <rect key="frame" x="316" y="170" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -568,7 +568,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Estado" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRr-qH-EoY">
-                                        <rect key="frame" x="10" y="143" width="275" height="40"/>
+                                        <rect key="frame" x="10" y="170" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -577,7 +577,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Local" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-t2-aEo">
-                                        <rect key="frame" x="316" y="198" width="275" height="40"/>
+                                        <rect key="frame" x="316" y="225" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -586,7 +586,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Local" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbK-fg-kzT">
-                                        <rect key="frame" x="10" y="198" width="275" height="40"/>
+                                        <rect key="frame" x="10" y="225" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -595,7 +595,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Rede" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jB-f7-upq">
-                                        <rect key="frame" x="316" y="253" width="275" height="40"/>
+                                        <rect key="frame" x="316" y="280" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -604,7 +604,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Rede" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BEX-Pj-f8i">
-                                        <rect key="frame" x="10" y="253" width="275" height="40"/>
+                                        <rect key="frame" x="10" y="280" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -613,7 +613,7 @@
                                         </connections>
                                     </textField>
                                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOY-yf-ZY8">
-                                        <rect key="frame" x="10" y="308" width="275" height="40"/>
+                                        <rect key="frame" x="10" y="335" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -621,8 +621,17 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="OSX-R8-iYw"/>
                                         </connections>
                                     </textField>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRu-fu-Psa">
+                                        <rect key="frame" x="316" y="335" width="275" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Z6N-zB-X5H" id="rnQ-tW-r7M"/>
+                                        </connections>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-05-Cx1">
-                                        <rect key="frame" x="10" y="423" width="580" height="40"/>
+                                        <rect key="frame" x="10" y="450" width="580" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6Wb-Iw-YJy"/>
@@ -645,7 +654,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Turma" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIW-cf-DYP">
-                                        <rect key="frame" x="163" y="363" width="275" height="40"/>
+                                        <rect key="frame" x="163" y="390" width="275" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -653,21 +662,21 @@
                                             <outlet property="delegate" destination="Z6N-zB-X5H" id="hpK-Ii-Zki"/>
                                         </connections>
                                     </textField>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Fonte" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRu-fu-Psa">
-                                        <rect key="frame" x="316" y="308" width="275" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Z6N-zB-X5H" id="rnQ-tW-r7M"/>
-                                        </connections>
-                                    </textField>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-je-69T">
+                                        <rect key="frame" x="0.0" y="0.0" width="598" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="Nmo-re-kYN"/>
+                                        </constraints>
+                                        <items>
+                                            <navigationItem title="Comparar Turmas" id="Ikg-G5-e9z"/>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tgU-J6-NHu" firstAttribute="height" secondItem="Yf5-qm-7j7" secondAttribute="height" id="0KJ-Ui-9qI"/>
                                     <constraint firstItem="Yf5-qm-7j7" firstAttribute="width" secondItem="GRr-qH-EoY" secondAttribute="width" id="0cU-Zs-TQa"/>
                                     <constraint firstItem="yOY-yf-ZY8" firstAttribute="width" secondItem="BEX-Pj-f8i" secondAttribute="width" id="1ZC-er-1gL"/>
-                                    <constraint firstItem="iia-dj-0YQ" firstAttribute="top" secondItem="Dcv-uT-rjR" secondAttribute="top" constant="53" id="29m-lf-w1N"/>
+                                    <constraint firstItem="iia-dj-0YQ" firstAttribute="top" secondItem="Dcv-uT-rjR" secondAttribute="top" constant="80" id="29m-lf-w1N"/>
                                     <constraint firstItem="yOY-yf-ZY8" firstAttribute="centerX" secondItem="BEX-Pj-f8i" secondAttribute="centerX" id="3w7-Y7-mzr"/>
                                     <constraint firstItem="MVW-KC-Fu7" firstAttribute="centerX" secondItem="mzQ-t2-aEo" secondAttribute="centerX" id="5Xj-hD-Gi0"/>
                                     <constraint firstItem="tgU-J6-NHu" firstAttribute="centerX" secondItem="Nfk-Pl-FZt" secondAttribute="centerX" id="6Rt-fk-fJ6"/>
@@ -682,6 +691,7 @@
                                     <constraint firstItem="Nfk-Pl-FZt" firstAttribute="height" secondItem="I8I-pk-6qp" secondAttribute="height" id="Kvp-25-Rq6"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="centerX" secondItem="mzQ-t2-aEo" secondAttribute="centerX" id="Lc4-KJ-2Jn"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="top" secondItem="mzQ-t2-aEo" secondAttribute="bottom" constant="15" id="LfN-8G-Iho"/>
+                                    <constraint firstAttribute="trailing" secondItem="ql2-je-69T" secondAttribute="trailing" id="MBI-3k-bMn"/>
                                     <constraint firstItem="Yf5-qm-7j7" firstAttribute="height" secondItem="GRr-qH-EoY" secondAttribute="height" id="Pgt-N0-bie"/>
                                     <constraint firstItem="Nfk-Pl-FZt" firstAttribute="leading" secondItem="iia-dj-0YQ" secondAttribute="trailing" constant="15" id="QNX-QY-SQu"/>
                                     <constraint firstItem="YIW-cf-DYP" firstAttribute="height" secondItem="7jB-f7-upq" secondAttribute="height" id="RXt-VD-zgi"/>
@@ -700,6 +710,7 @@
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="top" secondItem="7jB-f7-upq" secondAttribute="bottom" constant="15" id="g7I-gR-qRl"/>
                                     <constraint firstItem="FnA-05-Cx1" firstAttribute="trailing" secondItem="Dcv-uT-rjR" secondAttribute="trailingMargin" id="gFQ-gV-W4S"/>
                                     <constraint firstItem="7jB-f7-upq" firstAttribute="width" secondItem="mzQ-t2-aEo" secondAttribute="width" id="gzk-WS-f8u"/>
+                                    <constraint firstItem="ql2-je-69T" firstAttribute="top" secondItem="Dcv-uT-rjR" secondAttribute="top" id="hTl-l6-NSO"/>
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="height" secondItem="7jB-f7-upq" secondAttribute="height" id="hsO-6W-0Ss"/>
                                     <constraint firstItem="MVW-KC-Fu7" firstAttribute="width" secondItem="mzQ-t2-aEo" secondAttribute="width" id="iYn-qs-RNK"/>
                                     <constraint firstItem="NRu-fu-Psa" firstAttribute="centerX" secondItem="7jB-f7-upq" secondAttribute="centerX" id="jN0-hd-utw"/>
@@ -712,6 +723,7 @@
                                     <constraint firstItem="vbK-fg-kzT" firstAttribute="centerX" secondItem="GRr-qH-EoY" secondAttribute="centerX" id="nmd-8E-jrD"/>
                                     <constraint firstItem="I8I-pk-6qp" firstAttribute="top" secondItem="iia-dj-0YQ" secondAttribute="bottom" constant="-1" id="nvS-ih-uhe"/>
                                     <constraint firstItem="I8I-pk-6qp" firstAttribute="width" secondItem="Yf5-qm-7j7" secondAttribute="width" id="ooD-oo-DxH"/>
+                                    <constraint firstItem="ql2-je-69T" firstAttribute="leading" secondItem="Dcv-uT-rjR" secondAttribute="leading" id="qsj-Zf-88u"/>
                                     <constraint firstItem="yOY-yf-ZY8" firstAttribute="top" secondItem="BEX-Pj-f8i" secondAttribute="bottom" constant="15" id="r8e-3z-pTe"/>
                                     <constraint firstItem="Yf5-qm-7j7" firstAttribute="top" secondItem="I8I-pk-6qp" secondAttribute="bottom" constant="15" id="r9y-LY-xHA"/>
                                     <constraint firstItem="MVW-KC-Fu7" firstAttribute="height" secondItem="mzQ-t2-aEo" secondAttribute="height" id="rFk-Jn-E4N"/>
@@ -776,7 +788,7 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="I9m-Sm-oOd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="I9m-Sm-oOd">
                                 <rect key="frame" x="186" y="45" width="228" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="228" id="5sU-RU-kd5"/>
@@ -857,21 +869,27 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estamo abertos para sugestões, criticas e pergunas. Fale conosco!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lha-TC-oAJ">
-                                <rect key="frame" x="25" y="37" width="531" height="313"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estamo abertos para sugestões, criticas e pergunas. Fale conosco!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lha-TC-oAJ">
+                                <rect key="frame" x="26" y="60" width="548" height="391"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiD-Mp-qeh">
-                                <rect key="frame" x="239" y="358" width="102" height="38"/>
+                                <rect key="frame" x="228" y="471" width="145" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="GKK-AB-HxG"/>
                                     <constraint firstAttribute="height" constant="38" id="b5M-1i-DtH"/>
                                 </constraints>
-                                <state key="normal" title="Diga um oi">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Entrar em Contato">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GKK-AB-HxG"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="sendEmail:" destination="72h-FG-dp0" eventType="touchUpInside" id="erx-br-wId"/>
                                 </connections>
@@ -879,12 +897,12 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="centerX" secondItem="JiD-Mp-qeh" secondAttribute="centerX" constant="0.5" id="4Bl-6b-bQz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lha-TC-oAJ" secondAttribute="trailing" constant="28" id="5Im-MB-wB2"/>
-                            <constraint firstItem="MCo-0u-wcp" firstAttribute="top" secondItem="Lha-TC-oAJ" secondAttribute="bottom" constant="201" id="BOz-Km-383"/>
-                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="top" secondItem="Jbj-g3-xJd" secondAttribute="bottom" constant="17" id="ZBq-0H-Bag"/>
-                            <constraint firstItem="JiD-Mp-qeh" firstAttribute="top" secondItem="Lha-TC-oAJ" secondAttribute="bottom" constant="8" id="jlq-cF-biF"/>
-                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="leading" secondItem="0IZ-bw-xBa" secondAttribute="leadingMargin" constant="9" id="oNx-Bc-nCF"/>
+                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="centerX" secondItem="JiD-Mp-qeh" secondAttribute="centerX" id="4Bl-6b-bQz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lha-TC-oAJ" secondAttribute="trailing" constant="10" id="5Im-MB-wB2"/>
+                            <constraint firstItem="MCo-0u-wcp" firstAttribute="top" secondItem="Lha-TC-oAJ" secondAttribute="bottom" constant="100" id="BOz-Km-383"/>
+                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="top" secondItem="Jbj-g3-xJd" secondAttribute="bottom" constant="40" id="ZBq-0H-Bag"/>
+                            <constraint firstItem="JiD-Mp-qeh" firstAttribute="top" secondItem="Lha-TC-oAJ" secondAttribute="bottom" constant="20" id="jlq-cF-biF"/>
+                            <constraint firstItem="Lha-TC-oAJ" firstAttribute="leading" secondItem="0IZ-bw-xBa" secondAttribute="leadingMargin" constant="10" id="oNx-Bc-nCF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contato" image="contactIcon" id="Zta-Xq-UM3"/>
@@ -899,7 +917,7 @@ O EnTurma permite a análise da progressão das turmas de ensino fundamental ao 
         <image name="compareIcon" width="25" height="19"/>
         <image name="contactIcon" width="22" height="22"/>
         <image name="infoButton" width="21" height="22"/>
-        <image name="logo.png" width="295" height="263"/>
+        <image name="logo" width="295" height="263"/>
         <image name="rankIcon" width="24" height="22"/>
         <image name="ranked" width="25" height="24"/>
         <image name="reportIcon" width="25" height="19"/>

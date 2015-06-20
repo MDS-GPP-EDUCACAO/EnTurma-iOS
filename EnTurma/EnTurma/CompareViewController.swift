@@ -22,6 +22,9 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var firstState: UITextField!
     @IBOutlet weak var firstYear: UITextField!
     
+    var activityIndicator : UIActivityIndicatorView?
+    var activityLabel : UILabel?
+    
     private var optionsForSelect = [["2008","2009","2010","2011","2012","2013"],["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"],
         ["Total", "Urbana", "Rural"],
         ["Total","Privada", "Publica"],
@@ -33,8 +36,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var firstResponderIndex = 0
      var picker : UIPickerView?
     var pageReportGraph: PagerGraphViewController!
-    var activityIndicator : UIActivityIndicatorView?
-    var activityLabel : UILabel?
+
 
 
     override func viewDidLoad() {
@@ -57,6 +59,21 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
         self.scrollView.addGestureRecognizer(tap)
+        
+        self.activityLabel = UILabel(frame: CGRectMake(self.view.frame.width/2 - 150, self.view.frame.height/2-35, 300, 20))
+        self.activityLabel!.text = "Requisitando Dados"
+        self.activityLabel!.textColor = UIColor.grayColor()
+        self.activityLabel!.alpha = 0;
+        self.activityLabel?.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(self.activityLabel!)
+        
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.width/2 - 10, self.view.frame.height/2-10, 20, 20))
+        self.activityIndicator?.hidesWhenStopped = true
+        self.activityIndicator?.color = UIColor.grayColor()
+        self.view.addSubview(self.activityIndicator!)
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

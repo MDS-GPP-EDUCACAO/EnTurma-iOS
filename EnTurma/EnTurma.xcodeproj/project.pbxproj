@@ -23,6 +23,7 @@
 		963870140d15b756c7af7a8b /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48DF31B1B28B6C000716E54 /* Images.xcassets */; };
 		9e10da04890bcdf5e4114009 /* PagerRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A721B3324EA00B0FE6F /* PagerRankViewController.swift */; };
 		9fdaf4c8914052df9d7fcb37 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E12A6B1B3316A400B0FE6F /* RankingTableViewController.swift */; };
+		A4264E521B34F2A300706792 /* UIActivityIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4264E511B34F2A300706792 /* UIActivityIndicatorViewExtension.swift */; };
 		A42AECEC1B29CBAC00B8E578 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; };
 		A42AECED1B29CBAC00B8E578 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A42AECEB1B29CB6200B8E578 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A42AECF51B29D97F00B8E578 /* EnTurmaLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */; };
@@ -112,6 +113,7 @@
 		4F4E667BA1F5B2B390431A1C /* Pods_EnTurma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnTurma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		788ba1431f13f0798657818a /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
 		7CC8A7D9856AE5C94F87A19A /* Pods-EnTurma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnTurma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnTurma/Pods-EnTurma.debug.xcconfig"; sourceTree = "<group>"; };
+		A4264E511B34F2A300706792 /* UIActivityIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		A42AECDA1B29078200B8E578 /* EnTurma-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EnTurma-Bridging-Header.h"; path = "EnTurma/EnTurma-Bridging-Header.h"; sourceTree = "<group>"; };
 		A42AECE61B29CB6200B8E578 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = EnTurma/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		A42AECF41B29D97F00B8E578 /* EnTurmaLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnTurmaLineChartView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				A4D0F52E1B345110007CAB55 /* AlertViewExtension.swift */,
 				A4D0F5301B34518F007CAB55 /* UIFontExtension.swift */,
+				A4264E511B34F2A300706792 /* UIActivityIndicatorViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				A4E12A731B3324EA00B0FE6F /* PagerRankViewController.swift in Sources */,
 				A48DF3151B28B6C000716E54 /* AppDelegate.swift in Sources */,
 				C09DEB231B30459C003E842C /* RankingViewController.swift in Sources */,
+				A4264E521B34F2A300706792 /* UIActivityIndicatorViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
