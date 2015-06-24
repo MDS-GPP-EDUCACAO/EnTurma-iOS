@@ -182,6 +182,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var rest = RESTFullManager(params: params)
         rest.requestReport({ (jsonObject) -> Void in
             self.plotData(jsonObject)
+            println(jsonObject)
             self.activityIndicator?.showActivityIndicator(false, parentView: self.scrollView, activityLabel: self.activityLabel!)
             }, failure: { () -> Void in
                 UIAlertView().showFailRequest()
@@ -189,12 +190,15 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         })
     }
     
+    
     func plotData(jsonObject : NSDictionary) -> Void{
         
         var rates: NSDictionary = jsonObject.objectForKey("rates") as! NSDictionary
         var ideb: NSDictionary = jsonObject.objectForKey("ideb")as! NSDictionary
         var initialYear = (jsonObject.objectForKey("year") as! String).toInt()!
         var initialGrade = jsonObject.objectForKey("grade") as! Int
+        var statics:[String : Dictionary<String, AnyObject?>]!
+
         
         var grades = PagerGraphViewController.selectXData(initialYear, initialGrade: initialGrade)
        
@@ -207,10 +211,11 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if idebStatus == "unavailable"{
             idebGrades = []
             idebScores = []
-            
+        statics = parserStatisticsToJSON(rates, ideb: ideb, idebStatus: false)
         }else{
             idebGrades = ideb.objectForKey("ideb_years") as! NSArray
             idebScores = ideb.objectForKey("ideb") as! NSArray
+            statics = parserStatisticsToJSON(rates, ideb: ideb, idebStatus: true)
         }
         var evasionScores = rates.objectForKey("evasion") as! NSArray
         var performanceScores = rates.objectForKey("performance") as! NSArray
@@ -219,9 +224,9 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if(pageReportGraph == nil){
             
-            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
+            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores, statics: statics)
             
-            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width)
+            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width + 40)
             
             UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 
@@ -239,7 +244,7 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
         }else{
             
-            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores)
+            pageReportGraph = PagerGraphViewController(reportGradesIdeb:  idebGrades, firstClassScoresIdeb: idebScores, indexGrades: grades, firstClassEvasionScores: evasionScores, firstClassPerformanceScores: performanceScores, firstClassDistortionScores: distortionScores, statics: statics)
             
             
             
@@ -264,6 +269,25 @@ class ReportViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     })
             })
         }
+    }
+    
+    func parserStatisticsToJSON(rates : NSDictionary, ideb: NSDictionary, idebStatus:Bool) -> [String : Dictionary<String, AnyObject?>]{
+        
+        var statics :[String : Dictionary<String, AnyObject?>]!
+        
+        if idebStatus{
+            statics = ["ideb" :["average":ideb.objectForKey("ideb_average"),"standard":ideb.objectForKey("ideb_standard_deviation"),"variance":ideb.objectForKey("ideb_variance")],"evasion": ["average":rates.objectForKey("evasion_average"),"standard":rates.objectForKey("evasion_standard_deviation"),"variance":rates.objectForKey("evasion_variance")],
+                "performance": ["average":rates.objectForKey("performance_average"),"standard":rates.objectForKey("performance_standard_deviation"),"variance":rates.objectForKey("performance_variance")],
+                "distortion": ["average":rates.objectForKey("distortion_average"),"standard":rates.objectForKey("distortion_standard_deviation"),"variance":rates.objectForKey("distortion_variance")]
+            ]
+
+        }else{
+            statics = ["evasion": ["average":rates.objectForKey("evasion_average"),"standard":rates.objectForKey("evasion_standard_deviation"),"variance":rates.objectForKey("evasion_variance")],
+            "performance": ["average":rates.objectForKey("performance_average"),"standard":rates.objectForKey("performance_standard_deviation"),"variance":rates.objectForKey("performance_variance")],
+            "distortion": ["average":rates.objectForKey("distortion_average"),"standard":rates.objectForKey("distortion_standard_deviation"),"variance":rates.objectForKey("distortion_variance")]
+            ]
+        }
+        return statics
     }
     
     override func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {

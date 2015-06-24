@@ -244,11 +244,15 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         var firstSerialize = self.serializeDataToPlot(firstReport)
         var secondSerialize = self.serializeDataToPlot(secondReport)
         
+        var statics = self.parserStatisticsToJSON(firstReport)
+        var statics2 = self.parserStatisticsToJSON(secondReport)
+        
         if(pageReportGraph == nil){
             
-            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray)
+            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray,
+                statics : statics,statics2 : statics2)
             
-            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width)
+            pageReportGraph.view.frame = CGRectMake(0, scrollView.contentSize.height - 100, view.frame.width, view.frame.width + 40)
             
             UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 
@@ -266,12 +270,13 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             
         }else{
             
-            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray)
+            pageReportGraph = PagerGraphViewController(compareGradesIdeb: firstSerialize[0] as! NSArray, firstClassScoresIdeb: firstSerialize[1] as! NSArray, secondClassScoresIdeb: secondSerialize[1] as! NSArray, indexGrades: firstSerialize[5] as! NSArray, firstClassEvasionScores: firstSerialize[2] as! NSArray, secondClassEvasionScores: secondSerialize[2] as! NSArray, firstClassPerformanceScores: firstSerialize[3] as! NSArray, secondClassPerformanceScores: secondSerialize[3] as! NSArray, firstClassDistortionScores: firstSerialize[4] as! NSArray, secondClassDistortionScores: secondSerialize[4] as! NSArray,
+                statics : statics,statics2 : statics2)
             
             UIView.transitionWithView(scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                 self.pageReportGraph.view.removeFromSuperview()
                 self.view.setNeedsDisplay()
-                self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height - self.pageReportGraph.view.frame.height - 40 )
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height - self.pageReportGraph.view.frame.height + 80)
                 self.pageReportGraph.view.frame = CGRectMake(0, self.scrollView.contentSize.height - 100, self.view.frame.width, self.view.frame.width)
                 
                 
@@ -279,7 +284,7 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     UIView.transitionWithView(self.scrollView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
                         self.scrollView.addSubview(self.pageReportGraph.view)
-                        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height + self.pageReportGraph.view.frame.height + 40 )
+                        self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.scrollView.contentSize.height + self.pageReportGraph.view.frame.height + 80 )
                         
                         self.scrollView.scrollRectToVisible(CGRectMake(self.pageReportGraph.view.frame.origin.x,self.pageReportGraph.view.frame.origin.y+100, self.pageReportGraph.view.frame.width, self.pageReportGraph.view.frame.height+40), animated: false)
                         
@@ -290,6 +295,15 @@ class CompareViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             })
         }
         
+    }
+    
+    func parserStatisticsToJSON(json : NSDictionary) -> [String : Dictionary<String, AnyObject?>]{
+        
+        var ideb = json.objectForKey("ideb") as! NSDictionary
+        var rates = json.objectForKey("rates") as! NSDictionary
+        
+        var statics = ["ideb" :["average":ideb.objectForKey("ideb_average"),"standard":ideb.objectForKey("ideb_standard_deviation"),"variance":ideb.objectForKey("ideb_variance")],"evasion": ["average":rates.objectForKey("evasion_average"),"standard":rates.objectForKey("evasion_standard_deviation"),"variance":rates.objectForKey("evasion_variance")],"performance": ["average":rates.objectForKey("performance_average"),"standard":rates.objectForKey("performance_standard_deviation"),"variance":rates.objectForKey("performance_variance")],"distortion": ["average":rates.objectForKey("distortion_average"),"standard":rates.objectForKey("distortion_standard_deviation"),"variance":rates.objectForKey("distortion_variance")]]
+        return statics
     }
     
     func serializeDataToPlot(report : NSDictionary) -> NSArray{

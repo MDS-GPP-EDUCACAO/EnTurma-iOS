@@ -17,24 +17,27 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
     var yValues2: NSArray!
     var graphTitle: String!
     var graphDescriptionString: String!
+    var statistics : Dictionary<String,AnyObject?>!
+    var statistics2 : Dictionary<String,AnyObject?>!
 
     
-    init(singleLineGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String) {
+    init(singleLineGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String, statitics : Dictionary<String,AnyObject?>) {
         super.init(frame: singleLineGraphframe)
         
         graphTitle = graphTitleString
         graphDescriptionString = graphTextDescription
         setupGraph()
-        
+
         yValues1 = yValues
+        self.statistics = statitics
+
         setSingleLineChartData(xValues, yValues: yValues)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
-        
     }
     
     
-    init(doubleLineGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String) {
+    init(doubleLineGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String,statitics : Dictionary<String,AnyObject?>, statitics2:Dictionary<String,AnyObject?>) {
         
         super.init(frame: doubleLineGraphframe)
         
@@ -45,6 +48,8 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         
         yValues1 = y1Values
         yValues2 = y2Values
+        self.statistics = statitics
+        self.statistics2 = statitics2
         setTwoLinesChartData(xValues, y1Values: y1Values, y2Values: y2Values)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
@@ -165,14 +170,32 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         legend.enabled = true
         
         let labelFrame1 = CGRectMake(0, frame.height - 5 , frame.width, 15)
-        valueLabel1 = UILabel(frame: labelFrame1)
-        valueLabel1.textAlignment = .Center
-        valueLabel1.font = UIFont().charValueLabelFont
-        valueLabel1.text = ""
-        addSubview(valueLabel1);
+        valueLabel1 = addLabelToView(labelFrame1, text: "")
+        
+        let averageFrame = CGRectMake(0, frame.height + 15, 110, 15)
+        var averageValue = statistics["average"] as? Double
+        var averageLabel = addLabelToView(averageFrame, text: "Média: \(Double(round(100*averageValue!)/100))%")
+        
+        let standardFrame = CGRectMake(110, frame.height + 15, 110, 15)
+        var standardValue = statistics["standard"] as? Double
+        var standardLabel = addLabelToView(standardFrame, text: "Desvio : \(Double(round(100*standardValue!)/100))%")
+        
+        let varianceFrame = CGRectMake(220, frame.height + 15, 140, 15)
+        var varianceValue = statistics["variance"] as? Double
+        var varianceLabel = addLabelToView(varianceFrame, text: "Variância : \(Double(round(100*varianceValue!)/100))%")
         
         data = chartData
-        
+    }
+    
+    func addLabelToView(frame:CGRect, text:String) -> UILabel{
+        let createdLabel = UILabel(frame: frame)
+        createdLabel.textAlignment = .Center
+        createdLabel.font = UIFont().charValueLabelFont
+        createdLabel.text = text
+        createdLabel.textColor = UIColor.grayColor()
+        addSubview(createdLabel)
+  
+        return createdLabel
     }
     
     func setTwoLinesChartData(xValues: NSArray, y1Values: NSArray, y2Values: NSArray){
@@ -226,6 +249,31 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
         valueLabel2 = UILabel(frame: labelFrame2)
         valueLabel2.font = UIFont().charValueLabelFont
         valueLabel2.text = ""
+        
+        let averageFrame = CGRectMake(60, frame.height + 15, 150, 15)
+        var averageValue = statistics["average"] as? Double
+        var averageLabel = addLabelToView(averageFrame, text: "Média:       \(Double(round(100*averageValue!)/100))%")
+        
+        let standardFrame = CGRectMake(60, frame.height + 35, 150, 15)
+        var standardValue = statistics["standard"] as? Double
+        var standardLabel = addLabelToView(standardFrame, text: "Desvio:      \(Double(round(100*standardValue!)/100))%")
+        
+        let varianceFrame = CGRectMake(60, frame.height + 50, 150, 15)
+        var varianceValue = statistics["variance"] as? Double
+        var varianceLabel = addLabelToView(varianceFrame, text: "Variância:    \(Double(round(100*varianceValue!)/100))%")
+        
+        let averageFrame2 = CGRectMake(180, frame.height + 15, 120, 15)
+        var averageValue2 = statistics2["average"] as? Double
+        var averageLabel2 = addLabelToView(averageFrame2, text: "|   \(Double(round(100*averageValue2!)/100))%")
+        
+        let standardFrame2 = CGRectMake(180, frame.height + 35, 120, 15)
+        var standardValue2 = statistics2["standard"] as? Double
+        var standardLabel2 = addLabelToView(standardFrame2, text: "|   \(Double(round(100*standardValue2!)/100))%")
+        
+        let varianceFrame2 = CGRectMake(180, frame.height + 50, 120, 15)
+        var varianceValue2 = statistics2["variance"] as? Double
+        var varianceLabel2 = addLabelToView(varianceFrame2, text: "|   \(Double(round(100*varianceValue2!)/100))%")
+
         
         addSubview(valueLabel1);
         addSubview(valueLabel2);
@@ -286,8 +334,7 @@ class EnTurmaLineChartView: LineChartView, ChartViewDelegate{
                 self.valueLabel2.alpha = 1
                 
             }
-            
-            
+    
         });
         
         

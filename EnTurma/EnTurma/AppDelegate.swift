@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Override point for customization after application launch.
+        self.requestDataToWakeUpHeroku()
         return true
     }
 
@@ -40,6 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func requestDataToWakeUpHeroku(){
+        var rest = RESTFullManager(params: ["year":"2008", "grade":"1° ano"])
+        rest.requestRanking({ (jsonObject) -> Void in
+            println("Heroku activated")
+        }, failure: { () -> Void in
+            println("Something went wrong, no respose from server")
+        })
     }
 
 

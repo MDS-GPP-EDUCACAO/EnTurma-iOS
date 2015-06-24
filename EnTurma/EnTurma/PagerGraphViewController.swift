@@ -35,8 +35,10 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
     var secondClassDistortionScores : NSArray!
     var firstClassPerformanceScores : NSArray!
     var secondClassPerformanceScores : NSArray!
+    var statics: [String : Dictionary<String, AnyObject?>]!
+    var statics2: [String : Dictionary<String, AnyObject?>]!
     
-    convenience init(compareGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, secondClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, secondClassEvasionScores: NSArray , firstClassPerformanceScores: NSArray, secondClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray, secondClassDistortionScores: NSArray){
+    convenience init(compareGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, secondClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, secondClassEvasionScores: NSArray , firstClassPerformanceScores: NSArray, secondClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray, secondClassDistortionScores: NSArray, statics: [String : Dictionary<String, AnyObject?>], statics2: [String : Dictionary<String, AnyObject?>]){
         
         self.init()
         self.gradesIdeb = compareGradesIdeb
@@ -49,10 +51,13 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         self.secondClassEvasionScores = secondClassEvasionScores
         self.firstClassPerformanceScores = firstClassPerformanceScores
         self.secondClassPerformanceScores = secondClassPerformanceScores
+        self.statics = statics
+        self.statics2 = statics2
         
+        println(self.statics)
     }
     
-    convenience init(reportGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, firstClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray){
+    convenience init(reportGradesIdeb: NSArray, firstClassScoresIdeb: NSArray, indexGrades: NSArray , firstClassEvasionScores: NSArray, firstClassPerformanceScores: NSArray, firstClassDistortionScores: NSArray, statics: [String : Dictionary<String, AnyObject?>]){
         
         self.init()
         self.gradesIdeb = reportGradesIdeb
@@ -61,7 +66,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         self.firstClassDistortionScores = firstClassDistortionScores
         self.firstClassEvasionScores = firstClassEvasionScores
         self.firstClassPerformanceScores = firstClassPerformanceScores
-        
+        self.statics = statics
     }
     
     override func viewDidLoad() {
@@ -121,7 +126,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
             
         ]
         
-        let pageMenuFrame = CGRectMake(0, 0, view.bounds.width, self.view.bounds.width+95)
+        let pageMenuFrame = CGRectMake(0, 0, view.bounds.width, self.view.bounds.width+125)
         
         pageMenu = CAPSPageMenu(viewControllers: pagerMenuControllersArray, frame: pageMenuFrame, pageMenuOptions: parameters)
         
@@ -132,7 +137,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("evasion_description", comment: "")
         var graphTitle = GraphTitles.evasion
-        var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription,statitics : statics["evasion"]!,statitics2 : statics2["evasion"]!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
@@ -147,7 +152,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("distortion_description", comment: "")
         var graphTitle = GraphTitles.distortion
-        var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription,statitics : statics["distortion"]!,statitics2 : statics2["distortion"]!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
@@ -163,7 +168,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("performance_description", comment: "")
         var graphTitle = GraphTitles.performance
-        var newChart = EnTurmaLineChartView.init(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(doubleLineGraphframe: chartViewFrame,xValues: grades, y1Values: firstClassScores,y2Values: secondClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription, statitics : statics["ideb"]!,statitics2 : statics2["ideb"]!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
@@ -183,7 +188,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         var barChart : UIView
         
         if grades.count > 0 {
-            barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: grades, y1Values: firstClassScores, y2Values: secondClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+            barChart = EnTurmaBarChartView(doubleBarGraphframe: chartViewFrame, xValues: grades, y1Values: firstClassScores, y2Values: secondClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription,statitics: statics["ideb"]!,statitics2 : statics2["ideb"]!)
         }else{
             
             barChart = UIView(frame: chartViewFrame)
@@ -213,22 +218,20 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription =  NSLocalizedString("evasion_description", comment: "")
         var graphTitle = GraphTitles.evasion
-        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var staticsDic = self.statics["evasion"]
+        var newChart = EnTurmaLineChartView(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription, statitics : staticsDic!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
         controller.title = "Evasão"
         pagerMenuControllersArray.append(controller)
-        
-        
-        
     }
     
     func plotDistortionSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
         
         var graphDescription = NSLocalizedString("distortion_description", comment: "")
         var graphTitle = GraphTitles.distortion
-        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription,statitics: statics["distortion"]!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
@@ -244,16 +247,12 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         
         var graphDescription = NSLocalizedString("performance_description", comment: "")
         var graphTitle = GraphTitles.performance
-        var newChart = EnTurmaLineChartView.init(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription)
+        var newChart = EnTurmaLineChartView(singleLineGraphframe: chartViewFrame,xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle,graphTextDescription: graphDescription, statitics: statics["performance"]!)
         
         var controller : UIViewController = UIViewController()
         controller.view.addSubview(newChart)
         controller.title = "Rendimento"
         pagerMenuControllersArray.append(controller)
-        
-        
-        
-        
     }
     
     func plotIdebSingleDataGraph(grades: NSArray, firstClassScores: NSArray){
@@ -264,7 +263,7 @@ class PagerGraphViewController: UIViewController, ChartViewDelegate, CAPSPageMen
         var barChart : UIView
         
         if grades.count > 0 {
-            barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription)
+            barChart = EnTurmaBarChartView(singleBarGraphframe: chartViewFrame, xValues: grades, yValues: firstClassScores, graphTitleString: graphTitle, graphTextDescription: graphDescription,statitics : statics["ideb"]!)
         }else{
             
             barChart = UIView(frame: chartViewFrame)

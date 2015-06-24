@@ -17,11 +17,13 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
     var yValues2: NSArray!
     var graphTitle: String!
     var graphDescriptionString: String!
+    var statistics : Dictionary<String,AnyObject?>!
+    var statistics2 : Dictionary<String,AnyObject?>!
 
     
-    init(singleBarGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String) {
+    init(singleBarGraphframe: CGRect, xValues: NSArray, yValues: NSArray, graphTitleString: String, graphTextDescription: String ,statitics : Dictionary<String,AnyObject?>) {
         super.init(frame: singleBarGraphframe)
-        
+        self.statistics = statitics
         graphTitle = graphTitleString
         graphDescriptionString = graphTextDescription
         setupGraph()
@@ -30,16 +32,18 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         setSingleBarChartData(xValues, yValues: yValues)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
-        
     }
     
     
-    init(doubleBarGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String) {
+    init(doubleBarGraphframe: CGRect, xValues: NSArray, y1Values: NSArray, y2Values: NSArray, graphTitleString: String, graphTextDescription: String,statitics : Dictionary<String,AnyObject?>, statitics2:Dictionary<String,AnyObject?>) {
         
         super.init(frame: doubleBarGraphframe)
 
         graphTitle = graphTitleString
         graphDescriptionString = graphTextDescription
+        
+        self.statistics = statitics
+        self.statistics2 = statitics2
         
         setupGraph()
         
@@ -48,12 +52,7 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         setTwoBarsChartData(xValues, y1Values: yValues1, y2Values: yValues2)
         
         setVisibleXRangeMinimum(CGFloat(xValues.count-1))
-        
-        
     }
-    
-    
-    
     
     func setupGraph(){
         delegate = self
@@ -151,6 +150,19 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         
         let dataSet1 = BarChartDataSet(yVals: convertedYVals1 as? [BarChartDataEntry], label: "Turma1")
         
+        
+        let averageFrame = CGRectMake(0, frame.height + 15, 110, 15)
+        var averageValue = statistics["average"] as? Double
+        var averageLabel = addLabelToView(averageFrame, text: "Média: \(Double(round(100*averageValue!)/100))%")
+        
+        let standardFrame = CGRectMake(110, frame.height + 15, 110, 15)
+        var standardValue = statistics["standard"] as? Double
+        var standardLabel = addLabelToView(standardFrame, text: "Desvio : \(Double(round(100*standardValue!)/100))%")
+        
+        let varianceFrame = CGRectMake(220, frame.height + 15, 140, 15)
+        var varianceValue = statistics["variance"] as? Double
+        var varianceLabel = addLabelToView(varianceFrame, text: "Variância : \(Double(round(100*varianceValue!)/100))%")
+        
         dataSet1.setColor(UIColor.blueColor())
         
         var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSet: dataSet1 as BarChartDataSet)
@@ -171,6 +183,32 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         dataSet1.setColor(UIColor.blueColor())
         
         let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
+        
+        let averageFrame = CGRectMake(60, frame.height + 15, 150, 15)
+        var averageValue = statistics["average"] as? Double
+        var averageLabel = addLabelToView(averageFrame, text: "Média:       \(Double(round(100*averageValue!)/100))%")
+        
+        let standardFrame = CGRectMake(60, frame.height + 35, 150, 15)
+        var standardValue = statistics["standard"] as? Double
+        var standardLabel = addLabelToView(standardFrame, text: "Desvio:      \(Double(round(100*standardValue!)/100))%")
+        
+        let varianceFrame = CGRectMake(60, frame.height + 50, 150, 15)
+        var varianceValue = statistics["variance"] as? Double
+        var varianceLabel = addLabelToView(varianceFrame, text: "Variância:    \(Double(round(100*varianceValue!)/100))%")
+        
+        let averageFrame2 = CGRectMake(180, frame.height + 15, 120, 15)
+        var averageValue2 = statistics2["average"] as? Double
+        var averageLabel2 = addLabelToView(averageFrame2, text: "|   \(Double(round(100*averageValue2!)/100))%")
+        
+        let standardFrame2 = CGRectMake(180, frame.height + 35, 120, 15)
+        var standardValue2 = statistics2["standard"] as? Double
+        var standardLabel2 = addLabelToView(standardFrame2, text: "|   \(Double(round(100*standardValue2!)/100))%")
+        
+        let varianceFrame2 = CGRectMake(180, frame.height + 50, 120, 15)
+        var varianceValue2 = statistics2["variance"] as? Double
+        var varianceLabel2 = addLabelToView(varianceFrame2, text: "|   \(Double(round(100*varianceValue2!)/100))%")
+
+        
         dataSet2.setColor(UIColor.redColor())
         var dataSets = NSArray(objects: dataSet1,dataSet2)
         
@@ -183,6 +221,17 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         data = barChartData
 
         
+    }
+    
+    func addLabelToView(frame:CGRect, text:String) -> UILabel{
+        let createdLabel = UILabel(frame: frame)
+        createdLabel.textAlignment = .Center
+        createdLabel.font = UIFont().charValueLabelFont
+        createdLabel.text = text
+        createdLabel.textColor = UIColor.grayColor()
+        addSubview(createdLabel)
+        
+        return createdLabel
     }
     
     
