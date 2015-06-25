@@ -159,10 +159,15 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         var standardValue = statistics["standard"] as? Double
         var standardLabel = addLabelToView(standardFrame, text: "Desvio : \(Double(round(100*standardValue!)/100))%")
         
-        let varianceFrame = CGRectMake(220, frame.height + 15, 140, 15)
+        let varianceFrame = CGRectMake(180, frame.height + 15, 140, 15)
         var varianceValue = statistics["variance"] as? Double
         var varianceLabel = addLabelToView(varianceFrame, text: "Variância : \(Double(round(100*varianceValue!)/100))%")
         
+        
+        averageLabel.font = UIFont().barChartDataFont
+        standardLabel.font = UIFont().barChartDataFont
+        varianceLabel.font = UIFont().barChartDataFont
+
         dataSet1.setColor(UIColor.blueColor())
         
         var barChartData = BarChartData(xVals: xValues as? [NSObject], dataSet: dataSet1 as BarChartDataSet)
@@ -184,29 +189,34 @@ class EnTurmaBarChartView: BarChartView, ChartViewDelegate{
         
         let dataSet2 = BarChartDataSet(yVals: convertedYVals2 as? [BarChartDataEntry], label: "Turma2")
         
-        let averageFrame = CGRectMake(60, frame.height + 15, 150, 15)
+        let averageFrame = CGRectMake(40, frame.height + 15, 150, 15)
         var averageValue = statistics["average"] as? Double
         var averageLabel = addLabelToView(averageFrame, text: "Média:       \(Double(round(100*averageValue!)/100))%")
         
-        let standardFrame = CGRectMake(60, frame.height + 35, 150, 15)
+        let standardFrame = CGRectMake(40, frame.height + 35, 150, 15)
         var standardValue = statistics["standard"] as? Double
         var standardLabel = addLabelToView(standardFrame, text: "Desvio:      \(Double(round(100*standardValue!)/100))%")
         
-        let varianceFrame = CGRectMake(60, frame.height + 50, 150, 15)
+        let varianceFrame = CGRectMake(40, frame.height + 50, 150, 15)
         var varianceValue = statistics["variance"] as? Double
         var varianceLabel = addLabelToView(varianceFrame, text: "Variância:    \(Double(round(100*varianceValue!)/100))%")
         
-        let averageFrame2 = CGRectMake(180, frame.height + 15, 120, 15)
+        
+   
+
+        let averageFrame2 = CGRectMake(160, frame.height + 15, 120, 15)
         var averageValue2 = statistics2["average"] as? Double
         var averageLabel2 = addLabelToView(averageFrame2, text: "|   \(Double(round(100*averageValue2!)/100))%")
         
-        let standardFrame2 = CGRectMake(180, frame.height + 35, 120, 15)
+        let standardFrame2 = CGRectMake(160, frame.height + 35, 120, 15)
         var standardValue2 = statistics2["standard"] as? Double
         var standardLabel2 = addLabelToView(standardFrame2, text: "|   \(Double(round(100*standardValue2!)/100))%")
         
-        let varianceFrame2 = CGRectMake(180, frame.height + 50, 120, 15)
+        let varianceFrame2 = CGRectMake(160, frame.height + 50, 120, 15)
         var varianceValue2 = statistics2["variance"] as? Double
         var varianceLabel2 = addLabelToView(varianceFrame2, text: "|   \(Double(round(100*varianceValue2!)/100))%")
+
+ 
 
         
         dataSet2.setColor(UIColor.redColor())
